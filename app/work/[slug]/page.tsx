@@ -1,99 +1,564 @@
-import Link from "next/link";
+import Image from "next/image";
+import TocNav from "@/components/toc-nav";
+import DashboardExpectations from "@/components/dashboard-expectations";
+import StickyBackLink from "@/components/sticky-back-link";
+import { SquigglyText } from "@/components/ui/squiggly-text";
 
 const toc = [
-  { id: "overview", label: "Overview" },
-  { id: "problem", label: "The Problem" },
-  { id: "approach", label: "Approach" },
-  { id: "solution", label: "Solution" },
-  { id: "outcome", label: "Outcome" },
+  {
+    id: "overview", label: "Overview",
+    children: [{ id: "beta-to-v1", label: "Beta to v1" }],
+  },
+  { id: "backstory", label: "Backstory" },
+  {
+    id: "challenge", label: "Challenge",
+    children: [{ id: "need-better-than-beta", label: "Need for Much Better than Beta" }],
+  },
+  {
+    id: "goal", label: "Goal",
+    children: [
+      { id: "simplify-onboarding", label: "Simplify onboarding flow" },
+      { id: "redesign-experience", label: "Redesign the creator experience" },
+    ],
+  },
+  { id: "role", label: "My Role" },
+  {
+    id: "insights", label: "Insights",
+    children: [
+      { id: "first-stop-mixpanel", label: "First stop: Mixpanel" },
+      { id: "second-stop-identity", label: "Second stop: Identity check" },
+      { id: "third-stop-file", label: "Third stop: More than the file" },
+    ],
+  },
+  {
+    id: "research", label: "Research",
+    children: [
+      { id: "hotjar-painpoints", label: "Hotjar painpoints" },
+      { id: "ux-research", label: "UX-Research: digging deeper" },
+      { id: "new-messaging", label: "A new messaging" },
+    ],
+  },
+  {
+    id: "design", label: "Design",
+    children: [
+      { id: "introducing-v1", label: "Introducing V1" },
+      { id: "unified-platform", label: "A unified platform experience" },
+      { id: "onboarding-easy", label: "Onboarding made easy" },
+      { id: "search-experience", label: "Search in a breeze" },
+      { id: "payments", label: "Offchain and onchain payments" },
+      { id: "creator-base", label: "The creator base" },
+      { id: "asset-upload", label: "Asset Upload Flow" },
+      { id: "maze-testing", label: "Testing with Maze" },
+    ],
+  },
+  { id: "result", label: "Impact" },
+  { id: "feedback", label: "Feedback" },
 ];
 
-export default async function CaseStudyPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-
-  // Derive a readable title from the slug — replace with real data later
-  const title = slug
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
-
+export default async function CaseStudyPage() {
   return (
-    <div className="flex min-h-screen">
-      {/* Left sidebar */}
-      <aside className="w-52 shrink-0 sticky top-[61px] self-start h-[calc(100vh-61px)] py-10 pl-11 pr-4 flex flex-col">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors mb-8"
-        >
-          ← Back
-        </Link>
-        <nav>
-          <p className="text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-3 font-medium">
-            Contents
-          </p>
-          <ul className="space-y-2.5">
-            {toc.map(({ id, label }) => (
-              <li key={id}>
-                <a
-                  href={`#${id}`}
-                  className="text-sm text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors block"
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </aside>
+    <div className="flex flex-col">
+      {/* Banner */}
+      <div className="w-full px-6">
+        <div className="relative h-[70vh]">
+          <Image
+            src="/blocasset-cover-new.jpg"
+            alt="Blocasset cover"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
 
-      {/* Content area */}
-      <div className="flex-1 flex flex-col items-center py-12 px-6 min-w-0">
-        <div className="w-full" style={{ maxWidth: "60%" }}>
-          <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">
-            {title}
-          </h1>
-          {/* White canvas */}
-          <div className="bg-white shadow-md px-16 py-20 min-h-[80vh] text-zinc-800">
-            {/* Case study content goes here */}
-            <section id="overview" className="mb-16">
-              <h2 className="text-xl font-semibold mb-4">Overview</h2>
-              <p className="text-base leading-relaxed text-zinc-500">
-                Add your overview content here.
-              </p>
-            </section>
-
-            <section id="problem" className="mb-16">
-              <h2 className="text-xl font-semibold mb-4">The Problem</h2>
-              <p className="text-base leading-relaxed text-zinc-500">
-                Describe the problem this project set out to solve.
-              </p>
-            </section>
-
-            <section id="approach" className="mb-16">
-              <h2 className="text-xl font-semibold mb-4">Approach</h2>
-              <p className="text-base leading-relaxed text-zinc-500">
-                Explain the methodology and thinking behind your approach.
-              </p>
-            </section>
-
-            <section id="solution" className="mb-16">
-              <h2 className="text-xl font-semibold mb-4">Solution</h2>
-              <p className="text-base leading-relaxed text-zinc-500">
-                Detail the solution you built or designed.
-              </p>
-            </section>
-
-            <section id="outcome">
-              <h2 className="text-xl font-semibold mb-4">Outcome</h2>
-              <p className="text-base leading-relaxed text-zinc-500">
-                Share the results, metrics, and learnings.
-              </p>
-            </section>
+      <div className="flex min-h-screen">
+        {/* Left sidebar */}
+        <aside className="w-[220px] shrink-0 self-start sticky top-6 pt-[108px] pb-10 pl-11 pr-4 flex flex-col">
+          <div className="flex-1 flex flex-col">
+            <StickyBackLink />
+            <TocNav items={toc} />
           </div>
+        </aside>
+
+        {/* Decorative divider strip */}
+        <div
+          className="w-5 shrink-0 self-stretch ml-[104px] border-l border-r border-neutral-100"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              315deg,
+              transparent,
+              transparent 7px,
+              #e5e5e5 7px,
+              #e5e5e5 8px
+            )`,
+          }}
+        />
+
+        {/* Content area */}
+        <div className="flex-1 flex flex-col pt-[100px] pb-12 pr-6 pl-[80px] min-w-0">
+          <div id="case-study-header" className="w-full min-w-[980px] mb-[60px]" style={{ maxWidth: "75vw" }}>
+            <div className="flex flex-col gap-4">
+              <h1 className="text-4xl text-orange-500 tracking-tight font-medium">
+                <SquigglyText className="text-orange-500" scale={[4, 6]} stepDuration={320}>
+                  Blocasset
+                </SquigglyText>
+              </h1>
+              <h3 className="text-base text-zinc-500 dark:text-zinc-400 w-[75%]">
+                How we pivoted from beta to v1 to build an onchain platform for powering creator&apos;s success. Blocasset features a marketplace, shop, portfolio, and dashboard where creators can upload their work and get paid globally.
+              </h3>
+              <p className="text-xs text-zinc-400 dark:text-zinc-500 tabular-nums">
+                2024 / PRODUCT / UX
+              </p>
+            </div>
+          </div>
+
+            {/* Canvas */}
+            <div className="w-full py-[60px] min-h-[80vh] text-zinc-800 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600">
+
+              {/* Overview */}
+              <section id="overview" className="mb-16">
+                <div className="flex gap-[100px]">
+                  {/* Metadata column */}
+                  <div className="w-1/2 shrink-0 grid grid-cols-2 gap-x-6 gap-y-8 pr-10 content-start">
+                    <div>
+                      <p className="text-sm uppercase tracking-widest text-orange-500 mb-2 font-medium">Year</p>
+                      <p className="text-sm uppercase tracking-wide text-neutral-400">2024</p>
+                    </div>
+                    <div>
+                      <p className="text-sm uppercase tracking-widest text-orange-500 mb-2 font-medium">Industry</p>
+                      <p className="text-sm tracking-wide text-neutral-400">Web3 / Creator Economy</p>
+                    </div>
+                    <div>
+                      <p className="text-sm uppercase tracking-widest text-orange-500 mb-2 font-medium">My Role</p>
+                      <p className="text-sm tracking-wide text-neutral-400">UI Design, Interaction Design, and Usability Testing &amp; Research.</p>
+                    </div>
+                    <div>
+                      <p className="text-sm uppercase tracking-widest text-orange-500 mb-2 font-medium">Credits</p>
+                      <div className="flex flex-wrap gap-4">
+                        {[3,12,21,33,44,52,61,70].map((n) => (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img key={n} src={`https://i.pravatar.cc/64?img=${n}`} alt="contributor" className="w-8 h-8 rounded-full shrink-0 object-cover" />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content column */}
+                  <div className="w-1/2 pr-10">
+                    <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">Overview</p>
+                    <h2 id="beta-to-v1" className="text-xl mb-4">Beta to v1</h2>
+                    <p className="text-sm leading-relaxed mb-4">
+                      Moving from Blocasset Beta to v1 wasn&apos;t much like the usual version upgrade but more of a pivoting. A bold pivot meant to usher in new solutions to emerging challenges in a thriving market where Blocasset Beta fails.
+                    </p>
+                    <p className="text-sm leading-relaxed">
+                      After pushing out the refreshed Blocasset v1, we saw an increase in sign up rate and overall platform engagement from creators across the globe.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                <Image src="/Blocasset-1.jpg" alt="Blocasset overview" width={1920} height={1080} className="w-full h-auto" />
+              </div>
+
+              {/* Backstory */}
+              <section id="backstory" className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">Backstory</p>
+                  <p className="text-sm leading-relaxed">
+                    Blocasset aims to create opportunity through superior creator tools and features that enable creators to build and scale their own economy while doing what they love. Blocasset&apos;s product values such as empowerment, creator-first, community, innovation, is driven towards ensuring design creatives have equal opportunities to earn instantly and also showcase their talents on a global scale, free of middleman, financial hurdles and plagiarism.
+                  </p>
+                </div>
+              </section>
+
+              {/* Challenge */}
+              <section id="challenge" className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">The Challenge</p>
+                  <h2 id="need-better-than-beta" className="text-xl mb-4">Need for Much Better than Beta</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    After launching Blocasset Beta, it showed promises and gave some validations needed in alignment with the product vision, however, series of different challenges developed along the way.
+                  </p>
+                  <p className="text-sm leading-relaxed mb-4">
+                    We were experiencing a high rate (80%) of drop-off across all platforms (mobile, tablet, and web) and only about 20% make it through the onboarding process. The most obvious source of problem we concluded on was how niched the web3 nature of the onboarding flow looked.
+                  </p>
+                  <p className="text-sm leading-relaxed mb-4">
+                    There was a gap in communication between user perception and the actual solution Blocasset intends to provide. The vibe for beta was all about marketplace and solving payments which led to a significant level of confusion from both product perspective and marketing efforts.
+                  </p>
+                  <p className="text-sm leading-relaxed mb-4">
+                    Also, based on a research we conducted, about 75% of the participants being junior designers had no idea how to sell their assets while the senior designer participants just didn&apos;t care so much about it.
+                  </p>
+                  <p className="text-sm leading-relaxed mb-4">
+                    At this point, we had to take a step back to evaluate product objectives and redefine some core aspects of the experience. This made us review our focus on singling solving payments but expanding the scope of our product offering beyond that.
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    Overall, we chose an open-minded approach that seeks to probe and experiment to get data-driven results in decision making process.
+                  </p>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                <Image src="/blocasset-2.jpg" alt="Blocasset goal" width={1920} height={1080} className="w-full h-auto" />
+              </div>
+
+              {/* Goal */}
+              <section id="goal" className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">Goal</p>
+                  <p className="text-sm leading-relaxed mb-6">
+                    As we set out to solve the challenges posed by Blocasset beta and preparing for v1, the high-level goals are to:
+                  </p>
+                  <h2 id="simplify-onboarding" className="text-xl mb-4 italic font-normal text-pretty w-full">
+                    Simplify onboarding flow, reducing drop-offs by 60–80% across all platforms
+                  </h2>
+                  <h2 id="redesign-experience" className="text-xl italic font-normal text-pretty w-full">
+                    Redesign the creator experience for an all-round improved perceived value
+                  </h2>
+                </div>
+              </section>
+
+              {/* My Role */}
+              <section id="role" className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <p className="text-sm uppercase tracking-widest text-orange-500 mb-6 font-medium">My Role</p>
+                  <div className="space-y-8">
+                    <div>
+                      <h3 className="text-base font-medium mb-2">UI Design</h3>
+                      <p className="text-sm leading-relaxed">
+                        I was responsible for visual design of the mobile and desktop responsive design of Blocasset v1, collaborating with Ummi, Stephanie, and led by Clement. The design process involves blending together the elements of web3 environment with the familiarity and simplicity of web2 principles for ease of use.
+                      </p>
+                    </div>
+                    <div>
+                      <h3 className="text-base font-medium mb-2">Usability Testing and Research</h3>
+                      <p className="text-sm leading-relaxed">
+                        Conducted multiple rounds of moderated user testing to get feedback from users and validate some product ideas. Also used tools like Maze. Collaborated to create research structure and conducted user interviews, competitor analysis to provide insights for clarity and evaluation.
+                      </p>
+                    </div>
+                    <div>
+                      <h3 className="text-base font-medium mb-2">Interaction Design</h3>
+                      <p className="text-sm leading-relaxed">
+                        I created Figma prototypes and interaction designs for core flows including creator dashboard and purchase experience for conducting usability testing and (a refined version) for smoother handoff.
+                      </p>
+                    </div>
+                    <div>
+                      <h3 className="text-base font-medium mb-2">Key Contribution</h3>
+                      <p className="text-sm leading-relaxed">
+                        I helped the company organize its first user testing program which was pivotal to helping discover bugs, uncovering UI implementation issues and UX challenges, and altogether speed up all-round implementation to go to market. I also contributed passively in setting up partnerships with top designers and influencers in Nigeria and getting them onboard Blocasset.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Insights */}
+              <section id="insights" className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">Insights</p>
+                  <h2 id="first-stop-mixpanel" className="text-xl mb-4">First stop: Mixpanel</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    I started by looking at our Mixpanel analysis to identify potential causes for user drop off during sign up.
+                  </p>
+                  <p className="text-sm leading-relaxed mb-4">
+                    I noticed there was a mix of both engineering challenge and 3rd party authentication issue during wallet connection. At the time, the single method a user onboards was to connect their web3 wallet such as <em>Metamask, Rainbow, Trustwallet</em>, etc. These wallets being 3rd party natively installed apps mean users without one would be unable to onboard.
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    While we employed different growth strategies and introduced &ldquo;Walletconnect&rdquo; to improve this experience, it only showed little to no significant results. The simple indication of this is that we have built only for designers who are also crypto degens. That really hit us!
+                  </p>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/MF648fImQk9qKhyvjtEAQINLIg.png" alt="Mixpanel analytics" className="w-full h-auto" />
+              </div>
+
+              <section className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <h2 id="second-stop-identity" className="text-xl mb-4">Second stop: Identity check</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    We viewed this as sort of an identity crisis which resulted from the core user segmentation approach built into Blocasset Beta. In principle, we designed to distinctly cater for people who are just on the platform to buy (Buyers) and those that are onboarding to sell (Contributors).
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    It wasn&apos;t obvious at first because this approach felt like a no-brainer. However, from post-beta launch feedback, we eventually realized the buying experience (marketplace) and contributor dashboard felt like two different entities with separate experiences. In fact, to users, it was perceived as though they have to be one or the other.
+                  </p>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/grPApWPboJrgaAu0a8go6K1sFNw.png" alt="Identity check analysis" className="w-full h-auto" />
+              </div>
+
+              <section className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <h2 id="third-stop-file" className="text-xl mb-4">Third stop: More than the file</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    One major pivot in the existence of Blocasset beta was realizing that the problem we imagined was bigger than what Beta could handle. It was immediately obvious that the asset upload flow we had earlier imagined was flawed in so many ways. For starters, these are the top 2 scenarios we discovered:
+                  </p>
+                  <ol className="text-sm leading-relaxed space-y-4 list-decimal list-outside pl-5">
+                    <li>
+                      It was super critical to be able to ascertain the files uploaded are truly what the creator says they are. A contributor could upload a .png file and (intentionally or not) select an incompatible .ai or .eps extension — an easy case and opportunity for exploitation and theft.
+                    </li>
+                    <li>
+                      There was no way for a contributor to share their process or connect with people making the purchase the way they want. The upload flow on Beta lacked elements that could easily give contributors control of how their assets are displayed and marketed to potential buyers.
+                    </li>
+                  </ol>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/XM8qpJOCe6iMpUTH2fCqK6SctPU.png" alt="Asset upload flow issues" className="w-full h-auto" />
+              </div>
+
+              {/* Research */}
+              <section id="research" className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">Research</p>
+                  <h2 id="hotjar-painpoints" className="text-xl mb-4">Learning more about painpoints — Hotjar</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    Integrating Hotjar helped us in a lot of ways as we pored through dozens of recordings and heatmaps as part of our forensics to identify more pain points. We also integrated a Hotjar form on the website with the goal to get feedback on experience or issues encountered.
+                  </p>
+                  <ul className="text-sm leading-relaxed space-y-3 list-disc list-outside pl-5">
+                    <li>
+                      <strong className="text-zinc-700 font-medium">Limited information on asset performance</strong> — lack of access to exquisite information on their asset performance was a recurring feedback which in turn affected retention.
+                    </li>
+                    <li>
+                      <strong className="text-zinc-700 font-medium">Broken Search Experience</strong> — most search sessions ended midway. Considering how covering a wider range of asset kinds is proportional to having a superior search system, this finding made sense as Blocasset Beta asset coverage was initially very limited and niched.
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <section className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <h2 id="ux-research" className="text-xl mb-4">UX-Research: digging deeper</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    Collaborating with our UX Strategist, Stephanie, we conducted user interviews with creators who already sell assets and those who plan to. The key objectives of the research was to understand what tone of voice particularly resonates with them and what their priorities are in terms of monetisation and popularity.
+                  </p>
+                  <p className="text-sm leading-relaxed mb-6">
+                    Ultimately, it helped us re-evaluate our storytelling approach, user personas, and tone of communication across the platform. Our messaging transformed from just being a marketplace for design assets to:
+                  </p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {["Visibility & wealth creation", "Career advancement", "Passive earning", "International payments"].map((item) => (
+                      <div key={item} className="bg-neutral-50 border border-neutral-100 rounded-lg px-4 py-3">
+                        <p className="text-sm font-medium text-zinc-700">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/xcF4WOIjiSAm0NGxrzbx1FoAJZs.png" alt="UX research findings" className="w-full h-auto" />
+              </div>
+
+              <section className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <h2 id="new-messaging" className="text-xl mb-4">A new messaging</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    With a renewed understanding and perspective, our refined problem statement began to take shape:
+                  </p>
+                  <blockquote className="text-xl italic font-normal text-zinc-800 border-l-2 border-zinc-200 pl-5 mb-6">
+                    &ldquo;How might we empower creators with the tools to build their own economy&rdquo;
+                  </blockquote>
+                  <p className="text-sm leading-relaxed mb-4">
+                    In the new design direction, we drove design through three principles: <strong>Simplicity</strong>, <strong>Value</strong>, <strong>Unification</strong>. This helped us stay on the course and consistently aligned in the desire to deliver quality in the entire design definition phase.
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    We launched a complete design overhaul of Blocasset Beta. Collaborating with my partner Ummi, and everyone on the product team, we explored the neo-brutalist design direction for the visual style of the entire platform design.
+                  </p>
+                </div>
+              </section>
+
+              <DashboardExpectations />
+
+              {/* Design */}
+              <section id="design" className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">New Design</p>
+                  <h2 id="introducing-v1" className="text-xl mb-4">Introducing V1</h2>
+                  <p className="text-sm leading-relaxed">
+                    V1 messaging and design direction wasn&apos;t all about enabling crypto payments. Instead, with a new storytelling strategy focused on providing access that helps creators sell, earn passively, find more clients, get hired, and gain global recognition beyond the shores of Nigeria and Africa.
+                  </p>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/s5tkfmRrZVgxSCrQqci8sYfiW3o.png" alt="Blocasset V1 design" className="w-full h-auto" />
+              </div>
+
+              <section className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <h2 id="unified-platform" className="text-xl mb-4">A unified platform experience</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    We designed the onboarding flow to help provide a tailored platform experience to users based on their topmost priority for using Blocasset. This also enabled us to fulfil simplicity to the user by providing certain experiences to them when they need it.
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    With the new dashboard design, identity is not lost. Everyone is a creator, either passively or actively uploading or selling assets.
+                  </p>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/Nt0opeoflT1qIkNwZH22UNCPxY.png" alt="Unified onboarding flow" className="w-full h-auto" />
+              </div>
+
+              <section className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <h2 id="onboarding-easy" className="text-xl mb-4">Onboarding made easy</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    We tackled the onboarding challenge by building on an infrastructure that enabled us to stay inclusive and bring users onchain without compromising on the promise of simplicity of V1.
+                  </p>
+                  <p className="text-sm leading-relaxed mb-4">
+                    Collaborating with Ummi, we designed the new flow to offer a frictionless onboarding experience with social accounts for creators, therefore avoiding the complexity of using web3 wallets especially for non-crypto savvy users.
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    The integration also marked a significant impact on the drive to onboard more users onchain.
+                  </p>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/20KwuiDxD0CoxqMfnqOE7pujYM.png" alt="Easy onboarding flow" className="w-full h-auto" />
+              </div>
+
+              <section className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <h2 id="search-experience" className="text-xl mb-4">Search in a breeze</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    The search experience was one of the product aspects that took a lot of brainstorming efforts and back and forth in the team. It is closely tailored to the marketplace and as such plays a pivotal role in providing an elevated experience to an otherwise frustrating flow for users from beta.
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    We identified common groups assets exist in and prioritized sub-niches as the marketplace headers and on search result page.
+                  </p>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/qiWKGQDcgJt2iU9WePcg13QRc.png" alt="Search experience" className="w-full h-auto" />
+              </div>
+
+              <section className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <h2 id="payments" className="text-xl mb-4">Offchain and onchain payments</h2>
+                  <p className="text-sm leading-relaxed">
+                    Blocasset V1 direction aligns with bringing more users onchain and building the wallet module gives us the opportunity to achieve this. I designed the wallet page to allow users manage earnings in stablecoins such as USDT, USDC, and DAI while equally providing local fiat payment options like Nigeria Naira, Ghana Cedis, Kenya Shillings etc.
+                  </p>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/cqTs1snpXtucDWc6uNxa5bJbMjs.png" alt="Payments" className="w-full h-auto" />
+              </div>
+
+              <section className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <h2 id="creator-base" className="text-xl mb-4">The creator base</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    I designed the creator dashboard with the goal to provide creators with all they need in one place. Building on the positives from beta and incorporating feedback from users, the creator dashboard is nourished with better analytics and tools that give the creator rich insights of all activities around their assets and profile.
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    Usability tests we carried out revealed how impactful the dashboard experience would be as it contains the necessary tools for creators to make informed decisions and connect more with their audience.
+                  </p>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/W2CYTsIfx75rh1zyBL1WsRw5mA.png" alt="Creator dashboard" className="w-full h-auto" />
+              </div>
+
+              <section className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <h2 id="asset-upload" className="text-xl mb-4">Asset Upload Flow</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    This was a very critical part of why we are building V1, therefore, the stakes are high. The goal here is to make the flow intuitive and polished for creators to show their process and connect better with their audience.
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    From providing walkthroughs and onboarding guides to breaking the entire flow into associated steps, the design helps creators settle in quickly in a space that readily feels familiar.
+                  </p>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/OSGw3qonfSguiErzf1YVgDbNaM.png" alt="Asset upload flow" className="w-full h-auto" />
+              </div>
+
+              <section className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <h2 id="maze-testing" className="text-xl mb-4">Testing with Maze</h2>
+                  <p className="text-sm leading-relaxed">
+                    We recruited some of our existing contributors from Blocasset Beta for an unmoderated testing of the new asset upload experience of the creator dashboard. I created a clickable Figma prototype of the flow and imported it to Maze. The result from this usability test was very affirmative and the results reflected how smooth and easy the flow is.
+                  </p>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://framerusercontent.com/images/QOw8ONb3knwB3J0yQN4VjxGC3U.png" alt="Maze testing results" className="w-full h-auto" />
+              </div>
+
+              {/* Impact */}
+              <section id="result" className="mb-16">
+                <div className="w-1/2 ml-auto pr-10">
+                  <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">Impact</p>
+                  <p className="text-sm leading-relaxed mb-8">
+                    The creator dashboard now serves as a central hub that provides creators with real-time performance data and important updates, enabling better decision-making.
+                  </p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { stat: "500+", label: "User acquisition", desc: "Onboarded over 500 users within the first month of V1 launch" },
+                      { stat: "16", label: "Influential Creators", desc: "Onboarded 16 established creators with free/paid assets to share with their community" },
+                      { stat: "2", label: "Community partners", desc: "Closed partnership with 2 creator communities to onboard their members" },
+                      { stat: "100+", label: "Asset Uploads", desc: "Creators we partnered with uploaded their free & paid assets" },
+                      { stat: "1,000+", label: "Asset Downloads", desc: "Creators/users downloaded free assets and a single asset purchase worth $10" },
+                    ].map(({ stat, label, desc }) => (
+                      <div key={stat} className="bg-neutral-50 border border-neutral-100 rounded-lg p-4 transition-all duration-200 hover:bg-white hover:border-neutral-300 hover:shadow-sm">
+                        <p className="text-2xl font-semibold text-zinc-900 mb-1">{stat}</p>
+                        <p className="text-sm font-medium text-zinc-700 mb-1">{label}</p>
+                        <p className="text-xs text-zinc-400 leading-relaxed">{desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* Feedback */}
+              <section id="feedback">
+                <div className="w-1/2 ml-auto pr-10">
+                  <p className="text-sm uppercase tracking-widest text-orange-500 mb-6 font-medium">User Feedback</p>
+                  <div className="space-y-8">
+                    <div>
+                      <p className="text-sm font-medium text-zinc-900 mb-2">Valentine</p>
+                      <p className="text-sm leading-relaxed italic">
+                        &ldquo;I&apos;m a creator who loves to use Blocasset to sell my 3D assets and connect with other creators. I also use the site to store my 3D design files when I don&apos;t have space on my computer. I&apos;ve had great experiences with the site so far, and I&apos;m excited to see what they have in store for us in the next version.&rdquo;
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-zinc-900 mb-2">Designade</p>
+                      <p className="text-sm leading-relaxed italic">
+                        &ldquo;The outstanding feeling of being a creator is exactly how Blocasset helps me express and showcase my creative outputs.&rdquo;
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-zinc-900 mb-2">Vicko</p>
+                      <p className="text-sm leading-relaxed italic">
+                        &ldquo;Blocasset has been a revelation for my creative journey — supercharging my workflow and amplifying my income potential. The platform&apos;s intuitive interface and robust features make sharing and monetizing my work seamless. But it&apos;s not just the tech; the community and dedicated support are unmatched.&rdquo;
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
         </div>
       </div>
     </div>

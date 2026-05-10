@@ -11,6 +11,7 @@ const caseStudies = [
     href: "/work/blocasset-onboarding",
     year: "2024",
     bg: "bg-zinc-100 dark:bg-zinc-800",
+    image: "/Blocasset-1.jpg",
   },
   {
     product: "Paycrest",
@@ -45,15 +46,15 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="px-6 flex flex-col items-center justify-center h-[75vh]">
-        <TypewriterHello className="text-xs font-medium text-zinc-900 dark:text-zinc-100 w-[480px] block mb-2" />
-        <p className="text-2xl text-zinc-600 dark:text-zinc-400 w-[480px] leading-[30px] tracking-[0.36px]" style={{ fontFamily: "var(--font-roboto-flex)" }}>
+      <section className="px-6 flex flex-col items-center justify-center h-[75vh] bg-gradient-to-b from-[#f7f5f0] to-white">
+        <TypewriterHello className="text-xs font-medium text-zinc-900 dark:text-zinc-100 w-[480px] block mb-2 text-center" />
+        <p className="text-2xl text-neutral-950 w-[480px] leading-[30px] tracking-[0.36px] text-center" style={{ fontFamily: "KaliceTrial" }}>
           Designing memorable experiences through empathy-driven user obsession and core design craftmanship
         </p>
       </section>
 
       {/* Case Studies */}
-      <section className="px-6 pb-20">
+      <section className="px-6 pb-20 pt-[100px] bg-white">
         <h2 className="text-xs font-semibold uppercase text-neutral-500 mb-8 text-center flex items-center justify-center gap-2">
           <span className="inline-block w-[6px] h-[10px] bg-neutral-500" />
           Selected work
@@ -69,7 +70,7 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section className="px-6 py-16">
+      <section className="px-6 py-16 bg-white">
         <h2 className="text-xs font-semibold uppercase text-zinc-400 dark:text-zinc-500 mb-8 text-center">
           About
         </h2>
@@ -116,7 +117,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="px-6 py-8">
+      <footer className="px-6 py-8 bg-white">
         <div className="flex items-center justify-between text-sm text-zinc-400 dark:text-zinc-500">
           <span>© {new Date().getFullYear()} Bayo Faleke</span>
           <span>Built with Next.js</span>
