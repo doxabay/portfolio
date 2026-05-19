@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/nav";
 import AgentationProvider from "@/components/agentation-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 
@@ -28,7 +29,9 @@ export default function RootLayout({
           <div className="absolute right-6 inset-y-0 w-px bg-neutral-200 dark:bg-neutral-800" />
         </div>
         <Nav />
-        <main className="flex-1">{children}</main>
+        <TooltipProvider>
+          <main className="flex-1">{children}</main>
+        </TooltipProvider>
         <AgentationProvider />
       </body>
     </html>

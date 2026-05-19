@@ -30,6 +30,7 @@ const caseStudies = [
     href: "#",
     year: "2023",
     bg: "bg-red-50 dark:bg-red-950",
+    image: "/Witan-cover.jpg",
   },
   {
     product: "Parkly",

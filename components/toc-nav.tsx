@@ -57,7 +57,7 @@ export default function TocNav({ items }: { items: TocItem[] }) {
   let linkIndex = 1;
 
   return (
-    <nav className="flex-1 flex flex-col">
+    <nav>
       <p
         className="text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-3 font-medium"
         style={linkStyle(0)}
