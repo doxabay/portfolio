@@ -381,8 +381,8 @@ function ParticleDitherFull() {
 
   return (
     <div
-      className="relative w-full rounded-2xl overflow-hidden border border-zinc-800"
-      style={{ height: "75vh", minHeight: 580, background: renderCfg.backgroundColor ?? "#000000" }}
+      className="relative w-full rounded-2xl overflow-hidden border border-zinc-800 h-[85vh] sm:h-[75vh] min-h-[520px] sm:min-h-[580px]"
+      style={{ background: renderCfg.backgroundColor ?? "#000000" }}
       onDrop={handleDrop}
       onDragOver={(e) => e.preventDefault()}
     >
@@ -458,8 +458,8 @@ function ParticleDitherFull() {
 
         {panelOpen && (
           <div
-            className="w-52 rounded-xl border border-zinc-800/80 flex flex-col gap-3 p-4"
-            style={{ background: "rgba(15,15,18,0.92)", backdropFilter: "blur(12px)" }}
+            className="w-52 rounded-xl border border-zinc-800/80 flex flex-col gap-3 p-4 max-h-[calc(85vh-5rem)] sm:max-h-[calc(75vh-5rem)] overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-zinc-700 [&::-webkit-scrollbar-track]:bg-transparent"
+            style={{ background: "rgba(15,15,18,0.92)", backdropFilter: "blur(12px)", scrollbarWidth: "thin", scrollbarColor: "#3f3f46 transparent" }}
           >
             <div className="flex flex-col gap-3.5">
               <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-zinc-600">Interaction</p>
