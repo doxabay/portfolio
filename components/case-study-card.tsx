@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 type CaseStudy = {
   product: string;
@@ -16,10 +15,7 @@ type CaseStudy = {
 
 export default function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
-    <Link
-      href={study.href}
-      className="flex flex-row gap-[40px] transition-opacity hover:opacity-80"
-    >
+    <div className="flex flex-row gap-[40px]">
       <div className={`w-1/2 h-[520px] ${study.bg} relative overflow-hidden`}>
         {study.image && (
           <Image
@@ -37,6 +33,6 @@ export default function CaseStudyCard({ study }: { study: CaseStudy }) {
           {study.year} / {study.niche.toUpperCase()}
         </p>
       </div>
-    </Link>
+    </div>
   );
 }
