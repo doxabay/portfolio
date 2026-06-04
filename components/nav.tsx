@@ -10,15 +10,15 @@ const links = [
 
 export default function Nav() {
   return (
-    <header className="border-b backdrop-blur" style={{ backgroundColor: "color-mix(in srgb, #f7f5f0 85%, transparent)", borderColor: "#eae7de", boxShadow: "0 1.5px 0 0 #fff" }}>
-      <nav className="flex items-center px-11 py-4">
+    <header className="border-b border-[#eae7de] dark:border-neutral-800">
+      <nav className="flex items-center px-6 py-4">
         <Link href="/" aria-label="Home">
           <Image src="/logo.svg" alt="Bayo Faleke" width={28} height={28} priority />
         </Link>
         <ul className="ml-auto flex items-center gap-3 text-xs text-zinc-600 dark:text-zinc-400">
           {links.slice(1).map(({ href, label }, i) => (
             <li key={href} className="flex items-center gap-3">
-              {i !== 0 && <span className="text-neutral-300">/</span>}
+              {i !== 0 && <span className="text-neutral-300 dark:text-neutral-600">/</span>}
               <Link
                 href={href}
                 className="uppercase transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"

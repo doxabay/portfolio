@@ -39,7 +39,7 @@ const responses = [
 
 export default function DashboardExpectations() {
   return (
-    <div className="flex flex-row gap-12 py-14 px-10 bg-neutral-50 rounded-2xl mb-16">
+    <div className="flex flex-row gap-12 py-14 px-10 rounded-2xl mb-16">
       {/* Left: question */}
       <div className="w-[35%] flex flex-col items-start justify-start">
         <p className="text-xs uppercase tracking-widest text-orange-500 mb-5 font-medium">
@@ -70,10 +70,9 @@ export default function DashboardExpectations() {
         {responses.map((r, i) => (
           <div
             key={r.id}
-            className={`flex flex-col border rounded-none ${r.bg} ${r.border}`}
+            className={`flex flex-col border rounded-[12px] ${r.bg} ${r.border}`}
             style={{
               padding: 28,
-              transform: i % 2 === 0 ? "rotate(2deg)" : "rotate(-2deg)",
             }}
           >
             <p className="text-base leading-relaxed text-neutral-600">{r.quote}</p>

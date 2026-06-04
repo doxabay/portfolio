@@ -1,9 +1,11 @@
 import Image from "next/image";
 import TocNav from "@/components/toc-nav";
+import ImageCarousel from "@/components/image-carousel";
 import DashboardExpectations from "@/components/dashboard-expectations";
 import StickyBackLink from "@/components/sticky-back-link";
 import { SquigglyText } from "@/components/ui/squiggly-text";
-import AvatarCredits from "@/components/avatar-credits";
+import { PencilCircle } from "@/components/pencil-circle";
+import WitanAvatarCredits from "@/components/witan-avatar-credits";
 import ViewportVideo from "@/components/viewport-video";
 
 const toc = [
@@ -46,7 +48,7 @@ const toc = [
       { id: "introducing-v1", label: "Introducing V1" },
       { id: "unified-platform", label: "A unified platform experience" },
       { id: "onboarding-easy", label: "Onboarding made easy" },
-      { id: "search-experience", label: "Search in a breeze" },
+      { id: "search-experience", label: "Improved search experience" },
       { id: "payments", label: "Offchain and onchain payments" },
       { id: "creator-base", label: "The creator base" },
       { id: "asset-upload", label: "Asset Upload Flow" },
@@ -60,19 +62,6 @@ const toc = [
 export default async function CaseStudyPage() {
   return (
     <div className="flex flex-col">
-      {/* Banner */}
-      <div className="w-full px-4 sm:px-6">
-        <div className="relative h-[40vh] sm:h-[55vh] lg:h-[70vh]">
-          <Image
-            src="/blocasset-cover-new.jpg"
-            alt="Blocasset cover"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      </div>
-
       <div className="flex min-h-screen">
         {/* Left sidebar — desktop only */}
         <aside className="hidden lg:flex w-52 shrink-0 pt-[108px] pb-10 pl-11 pr-4 flex-col">
@@ -82,19 +71,6 @@ export default async function CaseStudyPage() {
           </div>
         </aside>
 
-        {/* Decorative divider strip — desktop only */}
-        <div
-          className="hidden lg:block w-5 shrink-0 self-stretch ml-[104px] border-l border-r border-neutral-100 sticky top-0 h-screen"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              315deg,
-              transparent,
-              transparent 7px,
-              #e5e5e5 7px,
-              #e5e5e5 8px
-            )`,
-          }}
-        />
 
         {/* Content area */}
         <div className="flex-1 flex flex-col pt-6 lg:pt-[100px] pb-12 px-4 sm:px-6 lg:pl-[80px] lg:pr-6 min-w-0">
@@ -105,16 +81,18 @@ export default async function CaseStudyPage() {
 
           <div id="case-study-header" className="w-full mb-8 lg:mb-[60px]" style={{ maxWidth: "min(75vw, 100%)" }}>
             <div className="flex flex-col gap-4">
-              <h1 className="text-3xl sm:text-4xl text-orange-500 tracking-tight font-medium">
-                <SquigglyText className="text-orange-500" scale={[4, 6]} stepDuration={320}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logos/blocasset.svg" alt="Blocasset logo" width={34} height={34} className="rounded-[6px] shrink-0" />
+              <h1 className="text-3xl sm:text-4xl text-neutral-950 tracking-tight font-medium">
+                <SquigglyText className="text-neutral-950" scale={[4, 6]} stepDuration={320}>
                   Blocasset
                 </SquigglyText>
               </h1>
-              <h3 className="text-base text-zinc-500 dark:text-zinc-400 w-full lg:w-[75%]">
-                How we pivoted from beta to v1 to build an onchain platform for powering creator&apos;s success. Blocasset features a marketplace, shop, portfolio, and dashboard where creators can upload their work and get paid globally.
-              </h3>
+              <h1 className="text-neutral-950 dark:text-neutral-50 w-full lg:w-[75%]" style={{ fontFamily: "KaliceTrial", fontWeight: 500, fontSize: "28px" }}>
+                From beta to v1: Designing an onchain platform for powering creator&apos;s success
+              </h1>
               <p className="text-xs text-zinc-400 dark:text-zinc-500 tabular-nums">
-                2024 / PRODUCT / UX
+                2022–2024 / PRODUCT / WEB
               </p>
             </div>
           </div>
@@ -129,7 +107,7 @@ export default async function CaseStudyPage() {
                   <div className="w-full lg:w-1/2 lg:shrink-0 grid grid-cols-2 gap-x-6 gap-y-8 lg:pr-[100px] content-start">
                     <div>
                       <p className="text-sm uppercase tracking-widest text-orange-500 mb-2 font-medium">Year</p>
-                      <p className="text-sm uppercase tracking-wide text-neutral-400">2024</p>
+                      <p className="text-sm tracking-wide text-neutral-400">2024</p>
                     </div>
                     <div>
                       <p className="text-sm uppercase tracking-widest text-orange-500 mb-2 font-medium">Industry</p>
@@ -137,11 +115,11 @@ export default async function CaseStudyPage() {
                     </div>
                     <div>
                       <p className="text-sm uppercase tracking-widest text-orange-500 mb-2 font-medium">My Role</p>
-                      <p className="text-sm tracking-wide text-neutral-400">UI Design, Interaction Design, and Usability Testing &amp; Research.</p>
+                      <p className="text-sm tracking-wide text-neutral-400">Founding Product Designer</p>
                     </div>
                     <div>
                       <p className="text-sm uppercase tracking-widest text-orange-500 mb-2 font-medium">Credits</p>
-                      <AvatarCredits />
+                      <WitanAvatarCredits />
                     </div>
                   </div>
 
@@ -150,17 +128,20 @@ export default async function CaseStudyPage() {
                     <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">Overview</p>
                     <h2 id="beta-to-v1" className="text-xl mb-4">Beta to v1</h2>
                     <p className="text-sm leading-relaxed mb-4">
-                      Moving from Blocasset Beta to v1 wasn&apos;t much like the usual version upgrade but more of a pivoting. A bold pivot meant to usher in new solutions to emerging challenges in a thriving market where Blocasset Beta fails.
+                      Blocasset features a marketplace, shop, portfolio, and dashboard where creators can upload their work and get paid globally.
+                    </p>
+                    <p className="text-sm leading-relaxed mb-4">
+                      Blocasset Beta wasn&apos;t cutting it. As the creator economy evolved, Blocasset faced a choice: iterate or pivot. The team chose to pivot which meant rethinking core experiences from the ground up to meet emerging user needs and compete in a rapidly evolving market.
                     </p>
                     <p className="text-sm leading-relaxed">
-                      After pushing out the refreshed Blocasset v1, we saw an increase in sign up rate and overall platform engagement from creators across the globe.
+                      As part of the design team, I contributed end-to-end: from research and UX strategy through to high-fidelity UI and developer handoff.
                     </p>
                   </div>
                 </div>
               </section>
 
               <div className="mb-16">
-                <Image src="/Blocasset-1.jpg" alt="Blocasset overview" width={1920} height={1080} className="w-full h-auto" />
+                <Image src="/Blocasset-1.jpg" alt="Blocasset overview" width={1920} height={1080} className="w-full h-auto rounded-[12px]" />
               </div>
 
               {/* Backstory */}
@@ -200,7 +181,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/blocasset-2.jpg" alt="Blocasset goal" width={1920} height={1080} className="w-full h-auto" />
+                <Image src="/blocasset-2.jpg" alt="Blocasset goal" width={1920} height={1080} className="w-full h-auto rounded-[12px]" />
               </div>
 
               {/* Goal */}
@@ -243,9 +224,11 @@ export default async function CaseStudyPage() {
                       </p>
                     </div>
                     <div>
-                      <h3 className="text-base font-medium mb-2">Key Contribution</h3>
+                      <PencilCircle>
+                        <h3 className="text-base font-medium">Key Contribution</h3>
+                      </PencilCircle>
                       <p className="text-sm leading-relaxed">
-                        I helped the company organize its first user testing program which was pivotal to helping discover bugs, uncovering UI implementation issues and UX challenges, and altogether speed up all-round implementation to go to market. I also contributed passively in setting up partnerships with top designers and influencers in Nigeria and getting them onboard Blocasset.
+                        I helped the company organize its first user testing program which was pivotal to helping discover bugs, uncovering UI implementation issues and UX challenges, and altogether speed up all-round implementation to go to market. I also contributed in setting up partnerships with top designers and influencers in Nigeria and getting them onboard Blocasset.
                       </p>
                     </div>
                   </div>
@@ -273,7 +256,7 @@ export default async function CaseStudyPage() {
 
               <div className="mb-16">
                 <div
-                  className="w-full flex items-end justify-center pt-16 pb-0"
+                  className="w-full flex items-end justify-center pt-16 pb-0 rounded-[12px] overflow-hidden"
                   style={{ backgroundImage: "url('/shot-imageBG.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
                 >
                   <ViewportVideo src="/Mixpanel-Animation.mp4" className="w-[85%] h-auto rounded-tl-[10px] rounded-tr-[10px]" />
@@ -294,7 +277,7 @@ export default async function CaseStudyPage() {
 
               <div className="mb-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/grPApWPboJrgaAu0a8go6K1sFNw.png" alt="Identity check analysis" className="w-full h-auto" />
+                <img src="https://framerusercontent.com/images/grPApWPboJrgaAu0a8go6K1sFNw.png" alt="Identity check analysis" className="w-full h-auto rounded-[12px]" />
               </div>
 
               <section className="mb-16">
@@ -307,6 +290,18 @@ export default async function CaseStudyPage() {
                     <li>
                       It was super critical to be able to ascertain the files uploaded are truly what the creator says they are. A contributor could upload a .png file and (intentionally or not) select an incompatible .ai or .eps extension — an easy case and opportunity for exploitation and theft.
                     </li>
+                  </ol>
+                </div>
+              </section>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/thirdstop001.jpg" alt="Asset upload flow issues" className="w-full h-auto rounded-[12px]" />
+              </div>
+
+              <section className="mb-16">
+                <div className="w-full lg:w-1/2 lg:ml-auto lg:pr-10">
+                  <ol start={2} className="text-sm leading-relaxed space-y-4 list-decimal list-outside pl-5">
                     <li>
                       There was no way for a contributor to share their process or connect with people making the purchase the way they want. The upload flow on Beta lacked elements that could easily give contributors control of how their assets are displayed and marketed to potential buyers.
                     </li>
@@ -316,10 +311,22 @@ export default async function CaseStudyPage() {
 
               <div className="mb-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/old-bloc.jpg" alt="Asset upload flow issues" className="w-full h-auto" />
+                <img src="/thirdstop002.jpg" alt="Asset upload flow issues" className="w-full h-auto rounded-[12px]" />
               </div>
 
               {/* Research */}
+              <section className="mb-16">
+                <div className="w-full lg:w-1/2 lg:ml-auto lg:pr-10">
+                  <h2 className="text-xl mb-4">Handling payments</h2>
+                  <p className="text-sm leading-relaxed mb-4">
+                    Blocasset aims to solve cross-border payments by taking advantage of the decentralized nature of crypto. With crypto, it was easier for anyone to skip the tedious fiat payment limitations and get paid from anywhere with stablecoins. While the idea sounds great, there are acceptance challenges posed by general sentiments in the ecosystem due to the market crash and instability in crypto prices.
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    Piled on top of this, everything about Blocasset beta screams crypto. It was difficult to align the users' perceived value of what we have built with the actual value of Blocasset being a creator tool. For most people we interviewed, it was just like another crypto project waiting to topple over.
+                  </p>
+                </div>
+              </section>
+
               <section id="research" className="mb-16">
                 <div className="w-full lg:w-1/2 lg:ml-auto lg:pr-10">
                   <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">Research</p>
@@ -348,9 +355,16 @@ export default async function CaseStudyPage() {
                     Ultimately, it helped us re-evaluate our storytelling approach, user personas, and tone of communication across the platform. Our messaging transformed from just being a marketplace for design assets to:
                   </p>
                   <div className="grid grid-cols-2 gap-3">
-                    {["Visibility & wealth creation", "Career advancement", "Passive earning", "International payments"].map((item) => (
-                      <div key={item} className="bg-neutral-50 border border-neutral-100 rounded-lg px-4 py-3">
-                        <p className="text-sm font-medium text-zinc-700">{item}</p>
+                    {[
+                      { label: "Visibility & wealth creation", icon: "/wealth.svg" },
+                      { label: "Career advancement", icon: "/career.svg" },
+                      { label: "Passive earning", icon: "/passive.svg" },
+                      { label: "International payments", icon: "/intl.svg" },
+                    ].map(({ label, icon }) => (
+                      <div key={label} className="bg-orange-50 border-[0.5px] border-orange-200 rounded-lg px-4 py-3 flex items-center" style={{ gap: "8px" }}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={icon} alt="" aria-hidden className="w-4 h-4 shrink-0" />
+                        <p className="text-sm font-medium text-zinc-700">{label}</p>
                       </div>
                     ))}
                   </div>
@@ -359,7 +373,7 @@ export default async function CaseStudyPage() {
 
               <div className="mb-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/xcF4WOIjiSAm0NGxrzbx1FoAJZs.png" alt="UX research findings" className="w-full h-auto" />
+                <img src="https://framerusercontent.com/images/xcF4WOIjiSAm0NGxrzbx1FoAJZs.png" alt="UX research findings" className="w-full h-auto rounded-[12px]" />
               </div>
 
               <section className="mb-16">
@@ -372,7 +386,7 @@ export default async function CaseStudyPage() {
                     &ldquo;How might we empower creators with the tools to build their own economy&rdquo;
                   </blockquote>
                   <p className="text-sm leading-relaxed mb-4">
-                    In the new design direction, we drove design through three principles: <strong>Simplicity</strong>, <strong>Value</strong>, <strong>Unification</strong>. This helped us stay on the course and consistently aligned in the desire to deliver quality in the entire design definition phase.
+                    In the new design direction, we drove design through three principles: <strong className="text-orange-500">Simplicity</strong>, <strong className="text-orange-500">Value</strong>, <strong className="text-orange-500">Unification</strong>. This helped us stay on the course and consistently aligned in the desire to deliver quality in the entire design definition phase.
                   </p>
                   <p className="text-sm leading-relaxed">
                     We launched a complete design overhaul of Blocasset Beta. Collaborating with my partner Ummi, and everyone on the product team, we explored the neo-brutalist design direction for the visual style of the entire platform design.
@@ -395,7 +409,12 @@ export default async function CaseStudyPage() {
 
               <div className="mb-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/s5tkfmRrZVgxSCrQqci8sYfiW3o.png" alt="Blocasset V1 design" className="w-full h-auto" />
+                <img src="/introblocasset.jpg" alt="Blocasset V1 design" className="w-full h-auto rounded-[12px]" />
+              </div>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assetsblocasset.jpg" alt="Blocasset V1 design" className="w-full h-auto rounded-[12px]" />
               </div>
 
               <section className="mb-16">
@@ -411,7 +430,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <ViewportVideo src="/Unified-Ex.mp4" plain playbackRate={1.2} className="w-full h-auto" />
+                <ViewportVideo src="/Unified-Ex.mp4" plain playbackRate={1.2} className="w-full h-auto rounded-[12px]" />
               </div>
 
               <section className="mb-16">
@@ -431,12 +450,12 @@ export default async function CaseStudyPage() {
 
               <div className="mb-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/20KwuiDxD0CoxqMfnqOE7pujYM.png" alt="Easy onboarding flow" className="w-full h-auto" />
+                <img src="https://framerusercontent.com/images/20KwuiDxD0CoxqMfnqOE7pujYM.png" alt="Easy onboarding flow" className="w-full h-auto rounded-[12px]" />
               </div>
 
               <section className="mb-16">
                 <div className="w-full lg:w-1/2 lg:ml-auto lg:pr-10">
-                  <h2 id="search-experience" className="text-xl mb-4">Search in a breeze</h2>
+                  <h2 id="search-experience" className="text-xl mb-4">Improved search experience</h2>
                   <p className="text-sm leading-relaxed mb-4">
                     The search experience was one of the product aspects that took a lot of brainstorming efforts and back and forth in the team. It is closely tailored to the marketplace and as such plays a pivotal role in providing an elevated experience to an otherwise frustrating flow for users from beta.
                   </p>
@@ -448,7 +467,7 @@ export default async function CaseStudyPage() {
 
               <div className="mb-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/qiWKGQDcgJt2iU9WePcg13QRc.png" alt="Search experience" className="w-full h-auto" />
+                <img src="/searchblocasset.jpg" alt="Search experience" className="w-full h-auto rounded-[12px]" />
               </div>
 
               <section className="mb-16">
@@ -462,7 +481,12 @@ export default async function CaseStudyPage() {
 
               <div className="mb-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/cqTs1snpXtucDWc6uNxa5bJbMjs.png" alt="Payments" className="w-full h-auto" />
+                <img src="/walletblocasset.jpg" alt="Payments" className="w-full h-auto rounded-[12px]" />
+              </div>
+
+              <div className="mb-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/walletblocasset2.jpg" alt="Payments" className="w-full h-auto rounded-[12px]" />
               </div>
 
               <section className="mb-16">
@@ -478,8 +502,13 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/W2CYTsIfx75rh1zyBL1WsRw5mA.png" alt="Creator dashboard" className="w-full h-auto" />
+                <ImageCarousel images={[
+                  { src: "/socialblocasset.jpg", alt: "Creator dashboard" },
+                  { src: "/socialblocasset2.jpg", alt: "Creator dashboard" },
+                  { src: "/socialblocasset3.jpg", alt: "Creator dashboard" },
+                  { src: "/socialblocasset4.jpg", alt: "Creator dashboard" },
+                  { src: "/socialblocasset5.jpg", alt: "Creator dashboard" },
+                ]} />
               </div>
 
               <section className="mb-16">
@@ -495,8 +524,18 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/OSGw3qonfSguiErzf1YVgDbNaM.png" alt="Asset upload flow" className="w-full h-auto" />
+                <ImageCarousel images={[
+                  { src: "/uploadblocasset001.jpg", alt: "Asset upload flow" },
+                  { src: "/uploadblocasset002.jpg", alt: "Asset upload flow" },
+                  { src: "/uploadblocasset003.jpg", alt: "Asset upload flow" },
+                  { src: "/uploadblocasset004.jpg", alt: "Asset upload flow" },
+                  { src: "/uploadblocasset005.jpg", alt: "Asset upload flow" },
+                  { src: "/uploadblocasset006.jpg", alt: "Asset upload flow" },
+                  { src: "/uploadblocasset007.jpg", alt: "Asset upload flow" },
+                  { src: "/uploadblocasset008.jpg", alt: "Asset upload flow" },
+                  { src: "/uploadblocasset009.jpg", alt: "Asset upload flow" },
+                  { src: "/uploadblocasset0010.jpg", alt: "Asset upload flow" },
+                ]} />
               </div>
 
               <section className="mb-16">
@@ -510,7 +549,7 @@ export default async function CaseStudyPage() {
 
               <div className="mb-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/QOw8ONb3knwB3J0yQN4VjxGC3U.png" alt="Maze testing results" className="w-full h-auto" />
+                <img src="/feedblocasset.jpg" alt="Maze testing results" className="w-full h-auto rounded-[12px]" />
               </div>
 
               {/* Impact */}
@@ -522,14 +561,16 @@ export default async function CaseStudyPage() {
                   </p>
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      { stat: "500+", label: "User acquisition", desc: "Onboarded over 500 users within the first month of V1 launch" },
-                      { stat: "16", label: "Influential Creators", desc: "Onboarded 16 established creators with free/paid assets to share with their community" },
-                      { stat: "2", label: "Community partners", desc: "Closed partnership with 2 creator communities to onboard their members" },
-                      { stat: "100+", label: "Asset Uploads", desc: "Creators we partnered with uploaded their free & paid assets" },
-                      { stat: "1,000+", label: "Asset Downloads", desc: "Creators/users downloaded free assets and a single asset purchase worth $10" },
-                    ].map(({ stat, label, desc }) => (
-                      <div key={stat} className="bg-neutral-50 border border-neutral-100 rounded-lg p-4 transition-all duration-200 hover:bg-white hover:border-neutral-300 hover:shadow-sm">
-                        <p className="text-2xl font-semibold text-zinc-900 mb-1">{stat}</p>
+                      { stat: "500+", label: "User acquisition", desc: "Onboarded over 500 users within the first month of V1 launch", icon: "/acqui.svg" },
+                      { stat: "16", label: "Influential Creators", desc: "Onboarded 16 established creators with free/paid assets to share with their community", icon: "/influ.svg" },
+                      { stat: "2", label: "Community partners", desc: "Closed partnership with 2 creator communities to onboard their members", icon: "/partners.svg" },
+                      { stat: "100+", label: "Asset Uploads", desc: "Creators we partnered with uploaded their free & paid assets", icon: "/assets.svg" },
+                      { stat: "1,000+", label: "Asset Downloads", desc: "Creators/users downloaded free assets and a single asset purchase worth $10", icon: "/download.svg" },
+                    ].map(({ stat, label, desc, icon }) => (
+                      <div key={stat} className="bg-neutral-50 border border-neutral-100 rounded-lg p-4">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={icon} alt="" aria-hidden className="w-5 h-5 mb-3" />
+                        <p className="text-2xl text-zinc-900 mb-1" style={{ fontFamily: "KaliceTrial", fontWeight: 500 }}>{stat}</p>
                         <p className="text-sm font-medium text-zinc-700 mb-1">{label}</p>
                         <p className="text-xs text-zinc-400 leading-relaxed">{desc}</p>
                       </div>
@@ -543,24 +584,31 @@ export default async function CaseStudyPage() {
                 <div className="w-full lg:w-1/2 lg:ml-auto lg:pr-10">
                   <p className="text-sm uppercase tracking-widest text-orange-500 mb-6 font-medium">User Feedback</p>
                   <div className="space-y-8">
-                    <div>
-                      <p className="text-sm font-medium text-zinc-900 mb-2">Valentine</p>
-                      <p className="text-sm leading-relaxed italic">
-                        &ldquo;I&apos;m a creator who loves to use Blocasset to sell my 3D assets and connect with other creators. I also use the site to store my 3D design files when I don&apos;t have space on my computer. I&apos;ve had great experiences with the site so far, and I&apos;m excited to see what they have in store for us in the next version.&rdquo;
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-zinc-900 mb-2">Designade</p>
-                      <p className="text-sm leading-relaxed italic">
-                        &ldquo;The outstanding feeling of being a creator is exactly how Blocasset helps me express and showcase my creative outputs.&rdquo;
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-zinc-900 mb-2">Vicko</p>
-                      <p className="text-sm leading-relaxed italic">
-                        &ldquo;Blocasset has been a revelation for my creative journey — supercharging my workflow and amplifying my income potential. The platform&apos;s intuitive interface and robust features make sharing and monetizing my work seamless. But it&apos;s not just the tech; the community and dedicated support are unmatched.&rdquo;
-                      </p>
-                    </div>
+                    {[
+                      {
+                        name: "Valentine",
+                        gradient: "linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)",
+                        quote: "“I’m a creator who loves to use Blocasset to sell my 3D assets and connect with other creators. I also use the site to store my 3D design files when I don’t have space on my computer. I’ve had great experiences with the site so far, and I’m excited to see what they have in store for us in the next version.”",
+                      },
+                      {
+                        name: "Designade",
+                        gradient: "linear-gradient(135deg, #e9d5ff 0%, #d8b4fe 100%)",
+                        quote: "“The outstanding feeling of being a creator is exactly how Blocasset helps me express and showcase my creative outputs.”",
+                      },
+                      {
+                        name: "Vicko",
+                        gradient: "linear-gradient(135deg, #bae6fd 0%, #7dd3fc 100%)",
+                        quote: "“Blockasset has been a revelation for my creative journey — supercharging my workflow and amplifying my income potential. The platform’s intuitive interface and robust features make sharing and monetizing my work seamless. But it’s not just the tech; the community and dedicated support are unmatched.”",
+                      },
+                    ].map(({ name, gradient, quote }) => (
+                      <div key={name}>
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-8 h-8 rounded-full shrink-0" style={{ background: gradient }} />
+                          <p className="text-sm font-medium text-zinc-900">{name}</p>
+                        </div>
+                        <p className="text-sm leading-relaxed italic">{quote}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </section>

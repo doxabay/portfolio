@@ -17,8 +17,12 @@ export function drawFrame(
   // DPR-aware transform — particle coords are CSS pixels, canvas pixels = CSS * dpr
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-  ctx.fillStyle = bg;
-  ctx.fillRect(0, 0, cssW, cssH);
+  if (bg === "transparent") {
+    ctx.clearRect(0, 0, cssW, cssH);
+  } else {
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, cssW, cssH);
+  }
 
   if (glow) {
     ctx.shadowBlur = 5;

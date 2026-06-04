@@ -3,13 +3,9 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const team = [
-  { src: "https://framerusercontent.com/images/mnoe2h9LB7jxQIhPDeJnfm4SXGs.jpg",  name: "Bayo",    role: "Product Designer" },
-  { src: "https://framerusercontent.com/images/LXmnlS8CPSoDeFeoPXUV08HGM.jpg",    name: "Clement", role: "Lead Designer" },
-  { src: "https://framerusercontent.com/images/lEd3jKNTiBmqMbr7TSlNqn1dots.jpg",  name: "Okwu",    role: "Frontend Engineer" },
-  { src: "https://framerusercontent.com/images/4Ggfmq4wGA4eXXsXJXlyxNp8RTk.jpg",  name: "Martins", role: "Backend Engineer" },
-  { src: "https://framerusercontent.com/images/PpcR6fFeVy11cvqUBbH60xNvKf8.png",  name: "Fatima",  role: "UI Designer" },
-  { src: "https://framerusercontent.com/images/GqX9wP3i4GpUm2ukPq8sfUAAFk.jpg",   name: "Joshua",  role: "Frontend Engineer" },
-  { src: "https://framerusercontent.com/images/FCHqLIocJPQCpQJFd8J2kRXaDu8.jpeg", name: "David",   role: "Product Manager" },
+  { src: "https://framerusercontent.com/images/mnoe2h9LB7jxQIhPDeJnfm4SXGs.jpg", name: "Bayo",    role: "Design" },
+  { src: "https://framerusercontent.com/images/LXmnlS8CPSoDeFeoPXUV08HGM.jpg",   name: "Clement", role: "Design" },
+  { src: "https://framerusercontent.com/images/PpcR6fFeVy11cvqUBbH60xNvKf8.png", name: "Fatima",  role: "Design" },
 ];
 
 export default function WitanAvatarCredits() {

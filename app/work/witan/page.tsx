@@ -50,18 +50,6 @@ export default async function WitanCaseStudy() {
   return (
     <div className="flex flex-col">
 
-      {/* Banner */}
-      <div className="w-full px-4 sm:px-6">
-        <div className="relative h-[40vh] sm:h-[55vh] lg:h-[70vh] overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://framerusercontent.com/images/sxeCXfZaAU8sGuVn7fANx2lrBM0.png"
-            alt="Witan cover"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
-
       <div className="flex min-h-screen">
 
         {/* Sidebar — desktop only */}
@@ -72,19 +60,6 @@ export default async function WitanCaseStudy() {
           </div>
         </aside>
 
-        {/* Decorative strip — desktop only */}
-        <div
-          className="hidden lg:block w-5 shrink-0 self-stretch ml-[104px] border-l border-r border-neutral-100 sticky top-0 h-screen"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              315deg,
-              transparent,
-              transparent 7px,
-              #e5e5e5 7px,
-              #e5e5e5 8px
-            )`,
-          }}
-        />
 
         {/* Content area */}
         <div className="flex-1 flex flex-col pt-6 lg:pt-[100px] pb-12 px-4 sm:px-6 lg:pl-[80px] lg:pr-6 min-w-0">
@@ -97,14 +72,16 @@ export default async function WitanCaseStudy() {
           {/* Page header */}
           <div id="case-study-header" className="w-full mb-8 lg:mb-[60px]" style={{ maxWidth: "min(75vw, 100%)" }}>
             <div className="flex flex-col gap-4">
-              <h1 className="text-3xl sm:text-4xl text-orange-500 tracking-tight font-medium">
-                <SquigglyText className="text-orange-500" scale={[4, 6]} stepDuration={320}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logos/witan.svg" alt="Witan logo" width={34} height={34} className="rounded-[6px] shrink-0" />
+              <h1 className="text-3xl sm:text-4xl text-neutral-950 tracking-tight font-medium">
+                <SquigglyText className="text-neutral-950" scale={[4, 6]} stepDuration={320}>
                   Witan
                 </SquigglyText>
               </h1>
-              <h3 className="text-base text-zinc-500 dark:text-zinc-400 w-full lg:w-[75%]">
+              <h1 className="text-neutral-950 dark:text-neutral-50 w-full lg:w-[75%]" style={{ fontFamily: "KaliceTrial", fontWeight: 500, fontSize: "28px" }}>
                 A ticketing platform where people can create and book events — built for flexible ticketing, audience insights, and payments beyond fiat.
-              </h3>
+              </h1>
               <p className="text-xs text-zinc-400 dark:text-zinc-500 tabular-nums">
                 2022–2023 / EVENTS / WEB3
               </p>
@@ -122,7 +99,7 @@ export default async function WitanCaseStudy() {
                 <div className="w-full lg:w-1/2 lg:shrink-0 grid grid-cols-2 gap-x-6 gap-y-8 lg:pr-[100px] content-start">
                   <div>
                     <p className="text-sm uppercase tracking-widest text-orange-500 mb-2 font-medium">Year</p>
-                    <p className="text-sm uppercase tracking-wide text-neutral-400">2022–2023</p>
+                    <p className="text-sm tracking-wide text-neutral-400">2022–2023</p>
                   </div>
                   <div>
                     <p className="text-sm uppercase tracking-widest text-orange-500 mb-2 font-medium">Industry</p>
@@ -153,6 +130,11 @@ export default async function WitanCaseStudy() {
               </div>
             </section>
 
+            <div className="mb-16">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/Witan-cover.jpg" alt="Witan product overview" className="w-full h-auto" />
+            </div>
+
             {/* Background */}
             <section id="background" className="mb-16">
               <div className="w-full lg:w-1/2 lg:ml-auto lg:pr-10">
@@ -179,17 +161,16 @@ export default async function WitanCaseStudy() {
             <section id="problem" className="mb-16">
               <div className="w-full lg:w-1/2 lg:ml-auto lg:pr-10">
                 <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">Problem Space</p>
-                <h2 className="text-xl mb-6">Leave no coins behind</h2>
 
                 <div className="space-y-8 mb-10">
                   <div>
-                    <h3 className="text-base font-medium mb-2">1. Tedious event setup and management</h3>
+                    <h3 className="text-base font-medium mb-2">Tedious event setup and management</h3>
                     <p className="text-sm leading-relaxed">
                       From too many flows to exhausting information requirements, most existing platforms fall short in simplifying event setup for organizers. Organizers are big on options that help them streamline this with less effort so they can concentrate on the actual planning of the event.
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-base font-medium mb-2">2. Getting paid is a major hassle</h3>
+                    <h3 className="text-base font-medium mb-2">Getting paid is a major hassle</h3>
                     <p className="text-sm leading-relaxed">
                       It&apos;s tough already setting up an event but that pain is nothing compared to the difficulty of converting US dollars to local currency for many event organizers in the African space. It&apos;s equally hard for attendees to purchase tickets in foreign currencies.
                     </p>

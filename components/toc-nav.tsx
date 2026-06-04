@@ -2,26 +2,20 @@
 
 import { useEffect, useState } from "react";
 
-type TocChild = { id: string; label: string };
-type TocItem = { id: string; label: string; children?: TocChild[] };
+type TocItem = { id: string; label: string; children?: { id: string; label: string }[] };
 
 export default function TocNav({ items }: { items: TocItem[] }) {
   const [activeId, setActiveId] = useState<string>("");
-  const [visible, setVisible] = useState(false);
+  const [visible] = useState(true);
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    const allIds = items.flatMap(({ id, children }) => [
-      id,
-      ...(children?.map((c) => c.id) ?? []),
-    ]);
+    const allIds = items.map(({ id }) => id);
     const elements = allIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
 
     const onScroll = () => {
-      if (window.scrollY >= 100) setVisible(true);
-
       let current = elements[0]?.id ?? "";
       for (const el of elements) {
         if (el.getBoundingClientRect().top <= 120) current = el.id;
@@ -38,8 +32,7 @@ export default function TocNav({ items }: { items: TocItem[] }) {
   // color transitions respond instantly on scroll.
   useEffect(() => {
     if (!visible || hasAnimated) return;
-    const totalLinks =
-      1 + items.reduce((acc, item) => acc + 1 + (item.children?.length ?? 0), 0);
+    const totalLinks = 1 + items.length;
     const timer = setTimeout(() => setHasAnimated(true), totalLinks * 20 + 280);
     return () => clearTimeout(timer);
   }, [visible, hasAnimated, items]);
@@ -65,9 +58,8 @@ export default function TocNav({ items }: { items: TocItem[] }) {
         Contents
       </p>
       <ul className="space-y-2.5">
-        {items.map(({ id, label, children }) => {
-          const childActive = children?.some((c) => c.id === activeId) ?? false;
-          const parentActive = activeId === id || childActive;
+        {items.map(({ id, label }) => {
+          const isActive = activeId === id;
           const idx = linkIndex++;
 
           return (
@@ -75,7 +67,7 @@ export default function TocNav({ items }: { items: TocItem[] }) {
               <a
                 href={`#${id}`}
                 className={`text-sm block pl-3 border-l active:scale-[0.96] ${
-                  parentActive
+                  isActive
                     ? "text-orange-500 border-orange-500"
                     : "text-zinc-400 dark:text-zinc-600 border-transparent hover:text-zinc-700 dark:hover:text-zinc-300"
                 }`}
@@ -83,28 +75,6 @@ export default function TocNav({ items }: { items: TocItem[] }) {
               >
                 {label}
               </a>
-              {children && children.length > 0 && (
-                <ul className="mt-1.5 space-y-1.5 ml-3 border-l border-neutral-100 dark:border-neutral-800">
-                  {children.map((child) => {
-                    const childIdx = linkIndex++;
-                    return (
-                      <li key={child.id}>
-                        <a
-                          href={`#${child.id}`}
-                          className={`text-xs block pl-3 active:scale-[0.96] ${
-                            activeId === child.id
-                              ? "text-zinc-700 dark:text-zinc-300"
-                              : "text-zinc-400 dark:text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400"
-                          }`}
-                          style={linkStyle(childIdx)}
-                        >
-                          {child.label}
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
             </li>
           );
         })}
