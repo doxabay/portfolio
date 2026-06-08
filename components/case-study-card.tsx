@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 type CaseStudy = {
   product: string;
@@ -17,8 +18,9 @@ type CaseStudy = {
   badge?: boolean;
 };
 
-const cardClass = "flex flex-row gap-[40px] rounded-[24px] p-3 bg-neutral-50 w-full max-w-[1580px] mx-auto active:scale-[0.99]";
+const cardClass = "flex flex-row gap-[40px] rounded-[24px] p-3 bg-neutral-50 dark:bg-zinc-900/60 w-full max-w-[1580px] mx-auto active:scale-[0.99]";
 const hoverShadow = "0 2px 3px -1.5px rgba(0,0,0,0.03), 0 0 0 1px rgba(204,204,204,0.28), 0 1px 2px 0 rgba(35,35,35,0.02), 0 2px 4px 0 rgba(35,35,35,0.015), 0 0 2px 1px rgba(18,18,23,0.01), inset 0 -4px 8px 0 rgba(235,235,239,0.13)";
+const darkHoverShadow = "0 0 0 1px oklch(27.4% 0.006 286.033 / 60%)";
 const cardTransition = "box-shadow 200ms cubic-bezier(0.2, 0, 0, 1), transform 150ms cubic-bezier(0.2, 0, 0, 1)";
 
 function CardInner({ study }: { study: CaseStudy }) {
@@ -36,7 +38,7 @@ function CardInner({ study }: { study: CaseStudy }) {
           />
         )}
       </div>
-      <div className="flex-1 flex flex-col gap-1 justify-end border-t-[0.7px] border-neutral-100 pt-4 pb-10 dark:border-neutral-100">
+      <div className="flex-1 flex flex-col gap-1 justify-end pt-4 pb-10">
         <div className="flex items-center gap-2 pb-2">
           {study.logo && (
             <Image
@@ -62,7 +64,9 @@ function CardInner({ study }: { study: CaseStudy }) {
 
 export default function CaseStudyCard({ study }: { study: CaseStudy }) {
   const [hovered, setHovered] = useState(false);
-  const style: React.CSSProperties = { boxShadow: hovered ? hoverShadow : "none", transition: cardTransition };
+  const { resolvedTheme } = useTheme();
+  const shadow = hovered ? (resolvedTheme === "dark" ? darkHoverShadow : hoverShadow) : "none";
+  const style: React.CSSProperties = { boxShadow: shadow, transition: cardTransition };
   const handlers = {
     onMouseEnter: () => setHovered(true),
     onMouseLeave: () => setHovered(false),

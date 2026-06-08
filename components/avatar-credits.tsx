@@ -27,8 +27,8 @@ export default function AvatarCredits() {
             />
           </TooltipTrigger>
           <TooltipContent side="top" className="text-center">
-            <p className="font-medium text-xs text-white">{name}</p>
-            <p className="text-xs text-neutral-400">{role}</p>
+            <p className="font-medium text-xs">{name}</p>
+            <p className="text-xs opacity-60">{role}</p>
           </TooltipContent>
         </Tooltip>
       ))}

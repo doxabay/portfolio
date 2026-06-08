@@ -4,6 +4,7 @@ import ImageCarousel from "@/components/image-carousel";
 import DashboardExpectations from "@/components/dashboard-expectations";
 import StickyBackLink from "@/components/sticky-back-link";
 import { SquigglyText } from "@/components/ui/squiggly-text";
+import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
 import { PencilCircle } from "@/components/pencil-circle";
 import WitanAvatarCredits from "@/components/witan-avatar-credits";
 import ViewportVideo from "@/components/viewport-video";
@@ -80,11 +81,11 @@ export default async function CaseStudyPage() {
           </div>
 
           <div id="case-study-header" className="w-full mb-8 lg:mb-[60px]" style={{ maxWidth: "min(75vw, 100%)" }}>
-            <div className="flex flex-col gap-4">
+            <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logos/blocasset.svg" alt="Blocasset logo" width={34} height={34} className="rounded-[6px] shrink-0" />
-              <h1 className="text-3xl sm:text-4xl text-neutral-950 tracking-tight font-medium">
-                <SquigglyText className="text-neutral-950" scale={[4, 6]} stepDuration={320}>
+              <h1 className="text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-medium">
+                <SquigglyText className="text-neutral-950 dark:text-neutral-50" scale={[4, 6]} stepDuration={320}>
                   Blocasset
                 </SquigglyText>
               </h1>
@@ -94,11 +95,11 @@ export default async function CaseStudyPage() {
               <p className="text-xs text-zinc-400 dark:text-zinc-500 tabular-nums">
                 2022–2024 / PRODUCT / WEB
               </p>
-            </div>
+            </StaggerHeader>
           </div>
 
             {/* Canvas */}
-            <div className="w-full py-8 lg:py-[60px] text-zinc-800 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600">
+            <CaseStudyCanvas className="w-full py-8 lg:py-[60px] text-zinc-800 dark:text-zinc-200 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600 dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400">
 
               {/* Overview */}
               <section id="overview" className="mb-16">
@@ -559,7 +560,7 @@ export default async function CaseStudyPage() {
                   <p className="text-sm leading-relaxed mb-8">
                     The creator dashboard now serves as a central hub that provides creators with real-time performance data and important updates, enabling better decision-making.
                   </p>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-4">
                     {[
                       { stat: "500+", label: "User acquisition", desc: "Onboarded over 500 users within the first month of V1 launch", icon: "/acqui.svg" },
                       { stat: "16", label: "Influential Creators", desc: "Onboarded 16 established creators with free/paid assets to share with their community", icon: "/influ.svg" },
@@ -567,11 +568,11 @@ export default async function CaseStudyPage() {
                       { stat: "100+", label: "Asset Uploads", desc: "Creators we partnered with uploaded their free & paid assets", icon: "/assets.svg" },
                       { stat: "1,000+", label: "Asset Downloads", desc: "Creators/users downloaded free assets and a single asset purchase worth $10", icon: "/download.svg" },
                     ].map(({ stat, label, desc, icon }) => (
-                      <div key={stat} className="bg-neutral-50 border border-neutral-100 rounded-lg p-4">
+                      <div key={stat} className="bg-white dark:bg-zinc-900 shadow-card-large dark:shadow-none dark:border dark:border-zinc-800/50 rounded-3xl p-6">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={icon} alt="" aria-hidden className="w-5 h-5 mb-3" />
-                        <p className="text-2xl text-zinc-900 mb-1" style={{ fontFamily: "KaliceTrial", fontWeight: 500 }}>{stat}</p>
-                        <p className="text-sm font-medium text-zinc-700 mb-1">{label}</p>
+                        <p className="text-2xl text-zinc-100 mb-1" style={{ fontFamily: "KaliceTrial", fontWeight: 500 }}>{stat}</p>
+                        <p className="text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">{label}</p>
                         <p className="text-xs text-zinc-400 leading-relaxed">{desc}</p>
                       </div>
                     ))}
@@ -604,7 +605,7 @@ export default async function CaseStudyPage() {
                       <div key={name}>
                         <div className="flex items-center gap-3 mb-2">
                           <div className="w-8 h-8 rounded-full shrink-0" style={{ background: gradient }} />
-                          <p className="text-sm font-medium text-zinc-900">{name}</p>
+                          <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">{name}</p>
                         </div>
                         <p className="text-sm leading-relaxed italic">{quote}</p>
                       </div>
@@ -613,7 +614,7 @@ export default async function CaseStudyPage() {
                 </div>
               </section>
 
-            </div>
+            </CaseStudyCanvas>
         </div>
       </div>
     </div>

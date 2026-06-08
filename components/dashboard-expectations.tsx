@@ -39,9 +39,9 @@ const responses = [
 
 export default function DashboardExpectations() {
   return (
-    <div className="flex flex-row gap-12 py-14 px-10 rounded-2xl mb-16">
+    <div className="flex flex-col lg:flex-row gap-12 py-14 px-10 rounded-2xl mb-16">
       {/* Left: question */}
-      <div className="w-[35%] flex flex-col items-start justify-start">
+      <div className="w-full lg:w-[35%] flex flex-col items-start justify-start">
         <p className="text-xs uppercase tracking-widest text-orange-500 mb-5 font-medium">
           FEEDBACKS
         </p>
@@ -75,7 +75,7 @@ export default function DashboardExpectations() {
               padding: 28,
             }}
           >
-            <p className="text-base leading-relaxed text-neutral-600">{r.quote}</p>
+            <p className="text-base leading-relaxed text-zinc-950">{r.quote}</p>
             <p className="text-sm font-medium text-zinc-800 mt-auto pt-4">{r.author}</p>
           </div>
         ))}

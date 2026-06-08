@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import TocNav from "@/components/toc-nav";
 import StickyBackLink from "@/components/sticky-back-link";
 import { SquigglyText } from "@/components/ui/squiggly-text";
+import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
 import WitanAvatarCredits from "@/components/witan-avatar-credits";
 
 export const metadata: Metadata = { title: "Witan" };
@@ -71,11 +72,11 @@ export default async function WitanCaseStudy() {
 
           {/* Page header */}
           <div id="case-study-header" className="w-full mb-8 lg:mb-[60px]" style={{ maxWidth: "min(75vw, 100%)" }}>
-            <div className="flex flex-col gap-4">
+            <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logos/witan.svg" alt="Witan logo" width={34} height={34} className="rounded-[6px] shrink-0" />
-              <h1 className="text-3xl sm:text-4xl text-neutral-950 tracking-tight font-medium">
-                <SquigglyText className="text-neutral-950" scale={[4, 6]} stepDuration={320}>
+              <h1 className="text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-medium">
+                <SquigglyText className="text-neutral-950 dark:text-neutral-50" scale={[4, 6]} stepDuration={320}>
                   Witan
                 </SquigglyText>
               </h1>
@@ -85,11 +86,11 @@ export default async function WitanCaseStudy() {
               <p className="text-xs text-zinc-400 dark:text-zinc-500 tabular-nums">
                 2022–2023 / EVENTS / WEB3
               </p>
-            </div>
+            </StaggerHeader>
           </div>
 
           {/* Canvas */}
-          <div className="w-full py-8 lg:py-[60px] text-zinc-800 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600">
+          <CaseStudyCanvas className="w-full py-8 lg:py-[60px] text-zinc-800 dark:text-zinc-200 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600 dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400">
 
             {/* Overview */}
             <section id="overview" className="mb-16">
@@ -143,7 +144,7 @@ export default async function WitanCaseStudy() {
                 <p className="text-sm leading-relaxed mb-6">
                   Many see the ticketing space as just another low-hanging fruit — the stakes are somewhat lower and the technologies involved are readily available today. But for Nigerians, buying things online has only been a thing in the last 2 years. We have gradually evolved from the crude pay-at-the-venue process to buying tickets online. However, the current solutions fail in many ways to adequately cater for the ticketing needs of the Nigerian population.
                 </p>
-                <blockquote className="text-base italic font-normal text-zinc-800 border-l-2 border-zinc-200 pl-5 mb-6">
+                <blockquote className="text-base italic font-normal text-zinc-800 dark:text-zinc-100 border-l-2 border-zinc-200 pl-5 mb-6">
                   &ldquo;For most Africans, Eventbrite is overcooked — it&apos;s like using a sledgehammer to crack a nut. Lots of features, but the problem of payment will always be a major painpoint. Nobody cares if it leaves money on the table.&rdquo;
                 </blockquote>
                 <p className="text-sm leading-relaxed">
@@ -231,13 +232,13 @@ export default async function WitanCaseStudy() {
                 <p className="text-sm uppercase tracking-widest text-orange-500 mb-3 font-medium">Research Summary</p>
                 <ul className="text-sm leading-relaxed space-y-4 list-disc list-outside pl-5">
                   <li>
-                    <strong className="text-zinc-700 font-medium">Onboarding difficulties</strong> — users find it hard to sign up on existing platforms like Eventbrite due to unavailability of mobile verification options for Nigerians.
+                    <strong className="text-zinc-700 dark:text-zinc-300 font-medium">Onboarding difficulties</strong> — users find it hard to sign up on existing platforms like Eventbrite due to unavailability of mobile verification options for Nigerians.
                   </li>
                   <li>
-                    <strong className="text-zinc-700 font-medium">Ticket fraud and duplicates</strong> — organizers have experienced major challenges with cases where tickets are resold or reused during events.
+                    <strong className="text-zinc-700 dark:text-zinc-300 font-medium">Ticket fraud and duplicates</strong> — organizers have experienced major challenges with cases where tickets are resold or reused during events.
                   </li>
                   <li>
-                    <strong className="text-zinc-700 font-medium">Audience reach</strong> — due to low penetration of ticketing platforms in Nigeria, there&apos;s low discoverability of events and organizers are unable to optimize for reach and profit.
+                    <strong className="text-zinc-700 dark:text-zinc-300 font-medium">Audience reach</strong> — due to low penetration of ticketing platforms in Nigeria, there&apos;s low discoverability of events and organizers are unable to optimize for reach and profit.
                   </li>
                 </ul>
               </div>
@@ -337,7 +338,7 @@ export default async function WitanCaseStudy() {
                   <li>At what point of the purchase is a ticket considered taken (or purchased)?</li>
                   <li>What solutions can we introduce that align with development time without breaking the flow?</li>
                 </ol>
-                <blockquote className="text-sm italic font-normal text-zinc-700 border-l-2 border-zinc-200 pl-5">
+                <blockquote className="text-sm italic font-normal text-zinc-700 dark:text-zinc-100 border-l-2 border-zinc-200 pl-5">
                   Working closely with the developers, we came up with a reservation idea right at the point where e-delivery details are collected and before making the final payment.
                 </blockquote>
               </div>
@@ -524,7 +525,7 @@ export default async function WitanCaseStudy() {
               </div>
             </section>
 
-          </div>
+          </CaseStudyCanvas>
         </div>
       </div>
     </div>

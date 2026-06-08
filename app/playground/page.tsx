@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import FlowDiagram from "@/components/flow-diagram";
-import AsciiSpotlight from "@/components/ascii-spotlight";
 import DitherTool from "@/components/dither-tool";
 import ParticleDither from "@/components/particle-dither";
 
@@ -20,24 +18,8 @@ type Experiment = {
 
 const experiments: Experiment[] = [
   {
-    slug: "bracket-flow",
-    number: "01",
-    title: "Blocasset Onboarding Flow",
-    preview: <FlowDiagram preview />,
-    dark: false,
-    previewClass: "p-6 pt-8",
-  },
-  {
-    slug: "ascii",
-    number: "02",
-    title: "ASCII Spotlight",
-    preview: <AsciiSpotlight preview />,
-    dark: true,
-    previewClass: "",
-  },
-  {
     slug: "dither",
-    number: "03",
+    number: "01",
     title: "Dither Tool",
     preview: <DitherTool preview />,
     dark: true,
@@ -45,7 +27,7 @@ const experiments: Experiment[] = [
   },
   {
     slug: "particle-dither",
-    number: "04",
+    number: "02",
     title: "Particle Dither",
     preview: <ParticleDither preview />,
     dark: true,
@@ -61,12 +43,12 @@ const placeholders = Array.from(
 
 export default function Playground() {
   return (
-    <div className="min-h-screen bg-neutral-50 px-6 py-16">
+    <div className="min-h-screen bg-neutral-50 dark:bg-zinc-950 px-6 py-16">
       <div className="max-w-6xl mx-auto">
 
         <div className="mb-12">
           <p className="text-xs uppercase tracking-widest text-orange-500 font-medium mb-3">Lab</p>
-          <h1 className="text-3xl font-medium text-zinc-900 tracking-tight">Playground</h1>
+          <h1 className="text-3xl font-medium text-zinc-900 dark:text-zinc-100 tracking-tight">Playground</h1>
           <p className="text-sm text-neutral-400 mt-2">Experimental animations and interactions.</p>
         </div>
 
@@ -104,9 +86,9 @@ export default function Playground() {
           {placeholders.map((num) => (
             <div
               key={num}
-              className="relative h-[480px] rounded-xl border border-dashed border-neutral-200 bg-white flex items-center justify-center"
+              className="relative h-[480px] rounded-xl border border-dashed border-neutral-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 flex items-center justify-center"
             >
-              <p className="text-2xl font-light text-neutral-200 tabular-nums">{num}</p>
+              <p className="text-2xl font-light text-neutral-200 dark:text-zinc-700 tabular-nums">{num}</p>
             </div>
           ))}
         </div>

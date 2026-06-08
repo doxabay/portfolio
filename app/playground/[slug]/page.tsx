@@ -64,7 +64,7 @@ export default async function ExperimentPage({
   if (!exp) notFound();
 
   return (
-    <div className="min-h-screen bg-neutral-50 px-6 py-16">
+    <div className="min-h-screen bg-neutral-50 dark:bg-zinc-950 px-6 py-16">
       <div className="max-w-6xl mx-auto">
 
         <Link
@@ -81,7 +81,7 @@ export default async function ExperimentPage({
           <p className="text-xs uppercase tracking-widest text-orange-500 font-medium mb-1">
             Experiment {exp.number}
           </p>
-          <h1 className="text-2xl font-medium text-zinc-900 tracking-tight">{exp.title}</h1>
+          <h1 className="text-2xl font-medium text-zinc-900 dark:text-zinc-100 tracking-tight">{exp.title}</h1>
           <p className="text-sm text-neutral-400 mt-1">{exp.description}</p>
         </div>
 

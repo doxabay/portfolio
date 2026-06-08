@@ -9,7 +9,7 @@ type: project
 ## Stack
 - Next.js 16 (app router, async params), React 19, Tailwind v4, TypeScript
 - shadcn (Radix preset, initialized), `motion` package for PointerHighlight
-- Key deps: `class-variance-authority`, `clsx`, `tailwind-merge`, `radix-ui`, `tw-animate-css`, `lucide-react`, `motion`
+- Key deps: `class-variance-authority`, `clsx`, `tailwind-merge`, `radix-ui`, `tw-animate-css`, `lucide-react`, `motion`, `next-themes`
 
 ## Fonts
 - Body/UI: **SuisseIntlTrial-Regular** — registered via `@font-face` in `globals.css`
@@ -19,12 +19,32 @@ type: project
 ## Primary Colour
 **Orange 500** — used for TOC active state, canvas section labels, DashboardExpectations "FEEDBACKS" label.
 
+## Dark Mode
+Implemented via `next-themes` with class-based toggling (`attribute="class"`). Default theme: light. Toggle persists to localStorage.
+
+**Infrastructure:**
+- `components/theme-provider.tsx` — `NextThemesProvider` wrapper, used in `app/layout.tsx`
+- `components/theme-toggle.tsx` — Sun/Moon button (lucide-react), mounted-guard for SSR, lives in nav
+- `@custom-variant dark (&:is(.dark *))` in globals.css — class must be on an ancestor; next-themes puts it on `<html>`
+
+**Dark colour decisions (as of this session):**
+- Site background: `dark:bg-zinc-950` / CSS var `--background: oklch(14.1% 0.005 285.823)`
+- Card shell fill: `dark:bg-zinc-900/60`
+- Card shell hover border: `0 0 0 1px oklch(27.4% 0.006 286.033 / 60%)` (zinc-800 at 60%) — light mode shadow suppressed in dark
+- Image fill areas (colored bg behind project images): all `/20` opacity, e.g. `bg-zinc-100/20 dark:bg-zinc-800/20`
+- Canvas section text: `dark:text-zinc-200`; body copy selector: `dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400`
+- Page h1 headings (SquigglyText + subtitle): `dark:text-neutral-50`
+- Global `p` dark override in globals.css: `.dark p { color: var(--color-neutral-300) }`
+- Nav border: already had `dark:border-neutral-800`
+
+**Card info column:** top border (`border-t-[0.7px]`) was removed entirely (both modes).
+
 ## Global CSS conventions (`app/globals.css`)
 - Canvas body text override: `[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600`
 - Borders: always `neutral-100`
 
 ## Nav (`components/nav.tsx`)
-- Not sticky, backdrop-blur. Logo left, links right (About / Playground / Blog — uppercase text-xs)
+- Not sticky. Logo left, ThemeToggle + links right (About / Playground / Resume — uppercase text-xs)
 
 ---
 
@@ -34,18 +54,21 @@ type: project
 - "Selected work" heading: `text-base font-semibold uppercase`, `fontFamily: "SuisseIntlTrial"`
 - Case study cards rendered via `<CaseStudyCard>` from `caseStudies` array
 
+### Homepage project order (as of this session)
+1. Blocasset, 2. Noblocks, 3. Witan, 4. Safewalletapp, 5. Follow Flash, 6. Paycrest, 7. Synthetix, 8. Plutofi, 9. Bintin
+
 ### Case study card metadata (source of truth = individual case study pages)
-| Product | Title (card) | Niche | Year |
-|---|---|---|---|
-| Blocasset | "From beta to v1: Designing an onchain platform for powering creator's success" | Product / Web | 2022–2024 |
-| Paycrest | "Building a real-time collaboration layer" | Architecture | 2024-2025 |
-| Witan | "A ticketing platform where people can create and book events — built for flexible ticketing, audience insights, and payments beyond fiat." | Events / Web3 | 2022–2023 |
-| Follow Flash | "Designing an AI powered system for social media management and automation for creators" | AI / SAAS | 2025-2026 |
-| Safewalletapp | "Designing a secure self-custody wallet experience for crypto degens" | UI / Mobile | 2024 |
-| Noblocks | "Simplifying cross-border payments through a seamless stablecoin offramp" | Product / UX | 2024 |
-| Synthetix | "Designing the trading interface for a decentralised derivatives protocol" | Product / UX | 2024 |
-| Bintin | "From friction to flow: Redesigning Bintin's mobile app to inspire trust and improve trade completion rate." | Mobile / UI | 2023 |
-| Plutofi | "Designing a DeFi wealth management dashboard for non-technical users" | Mobile / UI | 2024 |
+| Product | Title (card) | Niche | Year | bg (light / dark) |
+|---|---|---|---|---|
+| Blocasset | "From beta to v1: Designing an onchain platform for powering creator's success" | Product / Web | 2022–2024 | zinc-100/20 / zinc-800/20 |
+| Noblocks | "Simplifying cross-border payments through a seamless stablecoin offramp" | Product / UX | 2024 | zinc-100/20 / zinc-800/20 |
+| Witan | "A ticketing platform where people can create and book events…" | Events / Web3 | 2022–2023 | red-50/20 / red-950/20 |
+| Safewalletapp | "Designing a secure self-custody wallet experience for crypto degens" | UI / Mobile | 2024 | emerald-50/20 / emerald-950/20 |
+| Follow Flash | "Designing an AI powered system for social media management and automation for creators" | AI / SAAS | 2025-2026 | zinc-900/20 / zinc-100/20 |
+| Paycrest | "Building a real-time collaboration layer" | Architecture | 2024-2025 | zinc-200/20 / zinc-700/20 |
+| Synthetix | "Designing the trading interface for a decentralised derivatives protocol" | Product / UX | 2024 | indigo-50/20 / indigo-950/20 |
+| Plutofi | "Designing a DeFi wealth management dashboard for non-technical users" | Mobile / UI | 2024 | violet-50/20 / violet-950/20 |
+| Bintin | "From friction to flow: Redesigning Bintin's mobile app to inspire trust and improve trade completion rate." | Mobile / UI | 2023 | lime-50/20 / lime-950/20 |
 
 ---
 
@@ -129,7 +152,10 @@ Additional shot images stacked with mb-4, last one mb-16
 
 ### `components/case-study-card.tsx`
 - Supports optional `image` field → `<Image fill object-cover>`
-- Border: `border-t-[0.7px] border-neutral-100`
+- Info column has NO top border (removed)
+- Card shell: `bg-neutral-50 dark:bg-zinc-900/60`
+- Hover: light mode uses full `hoverShadow` (multi-layer box-shadow); dark mode uses `darkHoverShadow` = `0 0 0 1px oklch(27.4% 0.006 286.033 / 60%)` — implemented via `useTheme` + `resolvedTheme` check on the inline style, NOT CSS classes
+- Image fill area uses `study.bg` class with `/20` opacity on both light and dark variants
 
 ### `components/hero-particle-render.tsx`
 - Wraps `ParticleDitherEmbed` in a `shrink-0 overflow-hidden rounded-[8px]` div

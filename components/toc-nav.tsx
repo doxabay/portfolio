@@ -69,7 +69,7 @@ export default function TocNav({ items }: { items: TocItem[] }) {
                 className={`text-sm block pl-3 border-l active:scale-[0.96] ${
                   isActive
                     ? "text-orange-500 border-orange-500"
-                    : "text-zinc-400 dark:text-zinc-600 border-transparent hover:text-zinc-700 dark:hover:text-zinc-300"
+                    : "text-zinc-500 dark:text-zinc-500 border-transparent hover:text-zinc-700 dark:hover:text-zinc-300"
                 }`}
                 style={linkStyle(idx)}
               >

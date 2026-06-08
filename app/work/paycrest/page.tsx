@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import StickyBackLink from "@/components/sticky-back-link";
 import { SquigglyText } from "@/components/ui/squiggly-text";
+import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
 import WitanAvatarCredits from "@/components/witan-avatar-credits";
 
 export const metadata: Metadata = { title: "Paycrest" };
@@ -27,11 +28,11 @@ export default async function PaycrestCaseStudy() {
 
           {/* Page header */}
           <div id="case-study-header" className="w-full mb-8 lg:mb-[60px]" style={{ maxWidth: "min(75vw, 100%)" }}>
-            <div className="flex flex-col gap-4">
+            <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logos/paycrest.svg" alt="Paycrest logo" width={34} height={34} className="rounded-[6px] shrink-0" />
-              <h1 className="text-3xl sm:text-4xl text-neutral-950 tracking-tight font-medium">
-                <SquigglyText className="text-neutral-950" scale={[4, 6]} stepDuration={320}>
+              <h1 className="text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-medium">
+                <SquigglyText className="text-neutral-950 dark:text-neutral-50" scale={[4, 6]} stepDuration={320}>
                   Paycrest
                 </SquigglyText>
               </h1>
@@ -41,11 +42,11 @@ export default async function PaycrestCaseStudy() {
               <p className="text-xs text-zinc-400 dark:text-zinc-500 tabular-nums">
                 2024-2025 / ARCHITECTURE
               </p>
-            </div>
+            </StaggerHeader>
           </div>
 
           {/* Canvas */}
-          <div className="w-full py-8 lg:py-[60px] text-zinc-800 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600">
+          <CaseStudyCanvas className="w-full py-8 lg:py-[60px] text-zinc-800 dark:text-zinc-200 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600 dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400">
 
             {/* Overview */}
             <section id="overview" className="mb-16">
@@ -87,7 +88,7 @@ export default async function PaycrestCaseStudy() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/Paycrest-01.jpg" alt="Paycrest cover" className="w-full h-auto rounded-[12px] mb-16" />
 
-          </div>
+          </CaseStudyCanvas>
         </div>
       </div>
     </div>
