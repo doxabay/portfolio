@@ -11,7 +11,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 14 },
-  visible: { opacity: 1, y: 0, transition: { type: "spring", duration: 0.5, bounce: 0 } },
+  visible: { opacity: 1, y: 0, transition: { type: "spring" as const, duration: 0.5, bounce: 0 } },
 };
 
 export function StaggerHeader({ children, className }: { children: ReactNode; className?: string }) {
