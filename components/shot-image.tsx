@@ -14,8 +14,14 @@ export default function ShotImage({ src, alt }: { src: string; alt: string }) {
       </div>
       <div className="absolute inset-0 bg-black/20" />
       <div className="relative z-10 flex items-center justify-center py-12">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt} className="w-[70%] h-auto" />
+        <Image
+          src={src}
+          alt={alt}
+          width={0}
+          height={0}
+          sizes="70vw"
+          className="w-[70%] h-auto"
+        />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 interface ImageCarouselProps {
   images: { src: string; alt: string }[];
@@ -19,11 +20,14 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
 
   return (
     <div className="relative w-full select-none rounded-[12px] overflow-hidden">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={images[index].src}
         alt={images[index].alt}
+        width={0}
+        height={0}
+        sizes="100vw"
         className="w-full h-auto"
+        priority={index === 0}
       />
 
       <button
