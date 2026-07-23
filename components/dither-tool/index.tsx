@@ -26,8 +26,8 @@ function saveSettings(s: DitherSettings) {
 function Row({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-[10px] font-medium uppercase tracking-widest text-zinc-500">{label}</span>
-      <span className="text-[11px] font-mono text-zinc-300 tabular-nums">{value}</span>
+      <span className="text-[10px] font-medium uppercase tracking-widest text-neutral-500">{label}</span>
+      <span className="text-[11px] font-mono text-neutral-300 tabular-nums">{value}</span>
     </div>
   );
 }
@@ -46,8 +46,8 @@ function Slider({ label, value, min, max, step = 1, format, onChange }: SliderPr
   return (
     <div className="flex flex-col gap-1.5">
       <div className="flex items-center justify-between">
-        <span className="text-[10px] font-medium uppercase tracking-widest text-zinc-500">{label}</span>
-        <span className="text-[11px] font-mono text-zinc-300 tabular-nums">
+        <span className="text-[10px] font-medium uppercase tracking-widest text-neutral-500">{label}</span>
+        <span className="text-[11px] font-mono text-neutral-300 tabular-nums">
           {format ? format(value) : value}
         </span>
       </div>
@@ -58,7 +58,7 @@ function Slider({ label, value, min, max, step = 1, format, onChange }: SliderPr
         step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-[2px] appearance-none cursor-pointer rounded-full bg-zinc-700 accent-orange-500"
+        className="w-full h-[2px] appearance-none cursor-pointer rounded-full bg-neutral-700 accent-neutral-100"
       />
     </div>
   );
@@ -67,11 +67,11 @@ function Slider({ label, value, min, max, step = 1, format, onChange }: SliderPr
 function Toggle({ label, value, onChange }: { label: string; value: boolean; onChange: (v: boolean) => void }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-[10px] font-medium uppercase tracking-widest text-zinc-500">{label}</span>
+      <span className="text-[10px] font-medium uppercase tracking-widest text-neutral-500">{label}</span>
       <button
         type="button"
         onClick={() => onChange(!value)}
-        className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors duration-200 ${value ? "bg-orange-500" : "bg-zinc-700"}`}
+        className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors duration-200 ${value ? "bg-neutral-100" : "bg-neutral-700"}`}
       >
         <span className={`pointer-events-none inline-block h-4 w-4 rounded-full bg-white shadow transition-transform duration-200 mt-0.5 ${value ? "translate-x-4" : "translate-x-0.5"}`} />
       </button>
@@ -82,15 +82,15 @@ function Toggle({ label, value, onChange }: { label: string; value: boolean; onC
 function Section({ title, children, defaultOpen = true }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div className="border-b border-zinc-800/80">
+    <div className="border-b border-neutral-800/80">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
         className="flex w-full items-center justify-between px-4 py-2.5 hover:bg-white/[0.03] transition-colors"
       >
-        <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-zinc-500">{title}</span>
+        <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-neutral-500">{title}</span>
         <svg
-          className={`h-3 w-3 text-zinc-600 transition-transform duration-150 ${open ? "rotate-180" : ""}`}
+          className={`h-3 w-3 text-neutral-600 transition-transform duration-150 ${open ? "rotate-180" : ""}`}
           viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5"
         >
           <path d="M2 4l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
@@ -322,26 +322,26 @@ function DitherToolFull() {
   const isBayer = settings.algorithm === "bayer";
 
   return (
-    <div className="flex flex-col w-full rounded-2xl overflow-hidden border border-zinc-800" style={{ height: "75vh", minHeight: 580, background: "#111113" }}>
+    <div className="flex flex-col w-full rounded-2xl overflow-hidden border border-neutral-800" style={{ height: "75vh", minHeight: 580, background: "#111113" }}>
 
       {/* Header */}
-      <div className="flex items-center justify-between px-4 h-10 border-b border-zinc-800/80 flex-shrink-0">
+      <div className="flex items-center justify-between px-4 h-10 border-b border-neutral-800/80 flex-shrink-0">
         <div className="flex items-center gap-2.5">
-          <span className="text-[9px] font-bold uppercase tracking-[0.18em] text-zinc-500">Experiment 03</span>
-          <span className="text-zinc-800">·</span>
-          <span className="text-[11px] font-medium text-zinc-300">Dither Tool</span>
+          <span className="text-[9px] font-bold uppercase tracking-[0.18em] text-neutral-500">Experiment 03</span>
+          <span className="text-neutral-800">·</span>
+          <span className="text-[11px] font-medium text-neutral-300">Dither Tool</span>
         </div>
         <div className="flex items-center gap-1">
           <button
             onClick={handleCopyJSON}
-            className="flex items-center gap-1.5 px-3 py-1 rounded text-[10px] font-medium uppercase tracking-wider transition-colors text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+            className="flex items-center gap-1.5 px-3 py-1 rounded text-[10px] font-medium uppercase tracking-wider transition-colors text-neutral-400 hover:text-neutral-100 hover:bg-white/5"
           >
             {copied ? (
               <>
-                <svg className="w-3 h-3 text-orange-400" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg className="w-3 h-3 text-neutral-300" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M2 6l3 3 5-5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <span className="text-orange-400">Copied</span>
+                <span className="text-neutral-300">Copied</span>
               </>
             ) : (
               <>
@@ -356,7 +356,7 @@ function DitherToolFull() {
 
           <button
             onClick={handleExportJSON}
-            className="flex items-center gap-1.5 px-3 py-1 rounded text-[10px] font-medium uppercase tracking-wider transition-colors text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+            className="flex items-center gap-1.5 px-3 py-1 rounded text-[10px] font-medium uppercase tracking-wider transition-colors text-neutral-400 hover:text-neutral-100 hover:bg-white/5"
           >
             <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M2 3h2.5M2 6h4M2 9h2" strokeLinecap="round" />
@@ -365,12 +365,12 @@ function DitherToolFull() {
             Export JSON
           </button>
 
-          <div className="w-px h-4 bg-zinc-800 mx-1" />
+          <div className="w-px h-4 bg-neutral-800 mx-1" />
 
           <button
             onClick={handleExportDots}
             disabled={!processedSize}
-            className="flex items-center gap-1.5 px-3 py-1 rounded text-[10px] font-medium uppercase tracking-wider transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+            className="flex items-center gap-1.5 px-3 py-1 rounded text-[10px] font-medium uppercase tracking-wider transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-neutral-400 hover:text-neutral-100 hover:bg-white/5"
           >
             <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
               <circle cx="2.5" cy="6" r="1" fill="currentColor" stroke="none" />
@@ -385,7 +385,7 @@ function DitherToolFull() {
           <button
             onClick={handleExport}
             disabled={!processedSize}
-            className="flex items-center gap-1.5 px-3 py-1 rounded text-[10px] font-medium uppercase tracking-wider transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+            className="flex items-center gap-1.5 px-3 py-1 rounded text-[10px] font-medium uppercase tracking-wider transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-neutral-400 hover:text-neutral-100 hover:bg-white/5"
           >
             <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M6 1v6M3 7l3 3 3-3M1 10h10" strokeLinecap="round" strokeLinejoin="round" />
@@ -398,7 +398,7 @@ function DitherToolFull() {
       <div className="flex flex-1 min-h-0">
 
         {/* Sidebar */}
-        <aside className="w-[240px] shrink-0 overflow-y-auto border-r border-zinc-800/80 flex flex-col" style={{ background: "#1a1a1d" }}>
+        <aside className="w-[240px] shrink-0 overflow-y-auto border-r border-neutral-800/80 flex flex-col" style={{ background: "#1a1a1d" }}>
 
           {/* Upload */}
           <Section title="Source Image">
@@ -408,15 +408,15 @@ function DitherToolFull() {
               onDrop={handleDrop}
               onClick={() => fileRef.current?.click()}
               className={`flex flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed py-5 cursor-pointer transition-colors ${
-                isDragging ? "border-orange-500 bg-orange-500/5" : "border-zinc-700 hover:border-zinc-500"
+                isDragging ? "border-neutral-500 bg-neutral-500/10" : "border-neutral-700 hover:border-neutral-500"
               }`}
             >
-              <svg className="w-5 h-5 text-zinc-600" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <svg className="w-5 h-5 text-neutral-600" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M10 3v9M7 6l3-3 3 3" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M3 13v3a1 1 0 001 1h12a1 1 0 001-1v-3" strokeLinecap="round" />
               </svg>
-              <span className="text-[10px] text-zinc-500">Drop image or click</span>
-              <span className="text-[9px] text-zinc-700">PNG · JPEG · WebP</span>
+              <span className="text-[10px] text-neutral-500">Drop image or click</span>
+              <span className="text-[9px] text-neutral-700">PNG · JPEG · WebP</span>
             </div>
             <input ref={fileRef} type="file" accept="image/png,image/jpeg,image/webp" className="hidden" onChange={handleFileChange} />
 
@@ -434,7 +434,7 @@ function DitherToolFull() {
             <select
               value={settings.algorithm}
               onChange={(e) => update("algorithm", e.target.value as AlgorithmId)}
-              className="w-full rounded-md px-2.5 py-1.5 text-xs text-zinc-200 border border-zinc-700 focus:outline-none focus:border-orange-500 cursor-pointer"
+              className="w-full rounded-md px-2.5 py-1.5 text-xs text-neutral-200 border border-neutral-700 focus:outline-none focus:border-neutral-500 cursor-pointer"
               style={{ background: "#111113" }}
             >
               {Object.entries(ALGO_LABELS).map(([id, label]) => (
@@ -444,8 +444,8 @@ function DitherToolFull() {
 
             {isBayer && (
               <div className="flex flex-col gap-1.5">
-                <span className="text-[10px] font-medium uppercase tracking-widest text-zinc-500">Matrix Size</span>
-                <div className="grid grid-cols-3 rounded-md overflow-hidden border border-zinc-700">
+                <span className="text-[10px] font-medium uppercase tracking-widest text-neutral-500">Matrix Size</span>
+                <div className="grid grid-cols-3 rounded-md overflow-hidden border border-neutral-700">
                   {([2, 4, 8] as const).map((sz) => (
                     <button
                       key={sz}
@@ -453,8 +453,8 @@ function DitherToolFull() {
                       onClick={() => update("bayerSize", sz as BayerSize)}
                       className={`py-1.5 text-[10px] font-mono transition-colors ${
                         settings.bayerSize === sz
-                          ? "bg-orange-500 text-white"
-                          : "text-zinc-400 hover:bg-white/5"
+                          ? "bg-neutral-100 text-neutral-900"
+                          : "text-neutral-400 hover:bg-white/5"
                       }`}
                     >
                       {sz}×{sz}
@@ -519,16 +519,16 @@ function DitherToolFull() {
             />
             <Toggle label="Circular Mask" value={settings.circularMask} onChange={(v) => update("circularMask", v)} />
             <div className="flex flex-col gap-1.5">
-              <span className="text-[10px] font-medium uppercase tracking-widest text-zinc-500">Background</span>
+              <span className="text-[10px] font-medium uppercase tracking-widest text-neutral-500">Background</span>
               <div className="flex items-center gap-2">
                 <input
                   type="color"
                   value={settings.bgColor}
                   onChange={(e) => update("bgColor", e.target.value)}
-                  className="h-7 w-7 cursor-pointer rounded border border-zinc-700 p-0.5"
+                  className="h-7 w-7 cursor-pointer rounded border border-neutral-700 p-0.5"
                   style={{ background: "transparent" }}
                 />
-                <span className="text-[11px] font-mono text-zinc-400">{settings.bgColor.toUpperCase()}</span>
+                <span className="text-[11px] font-mono text-neutral-400">{settings.bgColor.toUpperCase()}</span>
               </div>
             </div>
           </Section>
@@ -537,11 +537,11 @@ function DitherToolFull() {
           <div className="flex-1" />
 
           {/* Reset */}
-          <div className="p-4 border-t border-zinc-800/80">
+          <div className="p-4 border-t border-neutral-800/80">
             <button
               type="button"
               onClick={() => setSettings(DEFAULT_SETTINGS)}
-              className="w-full rounded-md py-1.5 text-[10px] font-medium uppercase tracking-wider text-zinc-600 hover:text-zinc-300 hover:bg-white/5 transition-colors"
+              className="w-full rounded-md py-1.5 text-[10px] font-medium uppercase tracking-wider text-neutral-600 hover:text-neutral-300 hover:bg-white/5 transition-colors"
             >
               Reset Defaults
             </button>
@@ -558,14 +558,14 @@ function DitherToolFull() {
               onDrop={handleDrop}
               onClick={() => fileRef.current?.click()}
             >
-              <div className={`rounded-2xl border-2 border-dashed p-12 flex flex-col items-center gap-3 cursor-pointer transition-colors ${isDragging ? "border-orange-500/60 bg-orange-500/5" : "border-zinc-800 hover:border-zinc-700"}`}>
-                <svg className="w-10 h-10 text-zinc-700" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.2">
+              <div className={`rounded-2xl border-2 border-dashed p-12 flex flex-col items-center gap-3 cursor-pointer transition-colors ${isDragging ? "border-neutral-500/60 bg-neutral-500/10" : "border-neutral-800 hover:border-neutral-700"}`}>
+                <svg className="w-10 h-10 text-neutral-700" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.2">
                   <rect x="4" y="4" width="32" height="32" rx="4" />
                   <path d="M4 28l10-10 6 6 6-8 10 10" strokeLinejoin="round" />
                   <circle cx="27" cy="14" r="3" />
                 </svg>
-                <p className="text-xs text-zinc-600">Drop an image to begin</p>
-                <p className="text-[10px] text-zinc-700">PNG · JPEG · WebP</p>
+                <p className="text-xs text-neutral-600">Drop an image to begin</p>
+                <p className="text-[10px] text-neutral-700">PNG · JPEG · WebP</p>
               </div>
             </div>
           ) : (
@@ -584,10 +584,10 @@ function DitherToolFull() {
 
           {/* Zoom control */}
           {processedSize && (
-            <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-lg px-3 py-1.5 border border-zinc-800" style={{ background: "#1a1a1d" }}>
-              <button onClick={() => setRenderScale((s) => Math.max(0.25, +(s - 0.25).toFixed(2)))} className="text-zinc-500 hover:text-zinc-200 text-xs w-4 leading-none">−</button>
-              <span className="text-[10px] font-mono text-zinc-400 w-10 text-center tabular-nums">{renderScale.toFixed(2)}×</span>
-              <button onClick={() => setRenderScale((s) => Math.min(4, +(s + 0.25).toFixed(2)))} className="text-zinc-500 hover:text-zinc-200 text-xs w-4 leading-none">+</button>
+            <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-lg px-3 py-1.5 border border-neutral-800" style={{ background: "#1a1a1d" }}>
+              <button onClick={() => setRenderScale((s) => Math.max(0.25, +(s - 0.25).toFixed(2)))} className="text-neutral-500 hover:text-neutral-200 text-xs w-4 leading-none">−</button>
+              <span className="text-[10px] font-mono text-neutral-400 w-10 text-center tabular-nums">{renderScale.toFixed(2)}×</span>
+              <button onClick={() => setRenderScale((s) => Math.min(4, +(s + 0.25).toFixed(2)))} className="text-neutral-500 hover:text-neutral-200 text-xs w-4 leading-none">+</button>
             </div>
           )}
         </main>

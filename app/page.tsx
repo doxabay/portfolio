@@ -3,37 +3,36 @@
 import { motion } from "motion/react";
 import CaseStudyCard from "@/components/case-study-card";
 import TypewriterHello from "@/components/typewriter-hello";
-import { HeroParticleRender } from "@/components/hero-particle-render";
 import { HomeScrollRestorer } from "@/components/home-scroll-restorer";
 
 const caseStudies = [
   {
     product: "Blocasset",
-    title: "from beta to v1: designing an onchain platform for powering creator's success",
+    title: "From beta to v1: designing an onchain platform for powering creator's success",
     description: "Cut drop-off by 40% with a three-screen progressive disclosure pattern.",
     niche: "Product / Web",
     href: "/work/blocasset",
     year: "2022–2024",
-    bg: "bg-zinc-100 dark:bg-zinc-800",
+    bg: "bg-neutral-100 dark:bg-neutral-800",
     image: "/Blocasset-1.jpg",
     logo: "/logos/blocasset.svg",
     badge: true,
   },
   {
     product: "Noblocks",
-    title: "simplifying cross-border payments through a seamless stablecoin offramp",
+    title: "Simplifying cross-border payments through a seamless stablecoin offramp",
     description: "Designing a fiat-stablecoin experience for everyday use from $0 to $1M+ TPV",
     niche: "Product / UX",
     href: "/work/noblocks",
     year: "2024",
-    bg: "bg-zinc-100 dark:bg-zinc-800",
+    bg: "bg-neutral-100 dark:bg-neutral-800",
     image: "/Noblocks-01.jpg",
     logo: "/logos/noblocks.svg",
     badge: true,
   },
   {
     product: "Witan",
-    title: "a ticketing platform where people can create and book events — built for flexible ticketing, audience insights, and payments beyond fiat.",
+    title: "A ticketing platform where people can create and book events — built for flexible ticketing, audience insights, and payments beyond fiat.",
     description: "60+ components and token docs that unified three product teams.",
     niche: "Events / Web3",
     href: "/work/witan",
@@ -45,7 +44,7 @@ const caseStudies = [
   },
   {
     product: "Safewalletapp",
-    title: "designing a secure self-custody wallet experience for crypto degens",
+    title: "Designing a secure self-custody wallet experience for crypto degens",
     description: "",
     niche: "UI / Mobile",
     href: "/work/safewalletapp",
@@ -56,29 +55,29 @@ const caseStudies = [
   },
   {
     product: "Follow Flash",
-    title: "designing an AI powered system for social media management and automation for creators",
+    title: "Designing an AI powered system for social media management and automation for creators",
     description: "Incremental migration of a legacy Rails app — zero downtime, 2× faster loads.",
     niche: "AI / SAAS",
     href: "/work/follow-flash",
     year: "2025-2026",
-    bg: "bg-zinc-900 dark:bg-zinc-100",
+    bg: "bg-neutral-900 dark:bg-neutral-100",
     image: "/follow-flash/coverfollowflash.jpg",
     logo: "/logos/followflash.svg",
   },
   {
     product: "Paycrest",
-    title: "building a real-time collaboration layer",
+    title: "Building a real-time collaboration layer",
     description: "WebSocket presence system powering live cursors for 50k+ users.",
     niche: "Architecture",
     href: "/work/paycrest",
     year: "2024-2025",
-    bg: "bg-zinc-200 dark:bg-zinc-700",
+    bg: "bg-neutral-200 dark:bg-neutral-700",
     image: "/Paycrest-01.jpg",
     logo: "/logos/paycrest.svg",
   },
   {
     product: "Synthetix",
-    title: "designing the trading interface for a decentralised derivatives protocol",
+    title: "Designing the trading interface for a decentralised derivatives protocol",
     description: "",
     niche: "Product / UX",
     href: "/work/synthetix",
@@ -89,7 +88,7 @@ const caseStudies = [
   },
   {
     product: "Plutofi",
-    title: "designing a DeFi wealth management dashboard for non-technical users",
+    title: "Designing a DeFi wealth management dashboard for non-technical users",
     description: "",
     niche: "Mobile / UI",
     href: "/work/plutofi",
@@ -100,7 +99,7 @@ const caseStudies = [
   },
   {
     product: "Bintin",
-    title: "from friction to flow: redesigning Bintin's mobile app to inspire trust and improve trade completion rate.",
+    title: "From friction to flow: redesigning Bintin's mobile app to inspire trust and improve trade completion rate.",
     description: "",
     niche: "Mobile / UI",
     href: "/work/bintin",
@@ -124,36 +123,39 @@ export default function Home() {
     <>
       <HomeScrollRestorer />
       {/* Hero */}
-      <section className="px-6 flex items-center justify-center gap-[60px] h-[45vh] bg-white dark:bg-zinc-950">
-        <motion.div initial={hidden} animate={stagger(0)}>
-          <HeroParticleRender height={186} width={156} />
-        </motion.div>
-        <div className="flex flex-col">
+      <section className="px-4 sm:px-6 py-12 sm:pt-[120px] sm:pb-[60px] bg-background">
+        <div className="max-w-[560px] mx-auto w-full">
           <motion.div initial={hidden} animate={stagger(0.08)}>
-            <TypewriterHello className="text-xs font-medium text-zinc-900 dark:text-zinc-100 w-[520px] block mb-2 text-left" />
+            <TypewriterHello className="text-xs font-medium text-neutral-900 dark:text-neutral-100 block mb-2 text-left" />
           </motion.div>
           <motion.p
             initial={hidden}
             animate={stagger(0.16)}
-            className="text-2xl text-neutral-950 dark:text-neutral-50 w-[520px] leading-[34px] tracking-[0.36px] text-left"
-            style={{ fontFamily: "KaliceTrial", fontWeight: 500 }}
+            className="text-sm text-neutral-600 dark:text-neutral-400 text-left"
           >
-            <span className="text-neutral-600 dark:text-neutral-400">i&apos;m Glory.</span><br />a product designer passionate about designing memorable experiences through empathy-driven user obsession and design craftsmanship.
+            a product designer passionate about designing memorable experiences through empathy-driven user obsession and design craftsmanship.
           </motion.p>
+          <motion.div
+            initial={hidden}
+            animate={stagger(0.24)}
+            className="mt-6 space-y-4 text-left [&>p]:text-neutral-600 dark:[&>p]:text-neutral-400"
+          >
+            <p>For me, I believe in these things: There is power in asking why. There is greatness in grit and grind. Design should have balance in functionality and aesthetics.</p>
+            <p>My design discipline is embodied by intentional combination of core craftsmanship and empathy-driven obsession in designing products that meet user needs while achieving business goals.</p>
+          </motion.div>
         </div>
       </section>
 
       {/* Case Studies */}
-      <section className="px-6 pb-20 pt-[100px] bg-white dark:bg-zinc-950">
+      <section className="px-4 sm:px-0 pb-20 pt-[60px] sm:pt-[100px] bg-background">
         <motion.h2
           initial={hidden}
           animate={stagger(0.26)}
-          className="text-[13px] font-medium text-neutral-500 mb-[60px] text-center flex items-center justify-center gap-2"
-          style={{ fontFamily: "SuisseIntlTrial" }}
+          className="text-[13px] font-medium text-neutral-500 dark:text-neutral-400 mb-9 text-left flex items-center justify-start gap-2 max-w-[560px] mx-auto w-full"
         >
-          selected work
+          Work
         </motion.h2>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 max-w-[560px] mx-auto">
           {caseStudies.map((study) => (
             <motion.div
               key={study.title}

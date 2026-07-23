@@ -39,44 +39,41 @@ const responses = [
 
 export default function DashboardExpectations() {
   return (
-    <div className="flex flex-col lg:flex-row gap-12 py-14 px-10 rounded-2xl mb-16">
+    <div className="flex flex-col gap-12 rounded-2xl mb-16">
       {/* Left: question */}
-      <div className="w-full lg:w-[35%] flex flex-col items-start justify-start">
-        <p className="text-xs uppercase tracking-widest text-orange-500 mb-5 font-medium">
-          FEEDBACKS
-        </p>
-        <p
-          className="leading-[1.25] text-zinc-800"
-          style={{ fontFamily: "KaliceTrial", fontSize: "clamp(1.4rem, 2vw, 1.85rem)" }}
+      <div className="w-full flex flex-col items-start justify-start">
+        <div className="flex items-center gap-3 mb-3 w-full">
+          <p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Feedbacks</p>
+          <span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" />
+        </div>
+        <h1
+          className="text-neutral-950 dark:text-neutral-50 w-full"
+          style={{ fontWeight: 500, fontSize: "24px", lineHeight: "32px", letterSpacing: "-0.47px" }}
         >
-          <span className="italic">What&apos;s your </span>
+          What&apos;s your{" "}
           <PointerHighlight
-            rectangleClassName="border-orange-500"
-            pointerClassName="text-orange-500"
+            rectangleClassName="border-neutral-400"
+            pointerClassName="text-neutral-400"
             containerClassName="inline-block"
           >
-            <span className="text-orange-500">expectation</span>
-          </PointerHighlight>
-          <span> </span>
-          <span className="text-zinc-400">of your </span>
-          <span className="italic">creator dashboard </span>
-          <span className="text-zinc-400">as a </span>
-          <span className="italic font-medium">Blocasset User?</span>
-        </p>
+            <span className="text-neutral-900 dark:text-neutral-100">expectation</span>
+          </PointerHighlight>{" "}
+          of your creator dashboard as a Blocasset User?
+        </h1>
       </div>
 
       {/* Right: 2x2 grid */}
-      <div className="flex-1 grid grid-cols-2 gap-3 items-start">
+      <div className="w-full columns-2 gap-2">
         {responses.map((r, i) => (
           <div
             key={r.id}
-            className={`flex flex-col border rounded-[12px] ${r.bg} ${r.border}`}
+            className="flex flex-col bg-neutral-50 dark:bg-neutral-800 break-inside-avoid mb-2"
             style={{
               padding: 28,
             }}
           >
-            <p className="text-base leading-relaxed text-zinc-950">{r.quote}</p>
-            <p className="text-sm font-medium text-zinc-800 mt-auto pt-4">{r.author}</p>
+            <p className="text-sm leading-relaxed text-neutral-900 dark:text-neutral-100">{r.quote}</p>
+            <p className="text-sm font-medium text-neutral-600 dark:text-neutral-400 mt-auto pt-4">{r.author}</p>
           </div>
         ))}
       </div>

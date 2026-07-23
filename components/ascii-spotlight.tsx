@@ -103,9 +103,9 @@ export default function AsciiSpotlight({ preview = false }: { preview?: boolean 
 
   return (
     <div className="w-full rounded-2xl overflow-hidden" style={{ background: BG }}>
-      <div className="px-6 pt-5 pb-2 border-b border-zinc-800">
-        <p className="text-xs uppercase tracking-widest text-orange-400 font-medium">Experiment 02</p>
-        <p className="text-sm font-medium text-zinc-300 mt-0.5">ASCII Spotlight</p>
+      <div className="px-6 pt-5 pb-2 border-b border-neutral-800">
+        <p className="text-xs uppercase tracking-widest text-neutral-400 font-medium">Experiment 02</p>
+        <p className="text-sm font-medium text-neutral-300 mt-0.5">ASCII Spotlight</p>
       </div>
       <div className="p-8">
         <canvas
@@ -120,7 +120,7 @@ export default function AsciiSpotlight({ preview = false }: { preview?: boolean 
             mouseRef.current = { x: -9999, y: -9999 };
           }}
         />
-        <p className="text-xs text-zinc-600 mt-4 text-center tracking-wide">
+        <p className="text-xs text-neutral-600 mt-4 text-center tracking-wide">
           move cursor to illuminate
         </p>
       </div>

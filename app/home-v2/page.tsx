@@ -50,8 +50,8 @@ export default function HomeV2() {
         <div className="flex items-center gap-[60px] w-full max-w-[1580px] mx-auto px-5">
           <HeroParticleRender height={280} width={233} />
           <div className="flex flex-col">
-            <TypewriterHello className="text-xs font-medium text-zinc-900 w-[520px] block mb-2 text-left" />
-            <p className="text-neutral-950 w-[1040px] text-left" style={{ fontFamily: "KaliceTrial", fontWeight: 500, fontSize: 48, lineHeight: "60px", letterSpacing: 0 }}>
+            <TypewriterHello className="text-xs font-medium text-neutral-900 w-[520px] block mb-2 text-left" />
+            <p className="text-neutral-950 w-[1040px] text-left" style={{ fontWeight: 500, fontSize: 48, lineHeight: "60px", letterSpacing: 0 }}>
               Product Designer at Follow Flash. Designing memorable experiences through empathy-driven user obsession and design craftsmanship.
             </p>
           </div>
@@ -75,7 +75,7 @@ export default function HomeV2() {
                       <div className="w-full h-full" />
                     )}
                   </div>
-                  <p className="text-xs text-zinc-500 tabular-nums mb-1">
+                  <p className="text-xs text-neutral-500 tabular-nums mb-1">
                     {study.year} / {study.niche.toUpperCase()}
                   </p>
                   <h3 className="text-xl font-medium text-neutral-950 leading-snug">{study.product}</h3>
@@ -95,7 +95,7 @@ export default function HomeV2() {
 
       {/* Footer */}
       <footer className="px-6 py-8 bg-white border-t border-neutral-100">
-        <div className="flex items-center justify-between text-sm text-zinc-400">
+        <div className="flex items-center justify-between text-sm text-neutral-400">
           <span>© {new Date().getFullYear()} Bayo Faleke</span>
           <span>Built with Next.js</span>
         </div>

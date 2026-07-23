@@ -19,7 +19,7 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
   }, [images.length]);
 
   return (
-    <div className="relative w-full select-none rounded-[12px] overflow-hidden">
+    <div className="relative w-full select-none overflow-hidden">
       <Image
         src={images[index].src}
         alt={images[index].alt}
@@ -33,14 +33,14 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
       <button
         onClick={prev}
         aria-label="Previous"
-        className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-white/80 hover:bg-white text-zinc-800 shadow transition"
+        className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-white/80 hover:bg-white text-neutral-800 shadow transition"
       >
         ‹
       </button>
       <button
         onClick={next}
         aria-label="Next"
-        className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-white/80 hover:bg-white text-zinc-800 shadow transition"
+        className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-white/80 hover:bg-white text-neutral-800 shadow transition"
       >
         ›
       </button>

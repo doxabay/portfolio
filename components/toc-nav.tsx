@@ -47,12 +47,20 @@ export default function TocNav({ items }: { items: TocItem[] }) {
     transitionDelay: hasAnimated ? "0ms" : `${idx * 20}ms`,
   });
 
+  // Hide the TOC entirely when there's nothing to navigate beyond "Overview".
+  const hasSectionsBeyondOverview = items.some(
+    ({ label, children }) =>
+      label.trim().toLowerCase() !== "overview" ||
+      (children?.length ?? 0) > 0
+  );
+  if (!hasSectionsBeyondOverview) return null;
+
   let linkIndex = 1;
 
   return (
     <nav>
       <p
-        className="text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-3 font-medium"
+        className="text-[10px] uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-3 font-medium after:hidden"
         style={linkStyle(0)}
       >
         Contents
@@ -68,8 +76,8 @@ export default function TocNav({ items }: { items: TocItem[] }) {
                 href={`#${id}`}
                 className={`text-sm block pl-3 border-l active:scale-[0.96] ${
                   isActive
-                    ? "text-orange-500 border-orange-500"
-                    : "text-zinc-500 dark:text-zinc-500 border-transparent hover:text-zinc-700 dark:hover:text-zinc-300"
+                    ? "text-neutral-950 dark:text-neutral-100 border-neutral-950 dark:border-neutral-100"
+                    : "text-neutral-500 dark:text-neutral-400 border-transparent hover:text-neutral-950 dark:hover:text-neutral-100"
                 }`}
                 style={linkStyle(idx)}
               >

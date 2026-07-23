@@ -64,12 +64,12 @@ export default async function ExperimentPage({
   if (!exp) notFound();
 
   return (
-    <div className="min-h-screen bg-neutral-50 dark:bg-zinc-950 px-6 py-16">
+    <div className="min-h-screen bg-neutral-50 dark:bg-background px-6 py-16">
       <div className="max-w-6xl mx-auto">
 
         <Link
           href="/playground"
-          className="inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-neutral-700 transition-colors mb-12"
+          className="inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors mb-12"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -78,10 +78,10 @@ export default async function ExperimentPage({
         </Link>
 
         <div className="mb-10">
-          <p className="text-xs uppercase tracking-widest text-orange-500 font-medium mb-1">
+          <p className="text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400 font-medium mb-1">
             Experiment {exp.number}
           </p>
-          <h1 className="text-2xl font-medium text-zinc-900 dark:text-zinc-100 tracking-tight">{exp.title}</h1>
+          <h1 className="text-2xl font-medium text-neutral-900 dark:text-neutral-100 tracking-tight">{exp.title}</h1>
           <p className="text-sm text-neutral-400 mt-1">{exp.description}</p>
         </div>
 

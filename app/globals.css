@@ -33,6 +33,10 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: "SuisseIntlTrial";
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-sm--letter-spacing: -0.09008px;
+  --text-sm--font-weight: 460;
 
   --color-red-50: oklch(97.1% 0.013 17.38);
   --color-red-100: oklch(93.6% 0.032 17.717);
@@ -397,13 +401,27 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: "SuisseIntlTrial", sans-serif;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    overflow-x: hidden;
     @apply bg-background text-foreground;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "KaliceTrial", sans-serif;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     text-wrap: balance;
+  }
+
+  p.uppercase.tracking-widest {
+    font-weight: 600;
+  }
+
+  p.uppercase.tracking-widest::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: var(--color-neutral-400);
+    margin-top: 8px;
   }
 
   h2 {
@@ -412,7 +430,9 @@
 
   p {
     font-size: var(--text-sm);
-    letter-spacing: -0.14px;
+    line-height: 20px;
+    letter-spacing: -0.09008px;
+    font-weight: 460;
     color: var(--color-neutral-800);
     text-wrap: pretty;
   }
@@ -463,7 +483,7 @@
 }
 
 .dark {
-  --background: oklch(14.1% 0.005 285.823);
+  --background: oklch(20.5% 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);

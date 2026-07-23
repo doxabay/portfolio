@@ -60,7 +60,7 @@ export function CaseStudyCanvas({ children, className }: { children: ReactNode; 
   }, []);
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={`[&_h2]:tracking-[-0.47px] ${className ?? ""}`}>
       {children}
     </div>
   );

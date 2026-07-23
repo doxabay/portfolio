@@ -245,8 +245,8 @@ export default function FlowDiagram({ preview = false }: { preview?: boolean }) 
   return (
     <div className="w-full rounded-2xl overflow-hidden bg-[#FAFAFA] border border-neutral-100">
       <div className="px-6 pt-5 pb-2 border-b border-neutral-100">
-        <p className="text-xs uppercase tracking-widest text-orange-500 font-medium">Experiment 01</p>
-        <p className="text-sm font-medium text-zinc-800 mt-0.5">Blocasset Onboarding Flow</p>
+        <p className="text-xs uppercase tracking-widest text-neutral-500 font-medium">Experiment 01</p>
+        <p className="text-sm font-medium text-neutral-800 mt-0.5">Blocasset Onboarding Flow</p>
       </div>
       <div className="p-8">
         {animation}
