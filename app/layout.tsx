@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full antialiased", "font-sans", inter.variable, ibmPlexMono.variable)}>
+    <html lang="en" suppressHydrationWarning className={cn("h-full antialiased", "font-sans", inter.variable, ibmPlexMono.variable)}>
       <body className="min-h-full flex flex-col text-neutral-900 dark:text-neutral-100">
         <ThemeProvider>
           <Nav />

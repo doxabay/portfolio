@@ -30,26 +30,29 @@ export default function TypewriterHello({ className }: { className?: string }) {
   useEffect(() => {
     const current = words[index];
 
+    // Every transition is scheduled on a timer so the effect never sets state
+    // synchronously (which would cascade an extra render on each keystroke).
+    let delay: number;
+    let advance: () => void;
+
     if (!deleting && displayed === current) {
-      const t = setTimeout(() => setDeleting(true), PAUSE);
-      return () => clearTimeout(t);
-    }
-
-    if (deleting && displayed === "") {
-      setDeleting(false);
-      setIndex((i) => (i + 1) % words.length);
-      return;
-    }
-
-    const t = setTimeout(
-      () => {
+      delay = PAUSE;
+      advance = () => setDeleting(true);
+    } else if (deleting && displayed === "") {
+      delay = TYPE_SPEED;
+      advance = () => {
+        setDeleting(false);
+        setIndex((i) => (i + 1) % words.length);
+      };
+    } else {
+      delay = deleting ? DELETE_SPEED : TYPE_SPEED;
+      advance = () =>
         setDisplayed(
           deleting ? current.slice(0, displayed.length - 1) : current.slice(0, displayed.length + 1)
         );
-      },
-      deleting ? DELETE_SPEED : TYPE_SPEED
-    );
+    }
 
+    const t = setTimeout(advance, delay);
     return () => clearTimeout(t);
   }, [displayed, deleting, index]);
 

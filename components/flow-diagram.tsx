@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { motion } from "motion/react";
 
 const ROW_H = 36;
@@ -90,6 +90,23 @@ const SVG_H     = PAD_Y * 2 + LEAF_COUNT * ROW_H;
 
 type Widths = Record<string, number>;
 
+// Text widths depend only on the static node labels, so measure them once on the
+// client and cache. useSyncExternalStore serves an empty map during SSR / first
+// render and the measured map afterwards — no setState-in-effect, no hydration gap.
+let widthsCache: Widths | null = null;
+function measureWidths(): Widths {
+  if (widthsCache) return widthsCache;
+  const ctx = document.createElement("canvas").getContext("2d");
+  const w: Widths = {};
+  if (ctx) {
+    ctx.font = "13px ui-sans-serif, system-ui, -apple-system, sans-serif";
+    for (const n of ALL) w[n.label] = ctx.measureText(n.label).width;
+  }
+  return (widthsCache = w);
+}
+const EMPTY_WIDTHS: Widths = {};
+const subscribeWidths = () => () => {};
+
 function Connector({ node, widths, visible }: { node: Node; widths: Widths; visible: boolean }) {
   const kids = node.children;
   if (!kids.length) return null;
@@ -141,18 +158,8 @@ function Connector({ node, widths, visible }: { node: Node; widths: Widths; visi
 
 export default function FlowDiagram({ preview = false }: { preview?: boolean }) {
   const [step, setStep]     = useState(-1);
-  const [widths, setWidths] = useState<Widths>({});
-
   // Measure real text widths so fromX is accurate for every label length
-  useEffect(() => {
-    const canvas = document.createElement("canvas");
-    const ctx    = canvas.getContext("2d");
-    if (!ctx) return;
-    ctx.font = "13px ui-sans-serif, system-ui, -apple-system, sans-serif";
-    const w: Widths = {};
-    for (const n of ALL) w[n.label] = ctx.measureText(n.label).width;
-    setWidths(w);
-  }, []);
+  const widths = useSyncExternalStore(subscribeWidths, measureWidths, () => EMPTY_WIDTHS);
 
   useEffect(() => {
     const t = setTimeout(() => setStep(0), 500);

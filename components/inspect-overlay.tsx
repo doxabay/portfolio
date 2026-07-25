@@ -12,6 +12,10 @@ export type InspectBox = {
   w: number;
   h: number;
   fs: number;
+  // Real measured type metrics (relative to the wrap), so the guides sit exactly
+  // on the rendered text rather than on font-agnostic ratio guesses.
+  baseline: number;
+  xHeightLine: number;
   dark: boolean;
 };
 
@@ -22,7 +26,7 @@ export default function InspectOverlay({
   box: InspectBox;
   reduce: boolean;
 }) {
-  const { x, y, w, h, fs, dark } = box;
+  const { x, y, w, h, baseline, xHeightLine, dark } = box;
 
   // Real measured dimensions, counted up
   const wMV = useMotionValue(reduce ? Math.round(w) : 0);
@@ -39,11 +43,6 @@ export default function InspectOverlay({
       a2.stop();
     };
   }, [w, h, reduce, wMV, hMV]);
-
-  // Approximate type metrics for the baseline / x-height guides
-  const pad = (h - fs) / 2;
-  const baseline = y + pad + fs * 0.8;
-  const xHeightLine = baseline - fs * 0.52;
 
   const corners = [
     { left: x, top: y },

@@ -147,7 +147,10 @@ function ParticleDitherFull() {
     backgroundColor: "#000000",
   });
   const [waveCfg, setWaveCfg] = useState<WaveConfig>(DEFAULT_WAVE_CONFIG);
-  const [dotCount, setDotCount] = useState(0);
+  // Deterministic (seeded) sample, generated once, so its dot count is known up
+  // front — no need to set it from a mount effect.
+  const [initialSample] = useState(() => generateSample(5000));
+  const [dotCount, setDotCount] = useState(initialSample.length);
   const [panelOpen, setPanelOpen] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [presets, setPresets] = useState<Preset[]>(() => readPresets());
@@ -239,13 +242,11 @@ function ParticleDitherFull() {
     return () => ro.disconnect();
   }, []);
 
-  // ── Load default sample on mount ─────────────────────────────────────────
+  // ── Build buffers for the default sample on mount ────────────────────────
   useEffect(() => {
-    const sample = generateSample(5000);
     const { w, h } = cssRef.current;
-    bufRef.current = initBuffers(sample, w, h);
-    setDotCount(sample.length);
-  }, []);
+    bufRef.current = initBuffers(initialSample, w, h);
+  }, [initialSample]);
 
   // ── Animation loop ───────────────────────────────────────────────────────
   useEffect(() => {
@@ -356,8 +357,11 @@ function ParticleDitherFull() {
     setCanRedo(historyIdxRef.current < historyRef.current.length - 1);
   }
 
-  undoFnRef.current = undo;
-  redoFnRef.current = redo;
+  // Keep the keyboard-shortcut refs pointing at the latest undo/redo closures.
+  useEffect(() => {
+    undoFnRef.current = undo;
+    redoFnRef.current = redo;
+  });
 
   function savePreset() {
     const name = presetName.trim() || `Preset ${presets.length + 1}`;

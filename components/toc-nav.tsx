@@ -37,13 +37,19 @@ export default function TocNav({ items }: { items: TocItem[] }) {
     return () => clearTimeout(timer);
   }, [visible, hasAnimated, items]);
 
-  const colorTransition = "color 180ms cubic-bezier(0.2, 0, 0, 1), border-color 180ms cubic-bezier(0.2, 0, 0, 1)";
-  const enterTransition = "opacity 240ms ease-out, transform 240ms ease-out";
+  // Longhand transition parts (not the `transition` shorthand) so the object can
+  // also set `transitionDelay` without React warning about mixing shorthand and
+  // longhand for the same property.
+  const EASE = "cubic-bezier(0.2, 0, 0, 1)";
+  const colorTransition = { property: "color, border-color", duration: "180ms, 180ms", timing: `${EASE}, ${EASE}` };
+  const enterTransition = { property: "opacity, transform", duration: "240ms, 240ms", timing: "ease-out, ease-out" };
 
   const linkStyle = (idx: number) => ({
     opacity: visible ? 1 : 0,
     transform: visible ? "translateX(0)" : "translateX(10px)",
-    transition: hasAnimated ? colorTransition : `${enterTransition}, ${colorTransition}`,
+    transitionProperty: hasAnimated ? colorTransition.property : `${enterTransition.property}, ${colorTransition.property}`,
+    transitionDuration: hasAnimated ? colorTransition.duration : `${enterTransition.duration}, ${colorTransition.duration}`,
+    transitionTimingFunction: hasAnimated ? colorTransition.timing : `${enterTransition.timing}, ${colorTransition.timing}`,
     transitionDelay: hasAnimated ? "0ms" : `${idx * 20}ms`,
   });
 

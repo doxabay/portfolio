@@ -50,12 +50,35 @@ export default function HeroIntro({ lede, roles }: { lede: ReactNode; roles: Rol
     if (!wrap || !text) return;
     const wr = wrap.getBoundingClientRect();
     const tr = text.getBoundingClientRect();
+    const cs = getComputedStyle(text);
+    const fs = parseFloat(cs.fontSize);
+
+    // Exact baseline: a zero-size inline-block's bottom edge aligns to the text
+    // baseline, so its top gives the baseline y precisely — no metric guessing.
+    const probe = document.createElement("span");
+    probe.style.cssText = "display:inline-block;width:0;height:0;vertical-align:baseline";
+    text.appendChild(probe);
+    const baseline = probe.getBoundingClientRect().top - wr.top;
+    text.removeChild(probe);
+
+    // Exact x-height from the font itself: the top of a lowercase 'x' above the
+    // baseline. Falls back to a ratio if TextMetrics isn't available.
+    let xHeight = fs * 0.52;
+    const ctx = document.createElement("canvas").getContext("2d");
+    if (ctx) {
+      ctx.font = `${cs.fontWeight} ${fs}px ${cs.fontFamily}`;
+      const m = ctx.measureText("x");
+      if (m.actualBoundingBoxAscent) xHeight = m.actualBoundingBoxAscent;
+    }
+
     setBox({
       x: tr.left - wr.left,
       y: tr.top - wr.top,
       w: tr.width,
       h: tr.height,
-      fs: parseFloat(getComputedStyle(text).fontSize),
+      fs,
+      baseline,
+      xHeightLine: baseline - xHeight,
       dark: document.documentElement.classList.contains("dark"),
     });
   }, []);
