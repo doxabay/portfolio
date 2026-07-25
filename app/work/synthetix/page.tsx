@@ -72,7 +72,7 @@ export default async function SynthetixCaseStudy() {
             </section>
 
             {/* Cover image */}
-            <Image src="/synthetix/coversynthetix.jpg" alt="Synthetix cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-16" />
+            <Image src="/synthetix/coversynthetix.jpg" alt="Synthetix cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-16" />
 
           </CaseStudyCanvas>
         </div>

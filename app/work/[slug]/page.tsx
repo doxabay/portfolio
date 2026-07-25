@@ -138,7 +138,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/Blocasset-1.jpg" alt="Blocasset overview" width={1920} height={1080} className="w-full h-auto" />
+                <Image src="/Blocasset-1.jpg" alt="Blocasset overview" width={1920} height={1080} className="w-full h-auto rounded-[4px]" />
               </div>
 
               {/* Backstory */}
@@ -178,7 +178,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/blocasset-2.jpg" alt="Blocasset goal" width={1920} height={1080} className="w-full h-auto" />
+                <Image src="/blocasset-2.jpg" alt="Blocasset goal" width={1920} height={1080} className="w-full h-auto rounded-[4px]" />
               </div>
 
               {/* Goal */}
@@ -253,7 +253,7 @@ export default async function CaseStudyPage() {
 
               <div className="mb-16">
                 <div
-                  className="w-full flex items-end justify-center pt-16 pb-0 overflow-hidden"
+                  className="w-full flex items-end justify-center pt-16 pb-0 overflow-hidden rounded-[4px]"
                   style={{ backgroundImage: "url('/shot-imageBG.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
                 >
                   <ViewportVideo src="/Mixpanel-Animation.mp4" className="w-[85%] h-auto" />
@@ -273,7 +273,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/work-slug/framer/grPApWPboJrgaAu0a8go6K1sFNw.png" alt="Identity check analysis" width={4000} height={2250} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+                <Image src="/work-slug/framer/grPApWPboJrgaAu0a8go6K1sFNw.png" alt="Identity check analysis" width={4000} height={2250} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
               </div>
 
               <section className="mb-16">
@@ -291,7 +291,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/thirdstop001.jpg" alt="Asset upload flow issues" width={2000} height={1431} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+                <Image src="/thirdstop001.jpg" alt="Asset upload flow issues" width={2000} height={1431} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
               </div>
 
               <section className="mb-16">
@@ -305,7 +305,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/thirdstop002.jpg" alt="Asset upload flow issues" width={2000} height={1125} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+                <Image src="/thirdstop002.jpg" alt="Asset upload flow issues" width={2000} height={1125} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
               </div>
 
               {/* Research */}
@@ -353,7 +353,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/work-slug/framer/xcF4WOIjiSAm0NGxrzbx1FoAJZs.png" alt="UX research findings" width={4000} height={2249} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+                <Image src="/work-slug/framer/xcF4WOIjiSAm0NGxrzbx1FoAJZs.png" alt="UX research findings" width={4000} height={2249} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
               </div>
 
               <section className="mb-16">
@@ -388,11 +388,11 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/introblocasset.jpg" alt="Blocasset V1 design" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+                <Image src="/introblocasset.jpg" alt="Blocasset V1 design" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
               </div>
 
               <div className="mb-16">
-                <Image src="/assetsblocasset.jpg" alt="Blocasset V1 design" width={2000} height={1125} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+                <Image src="/assetsblocasset.jpg" alt="Blocasset V1 design" width={2000} height={1125} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
               </div>
 
               <section className="mb-16">
@@ -408,7 +408,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <ViewportVideo src="/Unified-Ex.mp4" plain playbackRate={1.2} className="w-full h-auto" />
+                <ViewportVideo src="/Unified-Ex.mp4" plain playbackRate={1.2} className="w-full h-auto rounded-[4px]" />
               </div>
 
               <section className="mb-16">
@@ -427,7 +427,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/work-slug/framer/20KwuiDxD0CoxqMfnqOE7pujYM.png" alt="Easy onboarding flow" width={4000} height={2250} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+                <Image src="/work-slug/framer/20KwuiDxD0CoxqMfnqOE7pujYM.png" alt="Easy onboarding flow" width={4000} height={2250} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
               </div>
 
               <section className="mb-16">
@@ -443,7 +443,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/searchblocasset.jpg" alt="Search experience" width={1785} height={990} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+                <Image src="/searchblocasset.jpg" alt="Search experience" width={1785} height={990} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
               </div>
 
               <section className="mb-16">
@@ -456,11 +456,11 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/walletblocasset.jpg" alt="Payments" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+                <Image src="/walletblocasset.jpg" alt="Payments" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
               </div>
 
               <div className="mb-16">
-                <Image src="/walletblocasset2.jpg" alt="Payments" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+                <Image src="/walletblocasset2.jpg" alt="Payments" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
               </div>
 
               <section className="mb-16">
@@ -522,7 +522,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/feedblocasset.jpg" alt="Maze testing results" width={2000} height={1441} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+                <Image src="/feedblocasset.jpg" alt="Maze testing results" width={2000} height={1441} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
               </div>
 
               {/* Impact */}

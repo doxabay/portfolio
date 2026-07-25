@@ -70,6 +70,7 @@ export default function DashboardExpectations() {
             className="flex flex-col bg-neutral-50 dark:bg-neutral-800 break-inside-avoid mb-2"
             style={{
               padding: 28,
+              borderRadius: 4,
             }}
           >
             <p className="text-sm leading-relaxed text-neutral-900 dark:text-neutral-100">{r.quote}</p>

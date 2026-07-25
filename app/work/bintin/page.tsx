@@ -75,15 +75,15 @@ export default async function BintinCaseStudy() {
             </section>
 
             {/* Cover image */}
-            <Image src="/bintin/coverbintin.jpg" alt="Bintin cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/bintin/coverbintin.jpg" alt="Bintin cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
 
             {/* Shots */}
-            <Image src="/bintin/shotcover01Bintin.jpg" alt="Bintin shot 1" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/bintin/shotcover02Bintin-1.jpg" alt="Bintin shot 2" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/bintin/shotcover02Bintin.jpg" alt="Bintin shot 3" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/bintin/shotcover03Bintin.jpg" alt="Bintin shot 4" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/bintin/shotcover04Bintin.jpg" alt="Bintin shot 5" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/bintin/shotcover05Bintin.jpg" alt="Bintin shot 6" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-16" />
+            <Image src="/bintin/shotcover01Bintin.jpg" alt="Bintin shot 1" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/bintin/shotcover02Bintin-1.jpg" alt="Bintin shot 2" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/bintin/shotcover02Bintin.jpg" alt="Bintin shot 3" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/bintin/shotcover03Bintin.jpg" alt="Bintin shot 4" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/bintin/shotcover04Bintin.jpg" alt="Bintin shot 5" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/bintin/shotcover05Bintin.jpg" alt="Bintin shot 6" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-16" />
 
 
           </CaseStudyCanvas>

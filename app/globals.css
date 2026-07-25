@@ -467,6 +467,8 @@
   }
   html {
     @apply font-sans;
+    /* Offset anchor jumps (e.g. TOC clicks) below the sticky top nav. */
+    scroll-padding-top: 80px;
   }
 }
 

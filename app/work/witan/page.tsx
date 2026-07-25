@@ -125,7 +125,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/Witan-cover.jpg" alt="Witan product overview" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/Witan-cover.jpg" alt="Witan product overview" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             {/* Background */}
@@ -146,7 +146,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/wwcJ3l4EQboNmWWi9OPYq1jYI8.png" alt="Witan product overview" width={2880} height={1788} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/wwcJ3l4EQboNmWWi9OPYq1jYI8.png" alt="Witan product overview" width={2880} height={1788} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             {/* Problem Space */}
@@ -213,7 +213,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/Nrwllq40BbFxHxClWOrAboUhM.png" alt="Survey stats" width={2880} height={1560} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/Nrwllq40BbFxHxClWOrAboUhM.png" alt="Survey stats" width={2880} height={1560} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             {/* Research Summary */}
@@ -257,7 +257,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/KAkwpA1ox6SeBJyTCou6rTiZJY.png" alt="Authentication flow" width={2880} height={1560} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/KAkwpA1ox6SeBJyTCou6rTiZJY.png" alt="Authentication flow" width={2880} height={1560} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <section className="mb-16">
@@ -269,11 +269,11 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/EmPgmBBRGsykXCeSaRCE9yVNBCI.png" alt="Social onboarding flow" width={2880} height={1326} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/EmPgmBBRGsykXCeSaRCE9yVNBCI.png" alt="Social onboarding flow" width={2880} height={1326} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <div className="mb-16">
-              <Image src="/witan/framer/7lliOgLyovS7EOa9ileKFDEUE.png" alt="Wallet onboarding flow" width={2880} height={1326} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/7lliOgLyovS7EOa9ileKFDEUE.png" alt="Wallet onboarding flow" width={2880} height={1326} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <section className="mb-16">
@@ -294,7 +294,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/g7tEcYYGuCtxXXdNMQtJ9DlumaU.png" alt="Event creation stages" width={2880} height={848} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/g7tEcYYGuCtxXXdNMQtJ9DlumaU.png" alt="Event creation stages" width={2880} height={848} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <section className="mb-16">
@@ -331,7 +331,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/Xkd9aycEcRJOb5tZm5E90wmhXw.png" alt="Coincidental booking solution" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/Xkd9aycEcRJOb5tZm5E90wmhXw.png" alt="Coincidental booking solution" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             {/* Visual Design */}
@@ -346,11 +346,11 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/n9x5nzTV4m3LBZRpuGCDXrk4Ec.png" alt="Onboarding auth screens" width={2880} height={1512} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/n9x5nzTV4m3LBZRpuGCDXrk4Ec.png" alt="Onboarding auth screens" width={2880} height={1512} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <div className="mb-16">
-              <Image src="/witan/framer/xB5S439cdibiF4pjwHAEl97T7E.png" alt="Mobile onboarding screens" width={2880} height={1888} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/xB5S439cdibiF4pjwHAEl97T7E.png" alt="Mobile onboarding screens" width={2880} height={1888} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <section className="mb-16">
@@ -363,7 +363,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/qxPRl7iT9Y9jix0p6pop3TarhlA.png" alt="Event page design" width={2880} height={1788} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/qxPRl7iT9Y9jix0p6pop3TarhlA.png" alt="Event page design" width={2880} height={1788} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <section className="mb-16">
@@ -379,7 +379,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/z2FfmvWofQQt8KO1bBM76nki30.png" alt="Event publishing flow" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/z2FfmvWofQQt8KO1bBM76nki30.png" alt="Event publishing flow" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <section className="mb-16">
@@ -398,7 +398,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/beJonStG49VAjwXjXcGVgcvRs.png" alt="Payment settings design" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/beJonStG49VAjwXjXcGVgcvRs.png" alt="Payment settings design" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <section className="mb-16">
@@ -417,7 +417,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/ivMAq0LDzRZkst5cwNqfz1MmfI.png" alt="Discount codes design" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/ivMAq0LDzRZkst5cwNqfz1MmfI.png" alt="Discount codes design" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <section className="mb-16">
@@ -436,11 +436,11 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/OdjeoYA5j5maXwN4H2ucjcY5W8M.png" alt="Admit attendees interface" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/OdjeoYA5j5maXwN4H2ucjcY5W8M.png" alt="Admit attendees interface" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <div className="mb-16">
-              <Image src="/witan/framer/7kqXBpBKVc9aXAyguMGcizt4GI.png" alt="Attendee management dashboard" width={5760} height={4168} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/7kqXBpBKVc9aXAyguMGcizt4GI.png" alt="Attendee management dashboard" width={5760} height={4168} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <section className="mb-16">
@@ -456,11 +456,11 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              <Image src="/witan/framer/YwtwOHm0AzKgOAOJTFEwnHj0PiE.png" alt="Rive icon animations" width={5635} height={4075} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/YwtwOHm0AzKgOAOJTFEwnHj0PiE.png" alt="Rive icon animations" width={5635} height={4075} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             <div className="mb-16">
-              <Image src="/witan/framer/89ogksPri5xp6V4GwF7OfV7V3ZI.png" alt="Witan landing page" width={5760} height={3464} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
+              <Image src="/witan/framer/89ogksPri5xp6V4GwF7OfV7V3ZI.png" alt="Witan landing page" width={5760} height={3464} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px]" />
             </div>
 
             {/* Testing */}

@@ -76,9 +76,9 @@ export default async function SafewalletappCaseStudy() {
             </section>
 
             {/* Cover images */}
-            <Image src="/safewallet/coversafewallet.jpg" alt="Safewalletapp cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/safewallet/coversafewallet01.jpg" alt="Safewalletapp cover 01" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/safewallet/coversafewallet02.jpg" alt="Safewalletapp cover 02" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-16" />
+            <Image src="/safewallet/coversafewallet.jpg" alt="Safewalletapp cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/safewallet/coversafewallet01.jpg" alt="Safewalletapp cover 01" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/safewallet/coversafewallet02.jpg" alt="Safewalletapp cover 02" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-16" />
 
           </CaseStudyCanvas>
         </div>

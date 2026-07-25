@@ -19,7 +19,7 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
   }, [images.length]);
 
   return (
-    <div className="relative w-full select-none overflow-hidden">
+    <div className="relative w-full select-none overflow-hidden rounded-[4px]">
       <Image
         src={images[index].src}
         alt={images[index].alt}

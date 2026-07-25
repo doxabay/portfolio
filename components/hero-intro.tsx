@@ -185,7 +185,7 @@ export default function HeroIntro({ lede, roles }: { lede: ReactNode; roles: Rol
               transition={{ duration: DUR, ease: REVEAL_EASE, delay: at(1) }}
             >
               <span ref={textRef} className="inline-block">
-                <span className="mr-1.5 align-baseline text-[11px] font-medium uppercase tracking-tight text-neutral-400 dark:text-neutral-500 font-[family-name:var(--font-ibm-plex-mono)]">
+                <span className="mr-1.5 align-baseline leading-none text-[11px] font-medium uppercase tracking-tight text-neutral-400 dark:text-neutral-500 font-[family-name:var(--font-ibm-plex-mono)]">
                   With
                 </span>
                 Curiosity, Empathy x Craft

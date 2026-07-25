@@ -58,7 +58,7 @@ export default function MessagingCards() {
         return (
           <div
             key={label}
-            className="bg-neutral-50 dark:bg-neutral-800 px-4 py-3 flex items-center"
+            className="bg-neutral-50 dark:bg-neutral-800 px-4 py-3 flex items-center rounded-[4px]"
             style={{ gap: "12px" }}
             onMouseEnter={() => controller.current?.startAnimation()}
             onMouseLeave={() => controller.current?.stopAnimation()}

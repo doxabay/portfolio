@@ -78,19 +78,19 @@ export default async function FollowFlashCaseStudy() {
             </section>
 
             {/* Cover image */}
-            <Image src="/follow-flash/coverfollowflash.jpg" alt="Follow Flash cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/follow-flash/coverfollowflash.jpg" alt="Follow Flash cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
 
             {/* Shots */}
-            <Image src="/follow-flash/covershot01followflash.jpg" alt="Follow Flash shot 1" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/follow-flash/covershot02followflash.jpg" alt="Follow Flash shot 2" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/follow-flash/covershot03followflash.jpg" alt="Follow Flash shot 3" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/follow-flash/covershot04followflash.jpg" alt="Follow Flash shot 4" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/follow-flash/covershot05followflash.jpg" alt="Follow Flash shot 5" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/follow-flash/covershot06followflash.jpg" alt="Follow Flash shot 6" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/follow-flash/covershot07followflash.jpg" alt="Follow Flash shot 7" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/follow-flash/covershot8followflash.jpg" alt="Follow Flash shot 8" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/follow-flash/covershot09followflash.jpg" alt="Follow Flash shot 9" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
-            <Image src="/follow-flash/covershot10followflash.jpg" alt="Follow Flash shot 10" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-16" />
+            <Image src="/follow-flash/covershot01followflash.jpg" alt="Follow Flash shot 1" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/follow-flash/covershot02followflash.jpg" alt="Follow Flash shot 2" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/follow-flash/covershot03followflash.jpg" alt="Follow Flash shot 3" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/follow-flash/covershot04followflash.jpg" alt="Follow Flash shot 4" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/follow-flash/covershot05followflash.jpg" alt="Follow Flash shot 5" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/follow-flash/covershot06followflash.jpg" alt="Follow Flash shot 6" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/follow-flash/covershot07followflash.jpg" alt="Follow Flash shot 7" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/follow-flash/covershot8followflash.jpg" alt="Follow Flash shot 8" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/follow-flash/covershot09followflash.jpg" alt="Follow Flash shot 9" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-4" />
+            <Image src="/follow-flash/covershot10followflash.jpg" alt="Follow Flash shot 10" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-16" />
 
           </CaseStudyCanvas>
         </div>

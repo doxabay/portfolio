@@ -22,7 +22,7 @@ const cardTransition = "transform 150ms cubic-bezier(0.2, 0, 0, 1)";
 function CardInner({ study }: { study: CaseStudy }) {
   return (
     <>
-      <div className={`relative w-full ${study.bg} overflow-hidden rounded-none`} style={{ boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.06)" }}>
+      <div className={`relative w-full ${study.bg} overflow-hidden rounded-[4px]`} style={{ boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.06)" }}>
         {study.image && (
           <Image
             src={study.image}
