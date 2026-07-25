@@ -53,7 +53,7 @@ export default async function WitanCaseStudy() {
       <div className="relative min-h-screen">
 
         {/* Sidebar — desktop only */}
-        <aside className="hidden lg:flex fixed top-0 left-0 z-10 w-52 pt-[108px] pb-10 pl-11 pr-4 flex-col">
+        <aside className="hidden lg:flex fixed top-0 left-0 z-10 w-52 pt-[160px] pb-10 pl-11 pr-4 flex-col">
           <div>
             <TocNav items={toc} />
           </div>
@@ -66,7 +66,7 @@ export default async function WitanCaseStudy() {
           <div id="case-study-header" className="w-full max-w-[560px] mx-auto mb-8 lg:mb-[60px]">
             <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/witan.svg" alt="Witan logo" width={34} height={34} className="rounded-[6px] shrink-0" />
+              <img src="/logos/witan.svg" alt="Witan logo" width={34} height={34} className="rounded-full shrink-0" />
               <h1 className="text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-medium" style={{ fontFamily: "KaliceTrial" }}>
                 <SquigglyText className="text-neutral-950 dark:text-neutral-50" scale={[4, 6]} stepDuration={320}>
                   Witan

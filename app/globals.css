@@ -395,6 +395,29 @@
   .shadow-card-large {
     box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(35, 35, 35, 0.08), 0 1px 3px -2px rgba(35, 35, 35, 0.03), 0 4px 7px -2px rgba(35, 35, 35, 0.07);
   }
+
+  /* Spectrum brand accent: blue -> yellow -> orange-red -> magenta */
+  .text-spectrum {
+    background-image: var(--gradient-spectrum);
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Spectrum color shimmer: a gradient band sweeps across otherwise-neutral text,
+     revealing accent only where the band is. Loops, then leaves the text neutral. */
+  @keyframes spectrum-shimmer {
+    from {
+      -webkit-mask-position: 120% 0;
+      mask-position: 120% 0;
+    }
+    to {
+      -webkit-mask-position: -20% 0;
+      mask-position: -20% 0;
+    }
+  }
 }
 
 @layer base {
@@ -480,6 +503,19 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Spectrum brand accent — softened: blue -> warm yellow -> coral -> pink */
+  --spectrum-1: #5c82ea;
+  --spectrum-2: #ffd97e;
+  --spectrum-3: #ff795a;
+  --spectrum-4: #f76ccf;
+  --gradient-spectrum: linear-gradient(
+    100deg,
+    var(--spectrum-1) 0%,
+    var(--spectrum-2) 40%,
+    var(--spectrum-3) 70%,
+    var(--spectrum-4) 100%
+  );
 }
 
 .dark {
@@ -514,4 +550,10 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Spectrum brand accent — softened, lifted a touch so it still reads on near-black */
+  --spectrum-1: #7196f3;
+  --spectrum-2: #ffe1a0;
+  --spectrum-3: #ff9276;
+  --spectrum-4: #fa88e0;
 }

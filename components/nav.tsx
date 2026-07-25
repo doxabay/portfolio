@@ -10,7 +10,7 @@ const MotionLink = motion.create(Link);
 const links: { href: string; label: string; external?: boolean }[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "about" },
-  { href: "https://drive.google.com/file/d/1Bz5S6NFYI1urrwH9hesTWrAz686U_2EC/view", label: "resume", external: true },
+  { href: "https://drive.google.com/file/d/11Wzl8ySYpt0qrpVbFcc4Kv6G148Xn8yh/view?usp=sharing", label: "resume", external: true },
 ];
 
 export default function Nav() {

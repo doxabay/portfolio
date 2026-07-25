@@ -11,7 +11,7 @@ export function HeroParticleRender({ width = 280, height = 336 }: { width?: numb
         <ParticleDitherEmbed
           dots={ifedaDots as DotJSON[]}
           render={{ backgroundColor: "#171717", particleScale: 1 }}
-          physics={{ interactionRadius: 60 }}
+          physics={{ interactionRadius: 120 }}
           className="w-full h-full block"
         />
       </div>

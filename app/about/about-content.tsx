@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { HeroParticleRender } from "@/components/hero-particle-render";
 import ScrambleText from "@/components/scramble-text";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { REVEAL_EASE, DUR, at } from "@/components/intro-timing";
 
 const photos = [
   { src: "/dxby1.jpeg", w: 768, h: 1024 },
@@ -57,43 +58,41 @@ const socials = [
   { label: "LinkedIn", handle: "/gloryfaleke", href: "https://linkedin.com/in/gloryfaleke" },
 ];
 
-const spring = { type: "spring" as const, duration: 0.5, bounce: 0 };
-const hidden = { opacity: 0, y: 16 };
-const visible = { opacity: 1, y: 0 };
-
-function stagger(delay: number) {
-  return { ...visible, transition: { ...spring, delay } };
-}
-
-// Reveal-on-scroll for below-the-fold sections, matching the case-study pages.
-const reveal = {
-  initial: hidden,
-  whileInView: visible,
-  viewport: { once: true, amount: 0.2 },
-  transition: spring,
-} as const;
-
 export default function AboutContent() {
   const [scrambling, setScrambling] = useState(false);
+  const reduce = useReducedMotion();
+
+  // Same blur-rise as the home hero. Above-the-fold hero elements share one
+  // load-in cascade (linear delay = at(i)); the long lower sections reveal on
+  // scroll with the identical motion so it reads as one system.
+  const reveal = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 12, filter: "blur(8px)" },
+          animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+          transition: { duration: DUR, ease: REVEAL_EASE, delay },
+        };
+  const onScroll = () =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 12, filter: "blur(8px)" },
+          whileInView: { opacity: 1, y: 0, filter: "blur(0px)" },
+          viewport: { once: true, margin: "0px 0px -80px 0px" },
+          transition: { duration: DUR, ease: REVEAL_EASE },
+        };
 
   return (
     <section className="flex flex-col min-h-screen bg-background items-center py-20 sm:py-[120px] gap-16 sm:gap-[80px] px-6">
 
       {/* Hero: particle + bio */}
       <div className="w-full max-w-[560px] flex flex-col gap-10 items-start">
-        <motion.div
-          initial={hidden}
-          animate={stagger(0.08)}
-          className="shrink-0"
-        >
+        <motion.div className="shrink-0" {...reveal(at(0))}>
           <HeroParticleRender width={200} height={236} />
         </motion.div>
-        <motion.div
-          initial={hidden}
-          animate={stagger(0.16)}
-          className="w-full flex flex-col gap-5"
-        >
-          <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+        <div className="w-full flex flex-col gap-5">
+          <motion.p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400" {...reveal(at(1))}>
             Hi! I&apos;m Bayo. I have a background in Chemistry, but today, I am a Senior Product Designer{" "}
             <Tooltip>
               <TooltipTrigger asChild>
@@ -110,25 +109,26 @@ export default function AboutContent() {
               </TooltipContent>
             </Tooltip>
             . I moved to Lagos couple years ago to find my path and chase a career in tech – a journey that has led me to where I am today.
-          </p>
-          <h1
+          </motion.p>
+          <motion.h1
             className="text-neutral-800 dark:text-neutral-50 w-full"
             style={{ fontWeight: 500, fontSize: "24px", lineHeight: "32px", letterSpacing: "-0.47px" }}
+            {...reveal(at(2))}
           >
-            As a designer passionate about designing memorable experiences through empathy-driven user obsession and design craftsmanship.
-          </h1>
-          <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+            As a designer, I&apos;m passionate about designing memorable experiences through empathy-driven user obsession and design craftsmanship.
+          </motion.h1>
+          <motion.p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400" {...reveal(at(3))}>
             I believe design is a tool for empowering users — for making them feel the world as they see it. And sometimes, the design of a thing or an experience can be the single difference between a person&apos;s good and a bad day.
-          </p>
-          <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+          </motion.p>
+          <motion.p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400" {...reveal(at(4))}>
             Hence, I believe it&apos;s a noble thing and it takes a blend of focusing on user problems, how people understand technology, and designing from a human-centered approach.
-          </p>
-          <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+          </motion.p>
+          <motion.p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400" {...reveal(at(5))}>
             My design discipline is embodied by intentional combination of core craftsmanship and empathy-driven obsession in designing products that meet user needs while achieving business goals.
-          </p>
-          <div className="flex items-center gap-3 pt-2">
+          </motion.p>
+          <motion.div className="flex items-center gap-3 pt-2" {...reveal(at(6))}>
             <a
-              href="https://drive.google.com/file/d/1Bz5S6NFYI1urrwH9hesTWrAz686U_2EC/view?usp=sharing"
+              href="https://drive.google.com/file/d/11Wzl8ySYpt0qrpVbFcc4Kv6G148Xn8yh/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors px-4 py-2 rounded-full"
@@ -141,13 +141,9 @@ export default function AboutContent() {
             >
               Email
             </a>
-          </div>
-        </motion.div>
-        <motion.div
-          initial={hidden}
-          animate={stagger(0.24)}
-          className="w-full grid grid-cols-3 gap-2"
-        >
+          </motion.div>
+        </div>
+        <motion.div className="w-full grid grid-cols-3 gap-2" {...reveal(at(7))}>
           {photos.map(({ src, w, h }) => (
             <div key={src} className="relative w-full aspect-[3/4] overflow-hidden">
               <Image
@@ -166,7 +162,7 @@ export default function AboutContent() {
       <div className="w-full max-w-[560px] flex flex-col gap-16">
 
         {/* How it all started */}
-        <motion.div {...reveal}>
+        <motion.div {...onScroll()}>
           <div className="flex items-center gap-3 mb-4"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">How it all started</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
           <div className="flex flex-col gap-4">
             <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -179,13 +175,13 @@ export default function AboutContent() {
         </motion.div>
 
         {/* Currently */}
-        <motion.div {...reveal}>
+        <motion.div {...onScroll()}>
           <div className="flex items-center gap-3 mb-4"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Currently</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">Senior Product Designer at Paycrest</p>
         </motion.div>
 
         {/* Experience */}
-        <motion.div {...reveal}>
+        <motion.div {...onScroll()}>
           <div className="flex items-center gap-3 mb-6"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Experience</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
           <div className="flex flex-col">
             {experience.map(({ company, role, period }) => (
@@ -201,7 +197,7 @@ export default function AboutContent() {
         </motion.div>
 
         {/* Stack */}
-        <motion.div {...reveal}>
+        <motion.div {...onScroll()}>
           <div className="flex items-center gap-3 mb-6"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Stack</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
           <div className="flex flex-wrap gap-2">
             {stack.map((tool) => (
@@ -213,7 +209,7 @@ export default function AboutContent() {
         </motion.div>
 
         {/* Not Designing */}
-        <motion.div {...reveal}>
+        <motion.div {...onScroll()}>
           <div className="flex items-center gap-3 mb-4"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Not Designing?</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
           <div className="flex flex-col gap-4">
             <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -226,7 +222,7 @@ export default function AboutContent() {
         </motion.div>
 
         {/* Community & Impact */}
-        <motion.div {...reveal}>
+        <motion.div {...onScroll()}>
           <div className="flex items-center gap-3 mb-6"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Community &amp; Impact</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
           <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-7">
             From leading communities and teaching design to sharing resources on Figma and Framer, I explore my passion for building and driving impacts by helping other designers to grow and become better.
@@ -248,7 +244,7 @@ export default function AboutContent() {
         </motion.div>
 
         {/* Side Projects */}
-        <motion.div {...reveal}>
+        <motion.div {...onScroll()}>
           <div className="flex items-center gap-3 mb-6"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Side Projects</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
           <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-6">
             Resources such as UI kits and portfolio templates which I have created on Framer and Figma for other designers, developers, and creators.
@@ -270,7 +266,7 @@ export default function AboutContent() {
         </motion.div>
 
         {/* Socials */}
-        <motion.div {...reveal}>
+        <motion.div {...onScroll()}>
           <div className="flex items-center gap-3 mb-6"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Find me on</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
           <div className="flex flex-wrap gap-2">
             {socials.map(({ label, handle, href }) => (

@@ -16,6 +16,7 @@ type CaseStudy = {
 };
 
 const cardClass = "flex flex-col gap-0 rounded-none border-t border-neutral-100 dark:border-neutral-800 py-3 w-full mx-auto active:scale-[0.99]";
+const cardClassNoBorder = "flex flex-col gap-0 rounded-none py-3 w-full mx-auto active:scale-[0.99]";
 const cardTransition = "transform 150ms cubic-bezier(0.2, 0, 0, 1)";
 
 function CardInner({ study }: { study: CaseStudy }) {
@@ -41,7 +42,7 @@ function CardInner({ study }: { study: CaseStudy }) {
               alt={`${study.product} logo`}
               width={18}
               height={18}
-              className="shrink-0 rounded-[4px]"
+              className="shrink-0 rounded-full"
             />
           )}
           <p className="text-xs text-neutral-500 dark:text-neutral-400 uppercase tracking-[0.2px] font-medium">
@@ -57,18 +58,19 @@ function CardInner({ study }: { study: CaseStudy }) {
   );
 }
 
-export default function CaseStudyCard({ study }: { study: CaseStudy }) {
+export default function CaseStudyCard({ study, noBorderTop = false }: { study: CaseStudy; noBorderTop?: boolean }) {
   const style: React.CSSProperties = { transition: cardTransition };
+  const className = noBorderTop ? cardClassNoBorder : cardClass;
 
   if (study.href !== "#") {
     return (
-      <Link href={study.href} className={cardClass} style={style}>
+      <Link href={study.href} className={className} style={style}>
         <CardInner study={study} />
       </Link>
     );
   }
   return (
-    <div className={cardClass} style={style}>
+    <div className={className} style={style}>
       <CardInner study={study} />
     </div>
   );

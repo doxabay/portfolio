@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import CaseStudyCard from "@/components/case-study-card";
-import TypewriterHello from "@/components/typewriter-hello";
+import HeroIntro from "@/components/hero-intro";
 import { HomeScrollRestorer } from "@/components/home-scroll-restorer";
+import { REVEAL_EASE, DUR, at, heroCount } from "@/components/intro-timing";
 
 const caseStudies = [
   {
@@ -110,61 +111,99 @@ const caseStudies = [
   },
 ];
 
-const spring = { type: "spring" as const, duration: 0.5, bounce: 0 };
-const hidden = { opacity: 0, y: 16 };
-const visible = { opacity: 1, y: 0 };
-
-function stagger(delay: number) {
-  return { ...visible, transition: { ...spring, delay } };
+// Emphasized company name (ready to become a link once URLs are provided)
+function C({ children }: { children: React.ReactNode }) {
+  return <span className="font-medium text-neutral-900 dark:text-neutral-100">{children}</span>;
 }
 
+const heroRoles = [
+  {
+    label: "Now",
+    text: (
+      <>
+        Senior Product Designer at{" "}
+        <span className="whitespace-nowrap font-semibold text-neutral-900 dark:text-neutral-100">
+          <img
+            src="/logos/bamboo.svg"
+            alt=""
+            aria-hidden="true"
+            width={18}
+            height={18}
+            className="ml-[3px] mr-[5px] inline-block h-[18px] w-[18px] align-text-bottom"
+          />
+          <a href="https://investbamboo.com/" target="_blank" rel="noopener noreferrer">
+            Bamboo
+          </a>
+        </span>
+        , designing investment tools for wealth building.
+      </>
+    ),
+  },
+  {
+    label: "2024",
+    text: (
+      <>
+        Founding designer at{" "}
+        <span className="whitespace-nowrap font-semibold text-neutral-900 dark:text-neutral-100">
+          <img
+            src="/logos/paycrest.svg"
+            alt=""
+            aria-hidden="true"
+            width={18}
+            height={18}
+            className="ml-[3px] mr-[5px] inline-block h-[18px] w-[18px] rounded-full align-text-bottom"
+          />
+          <a href="https://www.paycrest.io/" target="_blank" rel="noopener noreferrer">
+            Paycrest
+          </a>
+        </span>{" "}
+        — built stablecoin products for businesses and launched &amp; scaled Noblocks across 5 countries.
+      </>
+    ),
+  },
+];
+
+// The page reveals as one top-down cascade on the same linear step as the hero:
+// the Work heading picks up right after the hero's elements, then each card follows.
+const WORK_INDEX = heroCount(heroRoles.length);
+
 export default function Home() {
+  const reduce = useReducedMotion();
+  const reveal = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 12, filter: "blur(8px)" },
+          animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+          transition: { duration: DUR, ease: REVEAL_EASE, delay },
+        };
+
   return (
     <>
       <HomeScrollRestorer />
       {/* Hero */}
       <section className="px-4 sm:px-6 py-12 sm:pt-[120px] sm:pb-[60px] bg-background">
         <div className="max-w-[560px] mx-auto w-full">
-          <motion.div initial={hidden} animate={stagger(0.08)}>
-            <TypewriterHello className="text-xs font-medium text-neutral-900 dark:text-neutral-100 block mb-2 text-left" />
-          </motion.div>
-          <motion.p
-            initial={hidden}
-            animate={stagger(0.16)}
-            className="text-sm text-neutral-600 dark:text-neutral-400 text-left"
-          >
-            a product designer passionate about designing memorable experiences through empathy-driven user obsession and design craftsmanship.
-          </motion.p>
-          <motion.div
-            initial={hidden}
-            animate={stagger(0.24)}
-            className="mt-6 space-y-4 text-left [&>p]:text-neutral-600 dark:[&>p]:text-neutral-400"
-          >
-            <p>For me, I believe in these things: There is power in asking why. There is greatness in grit and grind. Design should have balance in functionality and aesthetics.</p>
-            <p>My design discipline is embodied by intentional combination of core craftsmanship and empathy-driven obsession in designing products that meet user needs while achieving business goals.</p>
-          </motion.div>
+          <HeroIntro
+            lede="My design discipline blends core craftsmanship with empathy-driven obsession — building products that meet user needs and achieve business goals."
+            roles={heroRoles}
+          />
         </div>
       </section>
 
       {/* Case Studies */}
       <section className="px-4 sm:px-0 pb-20 pt-[60px] sm:pt-[100px] bg-background">
         <motion.h2
-          initial={hidden}
-          animate={stagger(0.26)}
-          className="text-[13px] font-medium text-neutral-500 dark:text-neutral-400 mb-9 text-left flex items-center justify-start gap-2 max-w-[560px] mx-auto w-full"
+          className="text-[13px] font-medium text-neutral-500 dark:text-neutral-400 mb-9 text-left flex items-center justify-start gap-3 max-w-[560px] mx-auto w-full"
+          {...reveal(at(WORK_INDEX))}
         >
           Work
+          <span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" />
         </motion.h2>
         <div className="flex flex-col gap-5 max-w-[560px] mx-auto">
-          {caseStudies.map((study) => (
-            <motion.div
-              key={study.title}
-              initial={{ scale: 0.92, opacity: 0, y: 8 }}
-              whileInView={{ scale: 1, opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.1 }}
-              transition={{ type: "spring", duration: 0.55, bounce: 0 }}
-            >
-              <CaseStudyCard study={study} />
+          {caseStudies.map((study, index) => (
+            <motion.div key={study.title} {...reveal(at(WORK_INDEX + 1 + index))}>
+              <CaseStudyCard study={study} noBorderTop={index === 0} />
             </motion.div>
           ))}
         </div>
