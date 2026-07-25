@@ -1,7 +1,7 @@
 "use client";
 
 import { animate } from "motion/react";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TYPEWRITER_DELAY } from "./intro-timing";
 
 // Decelerating ease shared by the two caret sweeps (wireframe reveal + cleanup wipe)
@@ -20,21 +20,16 @@ const PAUSE_AFTER_WIRE = 300;
 const GAP = 3600; // idle caret before the next element
 const WIRE_GAP = 7; // px between the label and the wireframe once revealed
 
-type Element = { label: string; wireframe: ReactNode };
-
 // Each wireframe keeps its own aspect ratio: up to 40px wide, capped at 32px tall
 // so nothing grows the heading's line box (no layout shift).
-const wire = (src: string, w: number, h: number) => (
-  // eslint-disable-next-line @next/next/no-img-element
-  <img src={src} alt="" width={w} height={h} className="block h-auto w-auto max-h-[32px] max-w-[40px] shrink-0" />
-);
+type Element = { label: string; src: string; w: number; h: number };
 
 // The loop cycles through these design elements; add more here.
 const ELEMENTS: Element[] = [
-  { label: "BUTTONS", wireframe: wire("/wireframes/button.svg", 50, 29) },
-  { label: "IMAGES", wireframe: wire("/wireframes/image.svg", 50, 40) },
-  { label: "FORMS", wireframe: wire("/wireframes/form.svg", 50, 50) },
-  { label: "TOGGLES", wireframe: wire("/wireframes/toggle.svg", 41, 28) },
+  { label: "BUTTONS", src: "/wireframes/button.svg", w: 50, h: 29 },
+  { label: "IMAGES", src: "/wireframes/image.svg", w: 50, h: 40 },
+  { label: "FORMS", src: "/wireframes/form.svg", w: 50, h: 50 },
+  { label: "TOGGLES", src: "/wireframes/toggle.svg", w: 41, h: 28 },
 ];
 
 export default function HeroTypewriter({ reduce }: { reduce: boolean }) {
@@ -44,6 +39,17 @@ export default function HeroTypewriter({ reduce }: { reduce: boolean }) {
   const [active, setActive] = useState(false); // caret solid while typing/sweeping
   const rowRef = useRef<HTMLSpanElement>(null); // wraps label + wireframe — the wipe target
   const wireRef = useRef<HTMLSpanElement>(null); // the wireframe's own reveal clip
+
+  // Warm the browser cache on mount so the SVGs are fetched + decoded well before the
+  // reveal measures them. Without this, the first reveal can race the network: the
+  // just-mounted <img> has no intrinsic size yet, scrollWidth reads ~0, and the
+  // wireframe animates to width 0 and stays clipped until a refresh (now cached).
+  useEffect(() => {
+    ELEMENTS.forEach(({ src }) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
 
   useEffect(() => {
     if (reduce) return;
@@ -82,12 +88,31 @@ export default function HeroTypewriter({ reduce }: { reduce: boolean }) {
         if (cancelled) return;
         const wnode = wireRef.current;
         if (wnode) {
+          // Guarantee the SVG has a measurable size before we read scrollWidth. The
+          // preload above usually means it's already complete; this covers a cold first
+          // reveal so we never animate to a zero/partial width.
+          const img = wnode.querySelector("img");
+          if (img && !img.complete) {
+            await new Promise<void>((res) => {
+              img.addEventListener("load", () => res(), { once: true });
+              img.addEventListener("error", () => res(), { once: true });
+            });
+            await nextFrame();
+          }
+          if (cancelled) return;
           const target = wnode.scrollWidth; // natural width while clipped to 0
-          await animate(
-            wnode,
-            { width: [0, target], marginLeft: [0, WIRE_GAP] },
-            { duration: REVEAL_MS / 1000, ease: SWEEP_EASE }
-          ).finished;
+          const opts = { duration: REVEAL_MS / 1000, ease: SWEEP_EASE };
+          // Two tracks on the same ease/duration so they stay locked together:
+          //  • the wrapper's width opens 0→target, pushing the caret rightward so it rides
+          //    the reveal front (and grows the layout box in step, no shift);
+          //  • the wireframe itself scales 0→1 from its bottom-left corner, so it inflates
+          //    into that opening instead of sliding out from behind a hard clip. Same ease
+          //    means the scaled image's right edge stays glued to the caret the whole way.
+          const reveal = [
+            animate(wnode, { width: [0, target], marginLeft: [0, WIRE_GAP] }, opts).finished,
+          ];
+          if (img) reveal.push(animate(img, { scale: [0.4, 1] }, opts).finished);
+          await Promise.all(reveal);
         }
         if (cancelled) return;
 
@@ -148,7 +173,14 @@ export default function HeroTypewriter({ reduce }: { reduce: boolean }) {
               className="inline-flex overflow-hidden align-baseline text-[0px] leading-none text-neutral-400 dark:text-neutral-500"
               style={{ width: 0 }}
             >
-              {element.wireframe}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={element.src}
+                alt=""
+                width={element.w}
+                height={element.h}
+                className="block h-auto w-auto max-h-[32px] max-w-[40px] shrink-0 origin-bottom-left"
+              />
             </span>
           )}
         </span>
