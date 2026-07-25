@@ -1,22 +1,24 @@
 "use client";
 
-import { AnimatePresence, animate, motion } from "motion/react";
+import { animate } from "motion/react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { TYPEWRITER_DELAY } from "./intro-timing";
 
-const REVEAL_EASE = [0.2, 0, 0, 1] as const;
-// Decelerating ease for the cursor drag-back — starts moving, then settles at the origin.
+// Decelerating ease shared by the two caret sweeps (wireframe reveal + cleanup wipe)
+// so the reveal reads as the exact reverse of the clean-up.
 const SWEEP_EASE = [0.22, 1, 0.36, 1] as const;
 
 // Timeline (ms). START_DELAY lands after the intro choreography (inspect overlay →
 // gradient) so the cursor action is the last thing to play — see intro-timing.ts.
 const START_DELAY = TYPEWRITER_DELAY;
 const TYPE_MS = 40; // per character while typing
-const SWEEP_MS = 400; // duration of the single cursor drag-back that wipes the label
-const PAUSE_BEFORE_WIRE = 900; // hold on the typed label before the wireframe pops in
+const REVEAL_MS = 380; // caret drags right, unclipping the wireframe into view
+const SWEEP_MS = 400; // caret drags left, wiping the whole row (label + wireframe) away
+const PAUSE_BEFORE_WIRE = 900; // hold on the typed label before the wireframe reveals
 const HOLD = 3000; // time the wireframe stays revealed
 const PAUSE_AFTER_WIRE = 300;
 const GAP = 3600; // idle caret before the next element
+const WIRE_GAP = 7; // px between the label and the wireframe once revealed
 
 type Element = { label: string; wireframe: ReactNode };
 
@@ -24,7 +26,7 @@ type Element = { label: string; wireframe: ReactNode };
 // so nothing grows the heading's line box (no layout shift).
 const wire = (src: string, w: number, h: number) => (
   // eslint-disable-next-line @next/next/no-img-element
-  <img src={src} alt="" width={w} height={h} className="block h-auto w-auto max-h-[32px] max-w-[40px]" />
+  <img src={src} alt="" width={w} height={h} className="block h-auto w-auto max-h-[32px] max-w-[40px] shrink-0" />
 );
 
 // The loop cycles through these design elements; add more here.
@@ -40,7 +42,8 @@ export default function HeroTypewriter({ reduce }: { reduce: boolean }) {
   const [typed, setTyped] = useState("");
   const [showWire, setShowWire] = useState(false);
   const [active, setActive] = useState(false); // caret solid while typing/sweeping
-  const labelRef = useRef<HTMLSpanElement>(null);
+  const rowRef = useRef<HTMLSpanElement>(null); // wraps label + wireframe — the wipe target
+  const wireRef = useRef<HTMLSpanElement>(null); // the wireframe's own reveal clip
 
   useEffect(() => {
     if (reduce) return;
@@ -50,6 +53,9 @@ export default function HeroTypewriter({ reduce }: { reduce: boolean }) {
       new Promise<void>((res) => {
         timers.push(setTimeout(res, ms));
       });
+    // Wait for the browser to lay out a just-mounted node before measuring/animating it.
+    const nextFrame = () =>
+      new Promise<void>((res) => requestAnimationFrame(() => requestAnimationFrame(() => res())));
 
     (async () => {
       await sleep(START_DELAY);
@@ -66,35 +72,50 @@ export default function HeroTypewriter({ reduce }: { reduce: boolean }) {
           await sleep(TYPE_MS);
         }
 
-        // Reveal the wireframe, then hold
-        setActive(false);
+        // Reveal the wireframe as a smooth caret sweep: it mounts clipped to width 0
+        // and its width (plus the leading gap) expands to natural size, so the caret —
+        // laid out just after the row — rides the reveal front rightward. This mirrors
+        // the clean-up wipe below instead of popping in.
         await sleep(PAUSE_BEFORE_WIRE);
         setShowWire(true);
+        await nextFrame();
+        if (cancelled) return;
+        const wnode = wireRef.current;
+        if (wnode) {
+          const target = wnode.scrollWidth; // natural width while clipped to 0
+          await animate(
+            wnode,
+            { width: [0, target], marginLeft: [0, WIRE_GAP] },
+            { duration: REVEAL_MS / 1000, ease: SWEEP_EASE }
+          ).finished;
+        }
+        if (cancelled) return;
+
+        setActive(false); // caret idles while the wireframe holds
         await sleep(HOLD);
 
-        // Clean it up: wireframe out, then drag the cursor back to the start in one
-        // smooth sweep — the label clips from the right as its width collapses, so the
-        // caret (inline after it) rides the wipe front leftward to the origin.
-        setShowWire(false);
+        // Clean it up in one motion: collapse the whole row (label + wireframe) to width
+        // 0 so the caret rides the wipe front leftward back to its pre-typing origin.
         await sleep(PAUSE_AFTER_WIRE);
         setActive(true);
-        const node = labelRef.current;
-        if (node) {
-          const w = node.offsetWidth;
+        const rnode = rowRef.current;
+        if (rnode) {
+          const w = rnode.offsetWidth;
           // Collapse the left margin (ml-[8px]) together with the width so the caret
-          // lands exactly at its pre-typing origin — otherwise the margin lingers and
-          // the caret snaps 8px left when the span unmounts (the backspace-like blip).
+          // lands exactly at its origin — otherwise the margin lingers and the caret
+          // snaps 8px left when the row unmounts (the backspace-like blip).
           await animate(
-            node,
+            rnode,
             { width: [w, 0], marginLeft: [8, 0] },
             { duration: SWEEP_MS / 1000, ease: SWEEP_EASE }
           ).finished;
         }
         if (cancelled) return;
-        // Clear the label while it's still collapsed to width 0 — unmounting it here
-        // avoids a one-frame flash of the full text that resetting the width would cause.
-        // The next element remounts a fresh span (no stale inline width).
+        // Clear the row while it's still collapsed to width 0 — unmounting it here avoids
+        // a one-frame flash of the full content that resetting the width would cause.
+        // The next element remounts a fresh row/wireframe (no stale inline width).
         setTyped("");
+        setShowWire(false);
 
         setActive(false);
         await sleep(GAP);
@@ -114,27 +135,24 @@ export default function HeroTypewriter({ reduce }: { reduce: boolean }) {
     <span aria-hidden>
       {typed && (
         <span
-          ref={labelRef}
-          className="ml-[8px] inline-block overflow-hidden whitespace-nowrap align-baseline text-[11px] leading-none font-medium uppercase tracking-tight text-neutral-400 dark:text-neutral-500 font-[family-name:var(--font-ibm-plex-mono)]"
+          ref={rowRef}
+          className="ml-[8px] inline-flex items-baseline overflow-hidden whitespace-nowrap align-baseline"
         >
-          {typed}
+          <span className="inline-block text-[11px] leading-none font-medium uppercase tracking-tight text-neutral-400 dark:text-neutral-500 font-[family-name:var(--font-ibm-plex-mono)]">
+            {typed}
+          </span>
+
+          {showWire && (
+            <span
+              ref={wireRef}
+              className="inline-flex overflow-hidden align-baseline text-[0px] leading-none text-neutral-400 dark:text-neutral-500"
+              style={{ width: 0 }}
+            >
+              {element.wireframe}
+            </span>
+          )}
         </span>
       )}
-
-      <AnimatePresence>
-        {showWire && (
-          <motion.span
-            className="ml-[7px] inline-flex align-baseline text-[0px] leading-none text-neutral-400 dark:text-neutral-500"
-            style={{ transformOrigin: "left bottom" }}
-            initial={{ opacity: 0, scale: 0.6 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.6 }}
-            transition={{ duration: 0.32, ease: REVEAL_EASE }}
-          >
-            {element.wireframe}
-          </motion.span>
-        )}
-      </AnimatePresence>
 
       <span
         className={`ml-[6px] inline-block h-[0.82em] w-[3px] translate-y-[0.08em] rounded-full align-baseline ${
