@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SquigglyText } from "@/components/ui/squiggly-text";
 import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
 
@@ -17,7 +18,7 @@ export default async function FollowFlashCaseStudy() {
           <div id="case-study-header" className="w-full max-w-[560px] mx-auto mb-8 lg:mb-[60px]">
             <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/followflash.svg" alt="Follow Flash logo" width={34} height={34} className="rounded-full shrink-0" />
+              <img loading="lazy" decoding="async" src="/logos/followflash.svg" alt="Follow Flash logo" width={34} height={34} className="rounded-full shrink-0" />
               <h1 className="text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-medium" style={{ fontFamily: "KaliceTrial" }}>
                 <SquigglyText className="text-neutral-950 dark:text-neutral-50" scale={[4, 6]} stepDuration={320}>
                   Follow Flash
@@ -77,30 +78,19 @@ export default async function FollowFlashCaseStudy() {
             </section>
 
             {/* Cover image */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/follow-flash/coverfollowflash.jpg" alt="Follow Flash cover" className="w-full h-auto mb-4" />
+            <Image src="/follow-flash/coverfollowflash.jpg" alt="Follow Flash cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
 
             {/* Shots */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/follow-flash/covershot01followflash.jpg" alt="Follow Flash shot 1" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/follow-flash/covershot02followflash.jpg" alt="Follow Flash shot 2" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/follow-flash/covershot03followflash.jpg" alt="Follow Flash shot 3" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/follow-flash/covershot04followflash.jpg" alt="Follow Flash shot 4" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/follow-flash/covershot05followflash.jpg" alt="Follow Flash shot 5" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/follow-flash/covershot06followflash.jpg" alt="Follow Flash shot 6" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/follow-flash/covershot07followflash.jpg" alt="Follow Flash shot 7" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/follow-flash/covershot8followflash.jpg" alt="Follow Flash shot 8" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/follow-flash/covershot09followflash.jpg" alt="Follow Flash shot 9" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/follow-flash/covershot10followflash.jpg" alt="Follow Flash shot 10" className="w-full h-auto mb-16" />
+            <Image src="/follow-flash/covershot01followflash.jpg" alt="Follow Flash shot 1" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/follow-flash/covershot02followflash.jpg" alt="Follow Flash shot 2" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/follow-flash/covershot03followflash.jpg" alt="Follow Flash shot 3" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/follow-flash/covershot04followflash.jpg" alt="Follow Flash shot 4" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/follow-flash/covershot05followflash.jpg" alt="Follow Flash shot 5" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/follow-flash/covershot06followflash.jpg" alt="Follow Flash shot 6" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/follow-flash/covershot07followflash.jpg" alt="Follow Flash shot 7" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/follow-flash/covershot8followflash.jpg" alt="Follow Flash shot 8" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/follow-flash/covershot09followflash.jpg" alt="Follow Flash shot 9" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/follow-flash/covershot10followflash.jpg" alt="Follow Flash shot 10" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-16" />
 
           </CaseStudyCanvas>
         </div>

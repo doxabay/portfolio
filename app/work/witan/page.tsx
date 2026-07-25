@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import TocNav from "@/components/toc-nav";
 import { SquigglyText } from "@/components/ui/squiggly-text";
 import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
@@ -66,7 +67,7 @@ export default async function WitanCaseStudy() {
           <div id="case-study-header" className="w-full max-w-[560px] mx-auto mb-8 lg:mb-[60px]">
             <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/witan.svg" alt="Witan logo" width={34} height={34} className="rounded-full shrink-0" />
+              <img loading="lazy" decoding="async" src="/logos/witan.svg" alt="Witan logo" width={34} height={34} className="rounded-full shrink-0" />
               <h1 className="text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-medium" style={{ fontFamily: "KaliceTrial" }}>
                 <SquigglyText className="text-neutral-950 dark:text-neutral-50" scale={[4, 6]} stepDuration={320}>
                   Witan
@@ -124,8 +125,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/Witan-cover.jpg" alt="Witan product overview" className="w-full h-auto" />
+              <Image src="/Witan-cover.jpg" alt="Witan product overview" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             {/* Background */}
@@ -146,8 +146,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/wwcJ3l4EQboNmWWi9OPYq1jYI8.png" alt="Witan product overview" className="w-full h-auto" />
+              <Image src="/witan/framer/wwcJ3l4EQboNmWWi9OPYq1jYI8.png" alt="Witan product overview" width={2880} height={1788} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             {/* Problem Space */}
@@ -214,8 +213,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/Nrwllq40BbFxHxClWOrAboUhM.png" alt="Survey stats" className="w-full h-auto" />
+              <Image src="/witan/framer/Nrwllq40BbFxHxClWOrAboUhM.png" alt="Survey stats" width={2880} height={1560} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             {/* Research Summary */}
@@ -259,8 +257,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/KAkwpA1ox6SeBJyTCou6rTiZJY.png" alt="Authentication flow" className="w-full h-auto" />
+              <Image src="/witan/framer/KAkwpA1ox6SeBJyTCou6rTiZJY.png" alt="Authentication flow" width={2880} height={1560} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <section className="mb-16">
@@ -272,13 +269,11 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/EmPgmBBRGsykXCeSaRCE9yVNBCI.png" alt="Social onboarding flow" className="w-full h-auto" />
+              <Image src="/witan/framer/EmPgmBBRGsykXCeSaRCE9yVNBCI.png" alt="Social onboarding flow" width={2880} height={1326} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/7lliOgLyovS7EOa9ileKFDEUE.png" alt="Wallet onboarding flow" className="w-full h-auto" />
+              <Image src="/witan/framer/7lliOgLyovS7EOa9ileKFDEUE.png" alt="Wallet onboarding flow" width={2880} height={1326} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <section className="mb-16">
@@ -299,8 +294,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/g7tEcYYGuCtxXXdNMQtJ9DlumaU.png" alt="Event creation stages" className="w-full h-auto" />
+              <Image src="/witan/framer/g7tEcYYGuCtxXXdNMQtJ9DlumaU.png" alt="Event creation stages" width={2880} height={848} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <section className="mb-16">
@@ -337,8 +331,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/Xkd9aycEcRJOb5tZm5E90wmhXw.png" alt="Coincidental booking solution" className="w-full h-auto" />
+              <Image src="/witan/framer/Xkd9aycEcRJOb5tZm5E90wmhXw.png" alt="Coincidental booking solution" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             {/* Visual Design */}
@@ -353,13 +346,11 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/n9x5nzTV4m3LBZRpuGCDXrk4Ec.png" alt="Onboarding auth screens" className="w-full h-auto" />
+              <Image src="/witan/framer/n9x5nzTV4m3LBZRpuGCDXrk4Ec.png" alt="Onboarding auth screens" width={2880} height={1512} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/xB5S439cdibiF4pjwHAEl97T7E.png" alt="Mobile onboarding screens" className="w-full h-auto" />
+              <Image src="/witan/framer/xB5S439cdibiF4pjwHAEl97T7E.png" alt="Mobile onboarding screens" width={2880} height={1888} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <section className="mb-16">
@@ -372,8 +363,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/qxPRl7iT9Y9jix0p6pop3TarhlA.png" alt="Event page design" className="w-full h-auto" />
+              <Image src="/witan/framer/qxPRl7iT9Y9jix0p6pop3TarhlA.png" alt="Event page design" width={2880} height={1788} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <section className="mb-16">
@@ -389,8 +379,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/z2FfmvWofQQt8KO1bBM76nki30.png" alt="Event publishing flow" className="w-full h-auto" />
+              <Image src="/witan/framer/z2FfmvWofQQt8KO1bBM76nki30.png" alt="Event publishing flow" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <section className="mb-16">
@@ -409,8 +398,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/beJonStG49VAjwXjXcGVgcvRs.png" alt="Payment settings design" className="w-full h-auto" />
+              <Image src="/witan/framer/beJonStG49VAjwXjXcGVgcvRs.png" alt="Payment settings design" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <section className="mb-16">
@@ -429,8 +417,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/ivMAq0LDzRZkst5cwNqfz1MmfI.png" alt="Discount codes design" className="w-full h-auto" />
+              <Image src="/witan/framer/ivMAq0LDzRZkst5cwNqfz1MmfI.png" alt="Discount codes design" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <section className="mb-16">
@@ -449,13 +436,11 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/OdjeoYA5j5maXwN4H2ucjcY5W8M.png" alt="Admit attendees interface" className="w-full h-auto" />
+              <Image src="/witan/framer/OdjeoYA5j5maXwN4H2ucjcY5W8M.png" alt="Admit attendees interface" width={2880} height={2220} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/7kqXBpBKVc9aXAyguMGcizt4GI.png" alt="Attendee management dashboard" className="w-full h-auto" />
+              <Image src="/witan/framer/7kqXBpBKVc9aXAyguMGcizt4GI.png" alt="Attendee management dashboard" width={5760} height={4168} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <section className="mb-16">
@@ -471,13 +456,11 @@ export default async function WitanCaseStudy() {
             </section>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/YwtwOHm0AzKgOAOJTFEwnHj0PiE.png" alt="Rive icon animations" className="w-full h-auto" />
+              <Image src="/witan/framer/YwtwOHm0AzKgOAOJTFEwnHj0PiE.png" alt="Rive icon animations" width={5635} height={4075} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             <div className="mb-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://framerusercontent.com/images/89ogksPri5xp6V4GwF7OfV7V3ZI.png" alt="Witan landing page" className="w-full h-auto" />
+              <Image src="/witan/framer/89ogksPri5xp6V4GwF7OfV7V3ZI.png" alt="Witan landing page" width={5760} height={3464} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
             </div>
 
             {/* Testing */}

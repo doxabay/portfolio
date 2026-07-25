@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
+
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const team = [
-  { src: "https://framerusercontent.com/images/mnoe2h9LB7jxQIhPDeJnfm4SXGs.jpg", name: "Bayo",    role: "Design" },
-  { src: "https://framerusercontent.com/images/LXmnlS8CPSoDeFeoPXUV08HGM.jpg",   name: "Clement", role: "Design" },
-  { src: "https://framerusercontent.com/images/PpcR6fFeVy11cvqUBbH60xNvKf8.png", name: "Fatima",  role: "Design" },
+  { src: "/avatars/mnoe2h9LB7jxQIhPDeJnfm4SXGs.jpg", name: "Bayo",    role: "Design" },
+  { src: "/avatars/LXmnlS8CPSoDeFeoPXUV08HGM.jpg",   name: "Clement", role: "Design" },
+  { src: "/avatars/PpcR6fFeVy11cvqUBbH60xNvKf8.png", name: "Fatima",  role: "Design" },
 ];
 
 export default function WitanAvatarCredits() {
@@ -14,12 +16,7 @@ export default function WitanAvatarCredits() {
       {team.map(({ src, name, role }) => (
         <Tooltip key={name}>
           <TooltipTrigger asChild>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={src}
-              alt={name}
-              className="w-8 h-8 rounded-full shrink-0 object-cover cursor-default"
-            />
+            <Image src={src} alt={name} width={32} height={32} className="w-8 h-8 rounded-full shrink-0 object-cover cursor-default" />
           </TooltipTrigger>
           <TooltipContent side="top" className="text-center">
             <p className="font-medium text-xs text-white">{name}</p>

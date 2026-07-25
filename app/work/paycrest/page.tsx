@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SquigglyText } from "@/components/ui/squiggly-text";
 import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
 import WitanAvatarCredits from "@/components/witan-avatar-credits";
@@ -15,7 +16,7 @@ export default async function PaycrestCaseStudy() {
           <div id="case-study-header" className="w-full max-w-[560px] mx-auto mb-8 lg:mb-[60px]">
             <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/paycrest.svg" alt="Paycrest logo" width={34} height={34} className="rounded-full shrink-0" />
+              <img loading="lazy" decoding="async" src="/logos/paycrest.svg" alt="Paycrest logo" width={34} height={34} className="rounded-full shrink-0" />
               <h1 className="text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-medium" style={{ fontFamily: "KaliceTrial" }}>
                 <SquigglyText className="text-neutral-950 dark:text-neutral-50" scale={[4, 6]} stepDuration={320}>
                   Paycrest
@@ -70,8 +71,7 @@ export default async function PaycrestCaseStudy() {
             </section>
 
             {/* Cover image */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/Paycrest-01.jpg" alt="Paycrest cover" className="w-full h-auto mb-16" />
+            <Image src="/Paycrest-01.jpg" alt="Paycrest cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-16" />
 
           </CaseStudyCanvas>
         </div>

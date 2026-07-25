@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import TocNav from "@/components/toc-nav";
 import { SquigglyText } from "@/components/ui/squiggly-text";
 import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
@@ -28,7 +29,7 @@ export default async function NoblocksCaseStudy() {
           <div id="case-study-header" className="w-full max-w-[560px] mx-auto mb-8 lg:mb-[60px]">
             <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/noblocks.svg" alt="Noblocks logo" width={34} height={34} className="rounded-full shrink-0" />
+              <img loading="lazy" decoding="async" src="/logos/noblocks.svg" alt="Noblocks logo" width={34} height={34} className="rounded-full shrink-0" />
               <h1 className="text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-medium" style={{ fontFamily: "KaliceTrial" }}>
                 <SquigglyText className="text-neutral-950 dark:text-neutral-50" scale={[4, 6]} stepDuration={320}>
                   Noblocks
@@ -84,8 +85,7 @@ export default async function NoblocksCaseStudy() {
             </section>
 
             {/* Cover image */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/Noblocks-01.jpg" alt="Noblocks cover" className="w-full h-auto mb-16" />
+            <Image src="/Noblocks-01.jpg" alt="Noblocks cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-16" />
 
           </CaseStudyCanvas>
         </div>

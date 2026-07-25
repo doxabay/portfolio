@@ -79,7 +79,7 @@ export default async function CaseStudyPage() {
           <div id="case-study-header" className="w-full max-w-[560px] mx-auto mb-8 lg:mb-[60px]">
             <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/blocasset.svg" alt="Blocasset logo" width={34} height={34} className="rounded-full shrink-0" />
+              <img loading="lazy" decoding="async" src="/logos/blocasset.svg" alt="Blocasset logo" width={34} height={34} className="rounded-full shrink-0" />
               <h1 className="text-3xl sm:text-4xl text-neutral-800 dark:text-neutral-50 tracking-tight font-medium" style={{ fontFamily: "KaliceTrial" }}>
                 <SquigglyText className="text-neutral-800 dark:text-neutral-50" scale={[4, 6]} stepDuration={320}>
                   Blocasset
@@ -273,8 +273,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/grPApWPboJrgaAu0a8go6K1sFNw.png" alt="Identity check analysis" className="w-full h-auto" />
+                <Image src="/work-slug/framer/grPApWPboJrgaAu0a8go6K1sFNw.png" alt="Identity check analysis" width={4000} height={2250} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
               </div>
 
               <section className="mb-16">
@@ -292,8 +291,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/thirdstop001.jpg" alt="Asset upload flow issues" className="w-full h-auto" />
+                <Image src="/thirdstop001.jpg" alt="Asset upload flow issues" width={2000} height={1431} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
               </div>
 
               <section className="mb-16">
@@ -307,8 +305,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/thirdstop002.jpg" alt="Asset upload flow issues" className="w-full h-auto" />
+                <Image src="/thirdstop002.jpg" alt="Asset upload flow issues" width={2000} height={1125} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
               </div>
 
               {/* Research */}
@@ -356,8 +353,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/xcF4WOIjiSAm0NGxrzbx1FoAJZs.png" alt="UX research findings" className="w-full h-auto" />
+                <Image src="/work-slug/framer/xcF4WOIjiSAm0NGxrzbx1FoAJZs.png" alt="UX research findings" width={4000} height={2249} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
               </div>
 
               <section className="mb-16">
@@ -392,13 +388,11 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/introblocasset.jpg" alt="Blocasset V1 design" className="w-full h-auto" />
+                <Image src="/introblocasset.jpg" alt="Blocasset V1 design" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
               </div>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assetsblocasset.jpg" alt="Blocasset V1 design" className="w-full h-auto" />
+                <Image src="/assetsblocasset.jpg" alt="Blocasset V1 design" width={2000} height={1125} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
               </div>
 
               <section className="mb-16">
@@ -433,8 +427,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://framerusercontent.com/images/20KwuiDxD0CoxqMfnqOE7pujYM.png" alt="Easy onboarding flow" className="w-full h-auto" />
+                <Image src="/work-slug/framer/20KwuiDxD0CoxqMfnqOE7pujYM.png" alt="Easy onboarding flow" width={4000} height={2250} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
               </div>
 
               <section className="mb-16">
@@ -450,8 +443,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/searchblocasset.jpg" alt="Search experience" className="w-full h-auto" />
+                <Image src="/searchblocasset.jpg" alt="Search experience" width={1785} height={990} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
               </div>
 
               <section className="mb-16">
@@ -464,13 +456,11 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/walletblocasset.jpg" alt="Payments" className="w-full h-auto" />
+                <Image src="/walletblocasset.jpg" alt="Payments" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
               </div>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/walletblocasset2.jpg" alt="Payments" className="w-full h-auto" />
+                <Image src="/walletblocasset2.jpg" alt="Payments" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
               </div>
 
               <section className="mb-16">
@@ -532,8 +522,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/feedblocasset.jpg" alt="Maze testing results" className="w-full h-auto" />
+                <Image src="/feedblocasset.jpg" alt="Maze testing results" width={2000} height={1441} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto" />
               </div>
 
               {/* Impact */}

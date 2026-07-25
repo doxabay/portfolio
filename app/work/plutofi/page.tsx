@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SquigglyText } from "@/components/ui/squiggly-text";
 import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
 
@@ -69,22 +70,15 @@ export default async function PlutofiCaseStudy() {
             </section>
 
             {/* Cover image */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/plutofi/coverplutofi.jpg" alt="Plutofi cover" className="w-full h-auto mb-4" />
+            <Image src="/plutofi/coverplutofi.jpg" alt="Plutofi cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
 
             {/* Shots */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/plutofi/shot1plutofi.jpg" alt="Plutofi shot 1" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/plutofi/shot2plutofi.jpg" alt="Plutofi shot 2" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/plutofi/shot3plutofi.jpg" alt="Plutofi shot 3" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/plutofi/shot4plutofi.jpg" alt="Plutofi shot 4" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/plutofi/shot5plutofi.jpg" alt="Plutofi shot 5" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/plutofi/shot6plutofi.jpg" alt="Plutofi shot 6" className="w-full h-auto mb-16" />
+            <Image src="/plutofi/shot1plutofi.jpg" alt="Plutofi shot 1" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/plutofi/shot2plutofi.jpg" alt="Plutofi shot 2" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/plutofi/shot3plutofi.jpg" alt="Plutofi shot 3" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/plutofi/shot4plutofi.jpg" alt="Plutofi shot 4" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/plutofi/shot5plutofi.jpg" alt="Plutofi shot 5" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/plutofi/shot6plutofi.jpg" alt="Plutofi shot 6" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-16" />
 
           </CaseStudyCanvas>
         </div>

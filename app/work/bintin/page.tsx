@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SquigglyText } from "@/components/ui/squiggly-text";
 import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
 
@@ -17,7 +18,7 @@ export default async function BintinCaseStudy() {
           <div id="case-study-header" className="w-full max-w-[560px] mx-auto mb-8 lg:mb-[60px]">
             <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/bintin.svg" alt="Bintin logo" width={34} height={34} className="rounded-full shrink-0" />
+              <img loading="lazy" decoding="async" src="/logos/bintin.svg" alt="Bintin logo" width={34} height={34} className="rounded-full shrink-0" />
               <h1 className="text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-medium" style={{ fontFamily: "KaliceTrial" }}>
                 <SquigglyText className="text-neutral-950 dark:text-neutral-50" scale={[4, 6]} stepDuration={320}>
                   Bintin
@@ -74,22 +75,15 @@ export default async function BintinCaseStudy() {
             </section>
 
             {/* Cover image */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/bintin/coverbintin.jpg" alt="Bintin cover" className="w-full h-auto mb-4" />
+            <Image src="/bintin/coverbintin.jpg" alt="Bintin cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
 
             {/* Shots */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/bintin/shotcover01Bintin.jpg" alt="Bintin shot 1" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/bintin/shotcover02Bintin-1.jpg" alt="Bintin shot 2" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/bintin/shotcover02Bintin.jpg" alt="Bintin shot 3" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/bintin/shotcover03Bintin.jpg" alt="Bintin shot 4" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/bintin/shotcover04Bintin.jpg" alt="Bintin shot 5" className="w-full h-auto mb-4" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/bintin/shotcover05Bintin.jpg" alt="Bintin shot 6" className="w-full h-auto mb-16" />
+            <Image src="/bintin/shotcover01Bintin.jpg" alt="Bintin shot 1" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/bintin/shotcover02Bintin-1.jpg" alt="Bintin shot 2" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/bintin/shotcover02Bintin.jpg" alt="Bintin shot 3" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/bintin/shotcover03Bintin.jpg" alt="Bintin shot 4" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/bintin/shotcover04Bintin.jpg" alt="Bintin shot 5" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-4" />
+            <Image src="/bintin/shotcover05Bintin.jpg" alt="Bintin shot 6" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto mb-16" />
 
 
           </CaseStudyCanvas>
