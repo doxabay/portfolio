@@ -62,7 +62,7 @@ export default async function FollowFlashCaseStudy() {
                   </div>
                   <div className="flex items-center justify-between gap-6 py-3">
                     <p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">My role</p>
-                    <p className="text-sm text-neutral-400 text-right">UI/UX Designer</p>
+                    <p className="text-sm text-neutral-400 text-right">Product Designer</p>
                   </div>
                   <div className="flex items-center justify-between gap-6 py-3">
                     <p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Industry</p>

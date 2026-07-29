@@ -118,28 +118,6 @@ function C({ children }: { children: React.ReactNode }) {
 
 const heroRoles = [
   {
-    label: "Now",
-    text: (
-      <>
-        Senior Product Designer at{" "}
-        <span className="whitespace-nowrap font-semibold text-neutral-900 dark:text-neutral-100">
-          <img
-            src="/logos/bamboo.svg"
-            alt=""
-            aria-hidden="true"
-            width={18}
-            height={18}
-            className="ml-[3px] mr-[5px] inline-block h-[18px] w-[18px] align-text-bottom"
-          />
-          <a href="https://investbamboo.com/" target="_blank" rel="noopener noreferrer">
-            Bamboo
-          </a>
-        </span>
-        , designing investment tools for wealth building.
-      </>
-    ),
-  },
-  {
     label: "2024",
     text: (
       <>
