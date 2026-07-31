@@ -178,7 +178,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <div className="mb-16">
-                <Image src="/blocasset-2.jpg" alt="Blocasset goal" width={1920} height={1080} className="w-full h-auto rounded-[4px]" />
+                <Image src="/Blocasset-2.jpg" alt="Blocasset goal" width={1920} height={1080} className="w-full h-auto rounded-[4px]" />
               </div>
 
               {/* Goal */}
