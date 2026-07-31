@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { SquigglyText } from "@/components/ui/squiggly-text";
 import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
+import ResizableContent from "@/components/resizable-content";
 
 export const metadata: Metadata = { title: "Bintin" };
 
@@ -14,8 +15,9 @@ export default async function BintinCaseStudy() {
 
         {/* Content area */}
         <div className="flex flex-col pt-6 lg:pt-[100px] pb-12 px-4 sm:px-6 lg:pl-[268px] lg:pr-8 2xl:px-8 min-w-0">
+          <ResizableContent>
           {/* Page header */}
-          <div id="case-study-header" className="w-full max-w-[560px] mx-auto mb-8 lg:mb-[60px]">
+          <div id="case-study-header" className="w-full max-w-[var(--cs-w,560px)] mx-auto mb-8 lg:mb-[60px]">
             <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img loading="lazy" decoding="async" src="/logos/bintin.svg" alt="Bintin logo" width={34} height={34} className="rounded-full shrink-0" />
@@ -34,11 +36,11 @@ export default async function BintinCaseStudy() {
           </div>
 
           {/* Canvas */}
-          <CaseStudyCanvas className="w-full max-w-[560px] mx-auto py-8 lg:py-[60px] text-neutral-800 dark:text-neutral-200 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600 dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400">
+          <CaseStudyCanvas className="w-full max-w-[var(--cs-w,560px)] mx-auto py-8 lg:py-[60px] text-neutral-800 dark:text-neutral-200 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600 dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400">
 
             {/* Overview */}
             <section id="overview" className="mb-16">
-              <div className="flex flex-col gap-10 max-w-[560px] mx-auto">
+              <div className="flex flex-col gap-10 max-w-[var(--cs-w,560px)] mx-auto">
 
                 {/* Overview text */}
                 <div className="w-full">
@@ -87,6 +89,7 @@ export default async function BintinCaseStudy() {
 
 
           </CaseStudyCanvas>
+          </ResizableContent>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import { PencilCircle } from "@/components/pencil-circle";
 import WitanAvatarCredits from "@/components/witan-avatar-credits";
 import ViewportVideo from "@/components/viewport-video";
 import PersonLink from "@/components/person-link";
+import ResizableContent from "@/components/resizable-content";
 
 const toc = [
   {
@@ -76,7 +77,8 @@ export default async function CaseStudyPage() {
 
         {/* Content area */}
         <div className="flex flex-col pt-6 lg:pt-[100px] pb-12 px-4 sm:px-6 lg:pl-[268px] lg:pr-8 2xl:px-8 min-w-0">
-          <div id="case-study-header" className="w-full max-w-[560px] mx-auto mb-8 lg:mb-[60px]">
+          <ResizableContent>
+          <div id="case-study-header" className="w-full max-w-[var(--cs-w,560px)] mx-auto mb-8 lg:mb-[60px]">
             <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img loading="lazy" decoding="async" src="/logos/blocasset.svg" alt="Blocasset logo" width={34} height={34} className="rounded-full shrink-0" />
@@ -95,11 +97,11 @@ export default async function CaseStudyPage() {
           </div>
 
             {/* Canvas */}
-            <CaseStudyCanvas className="w-full max-w-[560px] mx-auto py-8 lg:py-[60px] text-neutral-800 dark:text-neutral-200 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600 dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400">
+            <CaseStudyCanvas className="w-full max-w-[var(--cs-w,560px)] mx-auto py-8 lg:py-[60px] text-neutral-800 dark:text-neutral-200 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600 dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400">
 
               {/* Overview */}
               <section id="overview" className="mb-16">
-                <div className="flex flex-col gap-10 max-w-[560px] mx-auto">
+                <div className="flex flex-col gap-10 max-w-[var(--cs-w,560px)] mx-auto">
                   {/* Content column */}
                   <div className="w-full">
                     <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Overview</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
@@ -143,7 +145,7 @@ export default async function CaseStudyPage() {
 
               {/* Backstory */}
               <section id="backstory" className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Backstory</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                     Blocasset aims to create opportunity through superior creator tools and features that enable creators to build and scale their own economy while doing what they love. Blocasset&apos;s product values such as empowerment, creator-first, community, innovation, is driven towards ensuring design creatives have equal opportunities to earn instantly and also showcase their talents on a global scale, free of middleman, financial hurdles and plagiarism.
@@ -153,7 +155,7 @@ export default async function CaseStudyPage() {
 
               {/* Challenge */}
               <section id="challenge" className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">The challenge</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                   <h2 id="need-better-than-beta" className="text-xl mb-4">Need for Much Better than Beta</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
@@ -183,7 +185,7 @@ export default async function CaseStudyPage() {
 
               {/* Goal */}
               <section id="goal" className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Goal</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-6">
                     As we set out to solve the challenges posed by Blocasset beta and preparing for v1, the high-level goals are to:
@@ -199,7 +201,7 @@ export default async function CaseStudyPage() {
 
               {/* My Role */}
               <section id="role" className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <div className="flex items-center gap-3 mb-6"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">My role</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                   <div className="space-y-8">
                     <div>
@@ -234,7 +236,7 @@ export default async function CaseStudyPage() {
 
               {/* Insights */}
               <section id="insights" className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Insights</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                   <h2 id="first-stop-mixpanel" className="text-xl mb-4">First stop: Mixpanel</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
@@ -261,7 +263,7 @@ export default async function CaseStudyPage() {
               </div>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 id="second-stop-identity" className="text-xl mb-4">Second stop: Identity check</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                     We viewed this as sort of an identity crisis which resulted from the core user segmentation approach built into Blocasset Beta. In principle, we designed to distinctly cater for people who are just on the platform to buy (Buyers) and those that are onboarding to sell (Contributors).
@@ -277,7 +279,7 @@ export default async function CaseStudyPage() {
               </div>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 id="third-stop-file" className="text-xl mb-4">Third stop: More than the file</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                     One major pivot in the existence of Blocasset beta was realizing that the problem we imagined was bigger than what Beta could handle. It was immediately obvious that the asset upload flow we had earlier imagined was flawed in so many ways. For starters, these are the top 2 scenarios we discovered:
@@ -295,7 +297,7 @@ export default async function CaseStudyPage() {
               </div>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <ol start={2} className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 space-y-4 list-decimal list-outside pl-5">
                     <li>
                       There was no way for a contributor to share their process or connect with people making the purchase the way they want. The upload flow on Beta lacked elements that could easily give contributors control of how their assets are displayed and marketed to potential buyers.
@@ -310,7 +312,7 @@ export default async function CaseStudyPage() {
 
               {/* Research */}
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 className="text-xl mb-4">Handling payments</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                     Blocasset aims to solve cross-border payments by taking advantage of the decentralized nature of crypto. With crypto, it was easier for anyone to skip the tedious fiat payment limitations and get paid from anywhere with stablecoins. While the idea sounds great, there are acceptance challenges posed by general sentiments in the ecosystem due to the market crash and instability in crypto prices.
@@ -322,7 +324,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <section id="research" className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Research</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                   <h2 id="hotjar-painpoints" className="text-xl mb-4">Learning more about painpoints — Hotjar</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
@@ -340,7 +342,7 @@ export default async function CaseStudyPage() {
               </section>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 id="ux-research" className="text-xl mb-4">UX-Research: digging deeper</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                     Collaborating with our UX Strategist, Stephanie, we conducted user interviews with creators who already sell assets and those who plan to. The key objectives of the research was to understand what tone of voice particularly resonates with them and what their priorities are in terms of monetisation and popularity.
@@ -357,7 +359,7 @@ export default async function CaseStudyPage() {
               </div>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 id="new-messaging" className="text-xl mb-4">A new messaging</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                     With a renewed understanding and perspective, our refined problem statement began to take shape:
@@ -378,7 +380,7 @@ export default async function CaseStudyPage() {
 
               {/* Design */}
               <section id="design" className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">New design</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                   <h2 id="introducing-v1" className="text-xl mb-4">Introducing V1</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -396,7 +398,7 @@ export default async function CaseStudyPage() {
               </div>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 id="unified-platform" className="text-xl mb-4">A unified platform experience</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                     We designed the onboarding flow to help provide a tailored platform experience to users based on their topmost priority for using Blocasset. This also enabled us to fulfil simplicity to the user by providing certain experiences to them when they need it.
@@ -412,7 +414,7 @@ export default async function CaseStudyPage() {
               </div>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 id="onboarding-easy" className="text-xl mb-4">Onboarding made easy</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                     We tackled the onboarding challenge by building on an infrastructure that enabled us to stay inclusive and bring users onchain without compromising on the promise of simplicity of V1.
@@ -431,7 +433,7 @@ export default async function CaseStudyPage() {
               </div>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 id="search-experience" className="text-xl mb-4">Improved search experience</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                     The search experience was one of the product aspects that took a lot of brainstorming efforts and back and forth in the team. It is closely tailored to the marketplace and as such plays a pivotal role in providing an elevated experience to an otherwise frustrating flow for users from beta.
@@ -447,7 +449,7 @@ export default async function CaseStudyPage() {
               </div>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 id="payments" className="text-xl mb-4">Offchain and onchain payments</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                     Blocasset V1 direction aligns with bringing more users onchain and building the wallet module gives us the opportunity to achieve this. I designed the wallet page to allow users manage earnings in stablecoins such as USDT, USDC, and DAI while equally providing local fiat payment options like Nigeria Naira, Ghana Cedis, Kenya Shillings etc.
@@ -464,7 +466,7 @@ export default async function CaseStudyPage() {
               </div>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 id="creator-base" className="text-xl mb-4">The creator base</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                     I designed the creator dashboard with the goal to provide creators with all they need in one place. Building on the positives from beta and incorporating feedback from users, the creator dashboard is nourished with better analytics and tools that give the creator rich insights of all activities around their assets and profile.
@@ -486,7 +488,7 @@ export default async function CaseStudyPage() {
               </div>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 id="asset-upload" className="text-xl mb-4">Asset Upload Flow</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                     This was a very critical part of why we are building V1, therefore, the stakes are high. The goal here is to make the flow intuitive and polished for creators to show their process and connect better with their audience.
@@ -513,7 +515,7 @@ export default async function CaseStudyPage() {
               </div>
 
               <section className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <h2 id="maze-testing" className="text-xl mb-4">Testing with Maze</h2>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                     We recruited some of our existing contributors from Blocasset Beta for an unmoderated testing of the new asset upload experience of the creator dashboard. I created a clickable Figma prototype of the flow and imported it to Maze. The result from this usability test was very affirmative and the results reflected how smooth and easy the flow is.
@@ -527,7 +529,7 @@ export default async function CaseStudyPage() {
 
               {/* Impact */}
               <section id="result" className="mb-16">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Impact</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                   <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-8">
                     The creator dashboard now serves as a central hub that provides creators with real-time performance data and important updates, enabling better decision-making.
@@ -538,7 +540,7 @@ export default async function CaseStudyPage() {
 
               {/* Feedback */}
               <section id="feedback">
-                <div className="w-full max-w-[560px] mx-auto">
+                <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                   <div className="flex items-center gap-3 mb-6"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">User feedback</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                   <div className="space-y-8">
                     {[
@@ -571,6 +573,7 @@ export default async function CaseStudyPage() {
               </section>
 
             </CaseStudyCanvas>
+          </ResizableContent>
         </div>
       </div>
     </div>

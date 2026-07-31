@@ -3,6 +3,7 @@ import Image from "next/image";
 import TocNav from "@/components/toc-nav";
 import { SquigglyText } from "@/components/ui/squiggly-text";
 import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
+import ResizableContent from "@/components/resizable-content";
 import NoblocksAvatarCredits from "@/components/noblocks-avatar-credits";
 
 export const metadata: Metadata = { title: "Noblocks" };
@@ -25,8 +26,9 @@ export default async function NoblocksCaseStudy() {
 
         {/* Content area */}
         <div className="flex flex-col pt-6 lg:pt-[100px] pb-12 px-4 sm:px-6 lg:pl-[268px] lg:pr-8 2xl:px-8 min-w-0">
+          <ResizableContent>
           {/* Page header */}
-          <div id="case-study-header" className="w-full max-w-[560px] mx-auto mb-8 lg:mb-[60px]">
+          <div id="case-study-header" className="w-full max-w-[var(--cs-w,560px)] mx-auto mb-8 lg:mb-[60px]">
             <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img loading="lazy" decoding="async" src="/logos/noblocks.svg" alt="Noblocks logo" width={34} height={34} className="rounded-full shrink-0" />
@@ -45,11 +47,11 @@ export default async function NoblocksCaseStudy() {
           </div>
 
           {/* Canvas */}
-          <CaseStudyCanvas className="w-full max-w-[560px] mx-auto py-8 lg:py-[60px] text-neutral-800 dark:text-neutral-200 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600 dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400">
+          <CaseStudyCanvas className="w-full max-w-[var(--cs-w,560px)] mx-auto py-8 lg:py-[60px] text-neutral-800 dark:text-neutral-200 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600 dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400">
 
             {/* Overview */}
             <section id="overview" className="mb-16">
-              <div className="flex flex-col gap-10 max-w-[560px] mx-auto">
+              <div className="flex flex-col gap-10 max-w-[var(--cs-w,560px)] mx-auto">
 
                 {/* Overview text */}
                 <div className="w-full">
@@ -88,6 +90,7 @@ export default async function NoblocksCaseStudy() {
             <Image src="/Noblocks-01.jpg" alt="Noblocks cover" width={2000} height={1109} sizes="(max-width: 600px) 100vw, 560px" className="w-full h-auto rounded-[4px] mb-16" />
 
           </CaseStudyCanvas>
+          </ResizableContent>
         </div>
       </div>
     </div>

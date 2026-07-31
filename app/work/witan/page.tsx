@@ -3,6 +3,7 @@ import Image from "next/image";
 import TocNav from "@/components/toc-nav";
 import { SquigglyText } from "@/components/ui/squiggly-text";
 import { StaggerHeader, CaseStudyCanvas } from "@/components/case-study-animations";
+import ResizableContent from "@/components/resizable-content";
 import WitanAvatarCredits from "@/components/witan-avatar-credits";
 
 export const metadata: Metadata = { title: "Witan" };
@@ -63,8 +64,9 @@ export default async function WitanCaseStudy() {
 
         {/* Content area */}
         <div className="flex flex-col pt-6 lg:pt-[100px] pb-12 px-4 sm:px-6 lg:pl-[268px] lg:pr-8 2xl:px-8 min-w-0">
+          <ResizableContent>
           {/* Page header */}
-          <div id="case-study-header" className="w-full max-w-[560px] mx-auto mb-8 lg:mb-[60px]">
+          <div id="case-study-header" className="w-full max-w-[var(--cs-w,560px)] mx-auto mb-8 lg:mb-[60px]">
             <StaggerHeader className="flex flex-col gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img loading="lazy" decoding="async" src="/logos/witan.svg" alt="Witan logo" width={34} height={34} className="rounded-full shrink-0" />
@@ -83,11 +85,11 @@ export default async function WitanCaseStudy() {
           </div>
 
           {/* Canvas */}
-          <CaseStudyCanvas className="w-full max-w-[560px] mx-auto py-8 lg:py-[60px] text-neutral-800 dark:text-neutral-200 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600 dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400">
+          <CaseStudyCanvas className="w-full max-w-[var(--cs-w,560px)] mx-auto py-8 lg:py-[60px] text-neutral-800 dark:text-neutral-200 [&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-600 dark:[&_p:not(.uppercase):not(.font-semibold):not(.font-medium)]:text-neutral-400">
 
             {/* Overview */}
             <section id="overview" className="mb-16">
-              <div className="flex flex-col gap-10 max-w-[560px] mx-auto">
+              <div className="flex flex-col gap-10 max-w-[var(--cs-w,560px)] mx-auto">
 
                 {/* Overview text */}
                 <div className="w-full">
@@ -130,7 +132,7 @@ export default async function WitanCaseStudy() {
 
             {/* Background */}
             <section id="background" className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Background</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                 <h2 className="text-xl mb-4">Bring ticketing close to home</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-6">
@@ -151,7 +153,7 @@ export default async function WitanCaseStudy() {
 
             {/* Problem Space */}
             <section id="problem" className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Problem space</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
 
                 <div className="space-y-8 mb-10">
@@ -190,7 +192,7 @@ export default async function WitanCaseStudy() {
 
             {/* Constraints */}
             <section id="constraints" className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Constraints</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                 <h2 className="text-xl mb-4">Embracing challenges</h2>
                 <ul className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 space-y-3 list-disc list-outside pl-5">
@@ -203,7 +205,7 @@ export default async function WitanCaseStudy() {
 
             {/* Survey Insights */}
             <section id="survey" className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Survey insights</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                 <h2 className="text-xl mb-4">What the numbers say</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -218,7 +220,7 @@ export default async function WitanCaseStudy() {
 
             {/* Research Summary */}
             <section id="summary" className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Research summary</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                 <ul className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 space-y-4 list-disc list-outside pl-5">
                   <li>
@@ -236,7 +238,7 @@ export default async function WitanCaseStudy() {
 
             {/* Layout */}
             <section id="layout" className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Layout</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                 <h2 id="auth-options" className="text-xl mb-4">Authentication options</h2>
                 <div className="space-y-6 mb-6">
@@ -261,7 +263,7 @@ export default async function WitanCaseStudy() {
             </div>
 
             <section className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                   To make sense of what authentication could look like, we created a flow which prioritizes a simple experience first and provides an easy understanding for developers to implement.
                 </p>
@@ -277,7 +279,7 @@ export default async function WitanCaseStudy() {
             </div>
 
             <section className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                   As shown above, a major denominator for users onboarding is the email. Email address is the unique identifier for each user on the platform. Given the limitations of using social account authentication, we had to conduct a background check to ensure no two social accounts or connected wallets are registered with the same email.
                 </p>
@@ -285,7 +287,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <section className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <h2 id="event-creation" className="text-xl mb-4">Simplifying event creation flow</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                   In an effort to mitigate the cognitive load of filling out all the forms at once, we broke the flow for event creation into 4 stages, with the first stage solid enough to immediately start getting RSVPs.
@@ -298,7 +300,7 @@ export default async function WitanCaseStudy() {
             </div>
 
             <section className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <h2 id="lost-tickets" className="text-xl mb-4">Lost tickets</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                   It is important to get user&apos;s emails to ensure ticket(s) bought is not lost after purchase, even if they are not signed in.
@@ -313,7 +315,7 @@ export default async function WitanCaseStudy() {
             </section>
 
             <section className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <h2 id="coincidental-booking" className="text-xl mb-4">The problem of coincidental booking</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                   Coincidental booking is what we called a situation where two or more users are trying to purchase a limited ticket at the same time. It was one of those crucial points our early research helped uncover which may otherwise have been overlooked by the team.
@@ -336,7 +338,7 @@ export default async function WitanCaseStudy() {
 
             {/* Visual Design */}
             <section id="visuals" className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Visual design</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                 <h2 id="onboarding" className="text-xl mb-4">Onboarding</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -354,7 +356,7 @@ export default async function WitanCaseStudy() {
             </div>
 
             <section className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <h2 id="event-page" className="text-xl mb-4">Event page</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                   The event page features a double column layout. The left side captures features of the event including location, dates, organizer details, and provides enough real estate for details about the event. Positioning the tickets on the right column ensures it&apos;s seen at first glance and is not lost in other details of the event. The ticket container features a 3-level row which captures a max of 2 tickets (ordered by purchase rate and randomization) and a CTA which triggers a side drawer containing all the tickets.
@@ -367,7 +369,7 @@ export default async function WitanCaseStudy() {
             </div>
 
             <section className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <h2 id="publishing" className="text-xl mb-4">Publishing made easy</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                   The design direction for publishing event focuses on helping organizers get the event out as quickly as possible even before creating tickets. By introducing RSVP, they can collect email interests and send reminders when the ticket sales go live.
@@ -383,7 +385,7 @@ export default async function WitanCaseStudy() {
             </div>
 
             <section className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <h2 id="accepting-payments" className="text-xl mb-4">Accepting payments</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                   Incorporating blockchain provides a good opportunity to offer crypto payment options on ticket purchase, which was also a common request from organizers.
@@ -402,7 +404,7 @@ export default async function WitanCaseStudy() {
             </div>
 
             <section className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <h2 id="discount-codes" className="text-xl mb-4">Creating discount codes</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                   A major painpoint discovered through our research is around discount codes leading to thefts and code reuse, which automatically translates to lost money for organizers.
@@ -421,7 +423,7 @@ export default async function WitanCaseStudy() {
             </div>
 
             <section className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <h2 id="admitting-attendees" className="text-xl mb-4">D-Day — Admitting Attendees</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                   Each ticket purchased comes with a QR code appended to the email receipt of each attendee.
@@ -444,7 +446,7 @@ export default async function WitanCaseStudy() {
             </div>
 
             <section className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <h2 id="one-more-thing" className="text-xl mb-4">One more thing&hellip;</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
                   For the product test launch, I created a landing page that primarily communicates what Witan is about and also integrates some fun little bits of interactions.
@@ -465,7 +467,7 @@ export default async function WitanCaseStudy() {
 
             {/* Testing */}
             <section id="testing" className="mb-16">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Testing</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                 <h2 className="text-xl mb-4">Witan currently?</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
@@ -482,7 +484,7 @@ export default async function WitanCaseStudy() {
 
             {/* Learnings */}
             <section id="learnings">
-              <div className="w-full max-w-[560px] mx-auto">
+              <div className="w-full max-w-[var(--cs-w,560px)] mx-auto">
                 <div className="flex items-center gap-3 mb-3"><p className="text-sm text-[lab(2.75381_0_0)] dark:text-neutral-200 font-medium">Learnings</p><span aria-hidden="true" className="flex-1 h-[0.5px] bg-neutral-200 dark:bg-neutral-800" /></div>
                 <h2 className="text-xl mb-4">The journey continues</h2>
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 mb-4">
@@ -501,6 +503,7 @@ export default async function WitanCaseStudy() {
             </section>
 
           </CaseStudyCanvas>
+          </ResizableContent>
         </div>
       </div>
     </div>
